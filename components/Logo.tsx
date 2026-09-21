@@ -7,8 +7,8 @@ export default function Logo({ className = "" }: { className?: string }) {
       <Image
         src="/images/ahs-logo-wordmark.webp"
         alt="AHS Recovery"
-        width={1397}
-        height={634}
+        width={106}
+        height={48}
         priority
         className="h-10 md:h-12 w-auto"
       />
