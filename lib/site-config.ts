@@ -158,6 +158,16 @@ export const services: ServiceInfo[] = [
     image: "/images/luxury-car-transport-rolls-royce.webp",
     coverage: "nationwide",
   },
+  {
+    slug: "plant-haulage",
+    title: "Plant Haulage",
+    shortDescription: "Plant haulage for mini diggers, excavators, rollers, forklifts, tractors and construction machinery.",
+    metaTitle: "Plant Haulage Services | Machinery Transport | AHS Recovery",
+    metaDescription:
+      "AHS Recovery provides plant haulage for mini diggers, excavators, rollers, forklifts, tractors and construction machinery. Call 07576 614651 for a quote.",
+    image: "/images/plant-machinery-transport-excavators.webp",
+    coverage: "local",
+  },
 ]
 
 export interface CoverageHighlight {
