@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { MapPin } from "lucide-react"
 import { coverageHighlights, siteConfig } from "@/lib/site-config"
 
 export default function AboutProcess() {
@@ -43,7 +44,7 @@ export default function AboutProcess() {
       </section>
       <section className="px-6 md:px-20 lg:px-40 py-24 bg-navy-accent">
         <div className="max-w-[1280px] mx-auto text-center space-y-8">
-          <span className="material-symbols-outlined text-primary text-6xl">location_on</span>
+          <MapPin className="w-14 h-14 text-primary mx-auto" strokeWidth={1.5} />
           <h2 className="text-3xl font-black text-white">Local Coverage, Nationwide Reach</h2>
           <p className="text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed">
             AHS Recovery is based in {siteConfig.location} and dispatches locally across{" "}

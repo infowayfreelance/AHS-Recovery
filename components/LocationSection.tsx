@@ -1,3 +1,4 @@
+import { CheckCircle2 } from "lucide-react"
 import { coverageHighlights, siteConfig } from "@/lib/site-config"
 import ConsentGatedMap from "@/components/cookies/ConsentGatedMap"
 
@@ -14,7 +15,7 @@ export default function LocationSection() {
         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-6">
           {coverageHighlights.map((item) => (
             <li key={item.title} className="flex items-start gap-2 text-slate-300">
-              <span className="material-symbols-outlined text-primary text-sm mt-0.5">check_circle</span>
+              <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
               <span>
                 <span className="font-medium block">{item.title}</span>
                 <span className="text-slate-500 text-sm">{item.description}</span>
