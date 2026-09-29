@@ -11,6 +11,7 @@ import {
   Mountain,
   Siren,
   PackageCheck,
+  Forklift,
   type LucideIcon,
 } from "lucide-react"
 
@@ -27,4 +28,5 @@ export const serviceIcons: Record<string, LucideIcon> = {
   "4x4-off-road-recovery": Mountain,
   "specialist-accident-recovery": Siren,
   "vehicle-transportation-delivery": PackageCheck,
+  "plant-haulage": Forklift,
 }

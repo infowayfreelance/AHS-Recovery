@@ -2,7 +2,7 @@ import HeroSection from "@/components/HeroSection"
 import ServicesOverview from "@/components/ServicesOverview"
 import RecoveryFeatures from "@/components/RecoveryFeatures"
 import PhotoMarquee from "@/components/PhotoMarquee"
-import TestimonialsSection from "@/components/TestimonialsSection"
+// import TestimonialsSection from "@/components/TestimonialsSection" // reviews temporarily hidden
 import LocationSection from "@/components/LocationSection"
 import FAQSection from "@/components/FAQSection"
 import CTASection from "@/components/CTASection"
@@ -21,7 +21,7 @@ export default function HomePage() {
       <ServicesOverview />
       <RecoveryFeatures />
       <PhotoMarquee />
-      <TestimonialsSection />
+      {/* Reviews temporarily hidden — re-enable by restoring <TestimonialsSection /> here */}
       <LocationSection />
       <FAQSection />
       <CTASection />
