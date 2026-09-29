@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, PhoneCall, BadgeCheck, Truck } from "lucide-react"
 import ServiceCard from "./ServiceCard"
 import { siteConfig, services as serviceConfig } from "@/lib/site-config"
 import { serviceIcons } from "@/lib/service-icons"
@@ -84,19 +84,19 @@ export default function RecoveryFeatures() {
           <div className="hidden md:block absolute top-12 left-1/4 right-1/4 h-[2px] bg-primary/30 -z-10"></div>
           {[
             {
-              icon: "phone_callback",
+              icon: PhoneCall,
               number: "1",
               title: "Call Us",
               description: "Call our team. Give us your location and vehicle details.",
             },
             {
-              icon: "verified",
+              icon: BadgeCheck,
               number: "2",
               title: "Confirm",
               description: "We confirm the details and what to expect before we set off.",
             },
             {
-              icon: "local_shipping",
+              icon: Truck,
               number: "3",
               title: "Dispatch",
               description: "A suitable recovery vehicle is dispatched to your location.",
@@ -104,7 +104,7 @@ export default function RecoveryFeatures() {
           ].map((step, index) => (
             <div key={index} className="flex flex-col items-center text-center space-y-4">
               <div className="w-24 h-24 rounded-full bg-background-dark border-2 border-primary flex items-center justify-center relative">
-                <span className="material-symbols-outlined text-4xl text-primary">{step.icon}</span>
+                <step.icon className="w-10 h-10 text-primary" strokeWidth={1.75} />
                 <div className="absolute -top-2 -right-2 bg-primary text-background-dark w-8 h-8 rounded-full flex items-center justify-center font-black text-sm">
                   {step.number}
                 </div>

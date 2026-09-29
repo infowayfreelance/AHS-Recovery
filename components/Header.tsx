@@ -61,7 +61,7 @@ export default function Header() {
                 href="/services"
               >
                 Services
-                <span className="material-symbols-outlined text-sm">expand_more</span>
+                <ChevronDown className="w-4 h-4" />
               </Link>
               {servicesDropdownOpen && (
                 <div className="absolute top-full left-0 pt-2 w-64 z-50">
