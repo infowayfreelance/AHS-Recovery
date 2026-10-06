@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Mail, Phone, MapPin } from "lucide-react"
+import { Phone, MapPin } from "lucide-react"
 import Logo from "./Logo"
 import PaymentMethods from "./PaymentMethods"
 import CookieSettingsButton from "./cookies/CookieSettingsButton"
@@ -50,18 +50,6 @@ export default function Footer() {
               <Phone className="w-4 h-4 text-primary flex-shrink-0" />
               <a href={`tel:${siteConfig.phoneTel}`} className="hover:text-primary">
                 {siteConfig.phoneDisplay}
-              </a>
-            </li>
-            <li className="flex items-center gap-2">
-              <Mail className="w-4 h-4 text-primary flex-shrink-0" />
-              <a href={`mailto:${siteConfig.email}`} className="hover:text-primary break-all">
-                {siteConfig.email}
-              </a>
-            </li>
-            <li className="flex items-center gap-2">
-              <Mail className="w-4 h-4 text-primary flex-shrink-0" />
-              <a href={`mailto:${siteConfig.emailSecondary}`} className="hover:text-primary break-all">
-                {siteConfig.emailSecondary}
               </a>
             </li>
             <li className="flex items-start gap-2">

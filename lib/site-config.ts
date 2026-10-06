@@ -9,8 +9,6 @@ export const siteConfig = {
   phoneAltTel: "+447883546955",
   whatsapp: "https://wa.me/447576614651",
   whatsappAlt: "https://wa.me/447883546955",
-  email: "AHSRECOVERY@OUTLOOK.COM",
-  emailSecondary: "contact@ahsrecovery.co.uk",
   location: "Ilford, Essex",
   localCoverageArea: "Ilford, Essex and surrounding areas within approximately 60 miles",
   country: "United Kingdom",
