@@ -1,5 +1,5 @@
 import type { ReactNode } from "react"
-import { Mail, MapPin, Phone } from "lucide-react"
+import { MapPin, Phone } from "lucide-react"
 import { siteConfig } from "@/lib/site-config"
 
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -79,15 +79,6 @@ export default function ContactInfo() {
           rows={[
             { label: "Main", value: siteConfig.phoneDisplay, href: siteConfig.whatsapp, external: true },
             { label: "Alternative", value: siteConfig.phoneAltDisplay, href: siteConfig.whatsappAlt, external: true },
-          ]}
-        />
-        <ContactBlock
-          icon={<Mail className="w-5 h-5" />}
-          iconClass="bg-white/10 text-white"
-          title="Email Us"
-          rows={[
-            { label: "", value: siteConfig.email, href: `mailto:${siteConfig.email}` },
-            { label: "", value: siteConfig.emailSecondary, href: `mailto:${siteConfig.emailSecondary}` },
           ]}
         />
         <ContactBlock

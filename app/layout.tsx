@@ -57,7 +57,6 @@ export default function RootLayout({
     name: siteConfig.name,
     url: siteConfig.siteUrl,
     telephone: siteConfig.phoneTel,
-    email: siteConfig.email,
     areaServed: [
       {
         "@type": "GeoCircle",
