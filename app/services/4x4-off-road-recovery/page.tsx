@@ -172,8 +172,6 @@ const faqs = [
   },
 ]
 
-const fourByFourService = services.find((s) => s.slug === "4x4-off-road-recovery")!
-
 export default function FourByFourOffRoadRecoveryPage() {
   const serviceSchema = {
     "@context": "https://schema.org",
@@ -219,8 +217,8 @@ export default function FourByFourOffRoadRecoveryPage() {
       {/* Hero */}
       <section className="relative w-full overflow-hidden border-b border-white/5 min-h-[75vh] flex items-center">
         <Image
-          src={fourByFourService.image ?? "/images/4x4-recovery-g-wagon.webp"}
-          alt="AHS Recovery 4x4 recovering a vehicle stuck off-road"
+          src="/images/4x4-recovery-winch-hillside-valley.webp"
+          alt="AHS Recovery 4x4 recovery vehicle winching a stuck Land Rover down a hillside"
           fill
           priority
           className="object-cover"
@@ -319,8 +317,8 @@ export default function FourByFourOffRoadRecoveryPage() {
             </div>
             <div className="relative h-[320px] md:h-[420px] rounded-2xl overflow-hidden shadow-xl">
               <Image
-                src="/images/off-road-plant-recovery-rural.webp"
-                alt="AHS Recovery off-road vehicle recovery in a rural location"
+                src="/images/4x4-recovery-winch-roadside-ditch.webp"
+                alt="AHS Recovery winching a Land Rover Defender out of a roadside ditch"
                 fill
                 loading="lazy"
                 className="object-cover"
@@ -411,8 +409,8 @@ export default function FourByFourOffRoadRecoveryPage() {
           <div className="max-w-5xl mx-auto bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden grid grid-cols-1 md:grid-cols-2 items-center">
             <div className="relative h-56 md:h-full min-h-[260px]">
               <Image
-                src="/images/van-recovery-rural-road.webp"
-                alt="AHS Recovery vehicle recovery on a rural road"
+                src="/images/4x4-recovery-winch-forest-track.webp"
+                alt="AHS Recovery winching a 4x4 along a muddy forest track"
                 fill
                 loading="lazy"
                 className="object-cover"
@@ -457,27 +455,39 @@ export default function FourByFourOffRoadRecoveryPage() {
             ))}
           </div>
 
-          <div className="max-w-3xl mx-auto rounded-2xl border border-white/10 bg-background-dark p-8 md:p-10">
-            <div className="flex items-start gap-3 mb-5">
-              <TriangleAlert className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
-              <h3 className="text-lg font-bold text-white">Important Safety Advice</h3>
+          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+            <div className="relative h-64 md:h-auto rounded-2xl overflow-hidden">
+              <Image
+                src="/images/4x4-recovery-winch-muddy-farm-lane.webp"
+                alt="AHS Recovery winching a 4x4 stuck in mud on a farm lane"
+                fill
+                loading="lazy"
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
             </div>
-            <div className="space-y-4 text-slate-400 text-sm leading-relaxed">
-              <p>
-                If your wheels are spinning without progress, stop trying to drive out. Repeated attempts can cause
-                the vehicle to sink deeper or become damaged.
-              </p>
-              <p>
-                Keep people away from unstable ground, slopes and moving recovery equipment. Never attempt to attach
-                recovery straps to unsuitable vehicle parts.
-              </p>
-              <p>
-                If your vehicle is in an unsafe position, move to a safe location where possible and{" "}
-                <Link href="/contact" className="text-primary font-medium hover:underline">
-                  contact a recovery professional
-                </Link>
-                .
-              </p>
+            <div className="rounded-2xl border border-white/10 bg-background-dark p-8 md:p-10">
+              <div className="flex items-start gap-3 mb-5">
+                <TriangleAlert className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
+                <h3 className="text-lg font-bold text-white">Important Safety Advice</h3>
+              </div>
+              <div className="space-y-4 text-slate-400 text-sm leading-relaxed">
+                <p>
+                  If your wheels are spinning without progress, stop trying to drive out. Repeated attempts can cause
+                  the vehicle to sink deeper or become damaged.
+                </p>
+                <p>
+                  Keep people away from unstable ground, slopes and moving recovery equipment. Never attempt to
+                  attach recovery straps to unsuitable vehicle parts.
+                </p>
+                <p>
+                  If your vehicle is in an unsafe position, move to a safe location where possible and{" "}
+                  <Link href="/contact" className="text-primary font-medium hover:underline">
+                    contact a recovery professional
+                  </Link>
+                  .
+                </p>
+              </div>
             </div>
           </div>
 
@@ -496,21 +506,33 @@ export default function FourByFourOffRoadRecoveryPage() {
       {/* Coverage and related services */}
       <section className="bg-white py-20 md:py-28">
         <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <span className="text-primary font-black uppercase tracking-[0.2em] text-sm">Local &amp; Nationwide Coverage</span>
-            <h2 className="text-3xl md:text-5xl font-black text-slate-900 mt-4 mb-4">
-              Off-Road Recovery Coverage &amp; Services
-            </h2>
-            <p className="text-slate-600 text-base md:text-lg leading-relaxed">
-              AHS Recovery is based in {siteConfig.location}, providing local recovery services across surrounding
-              areas within approximately 60 miles. We assess off-road recovery requests in Ilford, Essex, East London
-              and nearby locations. Availability depends on the vehicle&apos;s position, ground conditions and access
-              for recovery equipment. If your vehicle is stuck beyond our normal local coverage,{" "}
-              <Link href="/contact" className="text-primary font-medium hover:underline">
-                contact us
-              </Link>{" "}
-              with the location and recovery details so we can advise on available options.
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
+            <div>
+              <span className="text-primary font-black uppercase tracking-[0.2em] text-sm">Local &amp; Nationwide Coverage</span>
+              <h2 className="text-3xl md:text-5xl font-black text-slate-900 mt-4 mb-4">
+                Off-Road Recovery Coverage &amp; Services
+              </h2>
+              <p className="text-slate-600 text-base md:text-lg leading-relaxed">
+                AHS Recovery is based in {siteConfig.location}, providing local recovery services across surrounding
+                areas within approximately 60 miles. We assess off-road recovery requests in Ilford, Essex, East
+                London and nearby locations. Availability depends on the vehicle&apos;s position, ground conditions
+                and access for recovery equipment. If your vehicle is stuck beyond our normal local coverage,{" "}
+                <Link href="/contact" className="text-primary font-medium hover:underline">
+                  contact us
+                </Link>{" "}
+                with the location and recovery details so we can advise on available options.
+              </p>
+            </div>
+            <div className="relative h-[280px] md:h-[360px] rounded-2xl overflow-hidden shadow-xl">
+              <Image
+                src="/images/4x4-recovery-flatbed-loading-country-lane.webp"
+                alt="AHS Recovery flatbed loading a recovered 4x4 on a country lane"
+                fill
+                loading="lazy"
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
           </div>
 
           <div className="max-w-2xl mx-auto text-center mb-12">
