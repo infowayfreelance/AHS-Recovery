@@ -7,15 +7,13 @@ import {
   Droplet,
   Trees,
   TrendingDown,
-  Sprout,
-  Route,
   Mountain,
-  CarFront,
+  Route,
   TriangleAlert,
-  Search,
-  ClipboardList,
+  Truck,
+  ShieldCheck,
+  Layers,
   MessageSquare,
-  HeartHandshake,
 } from "lucide-react"
 import ServiceCard from "@/components/ServiceCard"
 import { siteConfig, services } from "@/lib/site-config"
@@ -23,161 +21,103 @@ import { serviceIcons } from "@/lib/service-icons"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "4x4 & Off-Road Recovery Specialist | AHS Recovery",
+  title: "4x4 & Off-Road Recovery Ilford | AHS Recovery",
   description:
-    "Specialist 4x4 recovery for vehicles stuck in mud, fields, ditches or difficult ground. Call AHS Recovery on 07576 614651.",
+    "Need 4x4 or off-road recovery in Ilford, Essex? AHS Recovery helps with vehicles stuck in mud, fields, ditches and difficult terrain. Call us today.",
   path: "/services/4x4-off-road-recovery",
 })
 
-const trustPoints = ["4x4s and SUVs", "Mud and Field Recovery", "Difficult Vehicle Positions", "Careful Vehicle Extraction"]
+const trustPoints = ["4x4s, SUVs and Cars", "Mud and Field Recovery", "Difficult Vehicle Positions", "Careful Vehicle Extraction"]
 
 const situations = [
   {
     icon: Droplet,
     title: "Mud Recovery",
-    description: "Deep or soft mud can reduce tyre grip and cause a vehicle to sink. Continued wheel spinning may make the situation worse.",
+    description:
+      "Deep mud and soft ground can leave vehicles without enough traction to move. We assess the conditions and arrange suitable equipment to help recover your vehicle without unnecessary damage.",
   },
   {
     icon: Trees,
     title: "Field Recovery",
-    description: "Vehicles can become stranded in fields because of wet ground, steep gradients, hidden ruts or loss of traction.",
+    description:
+      "Wet fields, uneven surfaces and hidden ruts can leave cars, SUVs and 4x4s stranded. We assess the ground and access route to determine a suitable recovery method.",
   },
   {
     icon: TrendingDown,
     title: "Ditch Recovery",
-    description: "A vehicle in a ditch may be positioned at an unsafe angle or have damaged wheels and suspension. The recovery direction must be assessed carefully.",
-  },
-  {
-    icon: Sprout,
-    title: "Grass and Soft Ground",
-    description: "Wet grass and soft soil can become difficult for heavy vehicles to cross, especially when the ground beneath is uneven.",
-  },
-  {
-    icon: Route,
-    title: "Track and Rural Access Recovery",
-    description: "Narrow tracks, uneven surfaces and restricted access can affect which recovery vehicle and equipment can reach the stranded vehicle.",
+    description:
+      "Vehicles stuck in roadside ditches may be difficult to move safely. We assess the vehicle's position, surrounding space and any visible damage before attempting recovery.",
   },
   {
     icon: Mountain,
-    title: "Sloped Ground",
-    description: "Vehicles stuck on slopes require careful assessment to reduce unwanted movement during recovery.",
+    title: "Sloped Ground Recovery",
+    description:
+      "Steep or slippery ground can make vehicle extraction more difficult. Our approach considers the slope, surface stability and vehicle position to reduce unwanted movement.",
   },
   {
-    icon: CarFront,
-    title: "4x4 and SUV Recovery",
-    description: "Although 4x4s are designed for difficult surfaces, they can still become stuck when ground clearance, traction or tyre grip is lost.",
+    icon: Route,
+    title: "Rural Track Recovery",
+    description:
+      "Narrow country lanes, farm tracks and uneven paths can restrict access for standard recovery trucks. We assess the location and arrange equipment suited to the available access.",
   },
   {
     icon: TriangleAlert,
     title: "Difficult Vehicle Positions",
-    description: "A vehicle close to trees, fencing, walls, water or other obstacles may require a controlled recovery plan.",
+    description:
+      "Vehicles stuck near trees, walls, fences or other obstacles may require careful extraction. We assess the surrounding area before deciding how to move the vehicle.",
   },
 ]
 
-const safetySteps = [
-  "Stop accelerating if the wheels are spinning without progress.",
-  "Switch off the engine if the vehicle is in an unstable position.",
-  "Ask passengers to leave the vehicle when it is safe.",
-  "Keep everyone clear of slopes, ditches and moving recovery equipment.",
-  "Do not attach ropes or straps to unsuitable parts of the vehicle.",
-  "Do not stand between the vehicle and a fixed recovery point.",
-  "Note the condition of the ground and possible access routes.",
-  "Share accurate location information.",
-  "Take photographs only from a safe position.",
-  "Wait for the recovery situation to be assessed.",
-]
-
-const infoChecklist = [
-  "Exact vehicle location",
-  "Vehicle make and model",
-  "Approximate size and weight",
-  "Whether the vehicle is a 4x4 or two-wheel-drive",
-  "Ground type and condition",
-  "Depth of mud or soft ground",
-  "Position and angle of the vehicle",
-  "Condition of wheels and tyres",
-  "Whether the engine starts",
-  "Whether the vehicle rolls, steers and brakes",
-  "Nearby obstacles",
-  "Width and height of the access route",
-  "Distance from a firm road surface",
-  "Any visible damage",
-  "Clear photographs or video where safe",
+const whyChooseUs = [
+  {
+    icon: Truck,
+    title: "Suitable Recovery Equipment",
+    description:
+      "Our recovery fleet includes 4x4 recovery trailers and recovery lorries up to 18 tonnes. We assess your vehicle and location before selecting suitable equipment.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Careful Vehicle Extraction",
+    description:
+      "We consider ground stability, vehicle position and nearby obstacles before recovery begins. Our aim is to move your vehicle safely while reducing the risk of further damage.",
+  },
+  {
+    icon: Layers,
+    title: "Recovery for Different Situations",
+    description:
+      "From muddy fields and rural tracks to roadside ditches and difficult vehicle positions, we assess a range of off-road recovery situations.",
+  },
+  {
+    icon: MessageSquare,
+    title: "Clear Communication",
+    description:
+      "We explain the recovery arrangements and discuss any access restrictions or vehicle concerns before work begins.",
+  },
 ]
 
 const processSteps = [
   {
     number: "1",
     title: "Contact AHS Recovery",
-    description: `Call ${siteConfig.phoneDisplay} and explain where and how the vehicle became stuck.`,
+    description: `Call ${siteConfig.phoneDisplay} and explain where your vehicle is stuck. Tell us whether it is in mud, a ditch, a field or another difficult location.`,
   },
   {
     number: "2",
-    title: "Share the Vehicle Details",
-    description: "Provide the vehicle type, approximate size, weight and current condition.",
+    title: "Share Your Location and Vehicle Details",
+    description:
+      "Provide your exact location, vehicle make and model, and a description of the ground conditions. Send photographs of the vehicle and access route if it is safe to do so.",
   },
   {
     number: "3",
-    title: "Describe the Ground",
-    description: "Explain whether the vehicle is in mud, a field, ditch, slope, track or another difficult location.",
+    title: "Recovery Assessment",
+    description:
+      "We review the available information, including vehicle weight, ground stability, access restrictions and surrounding obstacles, to determine a suitable recovery approach.",
   },
   {
     number: "4",
-    title: "Send Safe Photographs",
-    description: "Where possible, provide clear images of the vehicle, ground, access route and nearby obstacles.",
-  },
-  {
-    number: "5",
-    title: "We Assess the Recovery",
-    description: "We determine the suitable recovery vehicle, equipment, direction and approach.",
-  },
-  {
-    number: "6",
-    title: "Controlled Vehicle Extraction",
-    description: "The vehicle is carefully extracted and moved to stable ground.",
-  },
-  {
-    number: "7",
-    title: "Further Transportation",
-    description: "If the vehicle has damage or cannot continue safely, transportation to an agreed destination can be arranged.",
-  },
-]
-
-const fourByFourChoices = [
-  "The vehicle is far from a firm road",
-  "Access requires off-road capability",
-  "The ground is deeply muddy or uneven",
-  "A 4x4 or SUV is stranded on difficult terrain",
-  "The vehicle is stuck on a track, field or slope",
-]
-
-const winchChoices = [
-  "The vehicle is close to an accessible road",
-  "A controlled pull may return it to firm ground",
-  "The vehicle is stuck in a verge or ditch",
-  "Standard recovery equipment can reach the location",
-]
-
-const benefits = [
-  {
-    icon: Search,
-    title: "Ground Assessment",
-    description: "We consider mud depth, surface stability, slopes and surrounding obstacles.",
-  },
-  {
-    icon: ClipboardList,
-    title: "Vehicle Assessment",
-    description: "The vehicle's size, weight, position and condition are reviewed before recovery.",
-  },
-  {
-    icon: MessageSquare,
-    title: "Suitable Recovery Method",
-    description: "The recovery approach is selected according to the location and information provided.",
-  },
-  {
-    icon: HeartHandshake,
-    title: "Further Transportation",
-    description: "If the vehicle cannot continue safely after extraction, transportation can be arranged.",
+    title: "Vehicle Extraction",
+    description:
+      "Once the recovery method has been assessed, the vehicle can be carefully extracted and moved to stable ground. If it cannot be driven safely afterwards, further transportation may be arranged.",
   },
 ]
 
@@ -185,52 +125,50 @@ const relatedServices = [
   {
     slug: "winch-out-recovery",
     title: "Winch-Out Recovery",
-    description: "Controlled extraction for vehicles stuck in mud, verges, ditches and difficult positions.",
+    description: "For vehicles stuck in verges, shallow ditches or mud where controlled winching equipment can safely reach the vehicle.",
   },
   {
     slug: "vehicle-recovery",
     title: "Vehicle Recovery",
-    description: "Transportation for broken-down, damaged and non-running vehicles.",
+    description: "For broken-down, damaged or non-running vehicles that need transporting to a garage, home or another agreed destination.",
   },
   {
     slug: "specialist-accident-recovery",
     title: "Specialist Accident Recovery",
-    description: "Recovery for severely damaged vehicles and complex extraction situations.",
+    description: "For damaged vehicles and complex accident recovery situations requiring additional assessment and suitable recovery equipment.",
   },
 ]
 
 const faqs = [
   {
-    question: "What vehicles can you recover off-road?",
-    answer: "We may be able to recover 4x4s, SUVs, cars, vans and other suitable vehicles. The vehicle's size, weight, condition and location must be assessed first.",
+    question: "Can you recover a 4x4 stuck in deep mud?",
+    answer:
+      "Yes, mud recovery may be possible depending on the ground conditions, vehicle position and access available. We assess the situation before arranging suitable recovery equipment.",
   },
   {
-    question: "Can you recover a vehicle stuck in mud?",
-    answer: "Yes. Mud recovery may be possible depending on the depth, surface stability, vehicle position and access available for recovery equipment.",
-  },
-  {
-    question: "Can you recover a vehicle from a field?",
-    answer: "We can assist with many field recovery situations. Provide details about the ground, access route and distance from the nearest firm surface.",
+    question: "Do you recover SUVs and cars from fields?",
+    answer:
+      "We can assess recovery requests involving SUVs, 4x4s, cars and suitable vans stuck in fields or on soft ground. Recovery depends on the vehicle's size, condition and accessibility.",
   },
   {
     question: "Can you recover a vehicle from a ditch?",
-    answer: "Ditch recovery may be possible, but the vehicle's angle, damage and surrounding space must be carefully assessed.",
-  },
-  {
-    question: "What photographs should I send?",
-    answer: "Where safe, send photographs showing the complete vehicle, ground conditions, access route, nearby obstacles and distance from a firm road.",
-  },
-  {
-    question: "Should I keep trying to drive out?",
-    answer: "Stop if the wheels are spinning without progress. Continued attempts may cause the vehicle to sink deeper or suffer damage.",
-  },
-  {
-    question: "What happens after the vehicle is extracted?",
-    answer: "The vehicle will be moved to stable ground. If it has damage or cannot continue safely, further transportation can be arranged.",
+    answer:
+      "Ditch recovery may be possible after assessing the vehicle's position, any visible damage and the surrounding terrain. Some situations require specialist equipment.",
   },
   {
     question: "What is the difference between 4x4 recovery and winch-out recovery?",
-    answer: "4x4 recovery is suited to difficult off-road access and terrain. Winch-out recovery is generally used when a vehicle can be reached from a stable and accessible position.",
+    answer:
+      "4x4 and off-road recovery focuses on vehicles stranded on difficult terrain where access may be restricted. Winch-out recovery normally involves pulling a stuck vehicle from a position accessible to suitable winching equipment.",
+  },
+  {
+    question: "What should I do if my vehicle gets stuck off-road?",
+    answer:
+      "Stop accelerating if your wheels are spinning without progress. Keep yourself and passengers in a safe position, avoid unsafe recovery attempts and contact a professional recovery service.",
+  },
+  {
+    question: "What information do you need to arrange recovery?",
+    answer:
+      "Please provide your location, vehicle make and model, the type of ground, and details of how the vehicle is stuck. Photographs of the vehicle and surrounding area can help if taken from a safe position.",
   },
 ]
 
@@ -240,9 +178,10 @@ export default function FourByFourOffRoadRecoveryPage() {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "4x4 & Off-Road Recovery Specialist",
+    name: "4x4 & Off-Road Recovery Services",
     serviceType: "Off-Road Vehicle Recovery",
     provider: { "@type": "AutomotiveBusiness", name: siteConfig.name, telephone: siteConfig.phoneTel },
+    areaServed: "Ilford, Essex and surrounding areas",
     url: `${siteConfig.siteUrl}/services/4x4-off-road-recovery`,
   }
 
@@ -281,7 +220,7 @@ export default function FourByFourOffRoadRecoveryPage() {
       <section className="relative w-full overflow-hidden border-b border-white/5 min-h-[75vh] flex items-center">
         <Image
           src={fourByFourService.image ?? "/images/4x4-recovery-g-wagon.webp"}
-          alt="AHS Recovery specialist 4x4 recovery"
+          alt="AHS Recovery 4x4 recovering a vehicle stuck off-road"
           fill
           priority
           className="object-cover"
@@ -300,13 +239,14 @@ export default function FourByFourOffRoadRecoveryPage() {
             </div>
 
             <h1 className="text-4xl md:text-6xl font-black text-white leading-[1.1] tracking-tight">
-              4x4 &amp; Off-Road Recovery Specialist
+              4x4 &amp; Off-Road Recovery Services
             </h1>
 
             <p className="text-slate-300 text-base md:text-lg max-w-2xl leading-relaxed">
-              When a 4x4, SUV or other suitable vehicle becomes stuck away from a normal road surface, safe
-              recovery requires careful assessment and suitable equipment. AHS Recovery provides specialist 4x4
-              recovery for vehicles stranded in mud, fields, ditches, tracks and other difficult locations.
+              Is your vehicle stuck in mud, a ditch, a field or difficult terrain? AHS Recovery provides professional
+              4x4 recovery and off-road vehicle recovery in {siteConfig.location} and surrounding areas. We help
+              drivers recover stranded 4x4s, SUVs, cars and suitable vans using equipment selected for the vehicle
+              and ground conditions.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
@@ -348,24 +288,33 @@ export default function FourByFourOffRoadRecoveryPage() {
               </h2>
               <div className="space-y-4 text-slate-600 text-base md:text-lg leading-relaxed">
                 <p>
-                  Off-road recovery is different from standard roadside towing. Soft ground, slopes, limited access
-                  and hidden obstacles can make a vehicle difficult to reach and move safely.
+                  Off-road recovery is different from standard{" "}
+                  <Link href="/services/roadside-assistance" className="text-primary font-medium hover:underline">
+                    roadside assistance
+                  </Link>
+                  . Soft ground, slopes, limited access and hidden obstacles can make a vehicle difficult to reach and
+                  move safely. Whether your vehicle is stuck on a rural track or cannot reach a normal road surface,
+                  we can assess the safest recovery approach.
                 </p>
                 <p>
                   Before arranging recovery, AHS Recovery assesses the type of vehicle, ground conditions,
-                  surrounding space and the position in which the vehicle is stuck. This information helps
-                  determine the suitable recovery method and equipment.
+                  surrounding space and the position in which the vehicle is stuck. This information helps determine
+                  the suitable recovery method and equipment from our{" "}
+                  <Link href="/about" className="text-primary font-medium hover:underline">
+                    recovery fleet
+                  </Link>
+                  .
                 </p>
                 <p>
-                  Do not continue spinning the wheels or repeatedly attempt to drive out. This can cause the
-                  vehicle to sink deeper, damage the ground and make recovery more difficult.
+                  Do not continue spinning the wheels or repeatedly attempt to drive out. This can cause the vehicle
+                  to sink deeper, damage the ground and make recovery more difficult.
                 </p>
               </div>
               <Link
-                href="/services/4x4-off-road-recovery"
+                href="/contact"
                 className="inline-flex items-center gap-2 text-primary font-bold mt-6 hover:gap-3 transition-all"
               >
-                Explore Our 4x4 Recovery Service <ArrowRight className="w-4 h-4" />
+                Request 4x4 Recovery <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
             <div className="relative h-[320px] md:h-[420px] rounded-2xl overflow-hidden shadow-xl">
@@ -397,21 +346,22 @@ export default function FourByFourOffRoadRecoveryPage() {
             className="flex-shrink-0 flex items-center justify-center gap-3 bg-background-dark text-white px-8 py-4 rounded-lg font-black text-lg hover:scale-[1.02] transition-transform"
           >
             <Phone className="w-5 h-5" />
-            Call for 4x4 Recovery
+            Call Now
           </a>
         </div>
       </section>
 
-      {/* Terrain and situation grid */}
+      {/* Where we can help */}
       <section className="bg-navy-accent py-20 md:py-28">
         <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
           <div className="max-w-2xl mx-auto text-center mb-16">
             <span className="text-primary font-black uppercase tracking-[0.2em] text-sm">Where We Can Help</span>
             <h2 className="text-3xl md:text-5xl font-black text-white mt-4 mb-4">
-              4x4 Recovery for Difficult Ground and Vehicle Positions
+              Off-Road Recovery for Difficult Ground and Vehicle Positions
             </h2>
             <p className="text-slate-400 text-base md:text-lg">
-              The correct recovery method depends on the surface, access, slope and condition of the vehicle.
+              Off-road recovery requires the right approach for each situation. Our team assesses the ground, vehicle
+              position and access before arranging recovery.
             </p>
           </div>
 
@@ -431,176 +381,21 @@ export default function FourByFourOffRoadRecoveryPage() {
         </div>
       </section>
 
-      {/* Safety checklist */}
-      <section className="bg-white py-20 md:py-28">
-        <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
-          <div className="max-w-2xl mx-auto text-center mb-14">
-            <span className="text-primary font-black uppercase tracking-[0.2em] text-sm">Before Help Arrives</span>
-            <h2 className="text-3xl md:text-5xl font-black text-slate-900 mt-4 mb-4">
-              What to Do When Your 4x4 Is Stuck
-            </h2>
-          </div>
-
-          <div className="max-w-3xl mx-auto rounded-2xl border-2 border-primary/30 bg-primary/5 p-8 md:p-10">
-            <ol className="space-y-4">
-              {safetySteps.map((step, index) => (
-                <li key={step} className="flex items-start gap-4">
-                  <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-background-dark font-black flex items-center justify-center text-sm">
-                    {index + 1}
-                  </span>
-                  <span className="text-slate-700 leading-relaxed pt-0.5">{step}</span>
-                </li>
-              ))}
-            </ol>
-            <div className="mt-8 pt-6 border-t border-primary/20 flex items-start gap-3">
-              <TriangleAlert className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-              <p className="text-slate-600 text-sm leading-relaxed">
-                Do not attempt self-recovery if the vehicle is unstable, severely stuck or close to a dangerous
-                edge, water or moving traffic.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Information required */}
-      <section className="bg-navy-accent py-20 md:py-28">
-        <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
-          <div className="max-w-2xl mx-auto text-center mb-16">
-            <span className="text-primary font-black uppercase tracking-[0.2em] text-sm">Help Us Assess the Recovery</span>
-            <h2 className="text-3xl md:text-5xl font-black text-white mt-4 mb-4">
-              Details to Provide for Off-Road Recovery
-            </h2>
-            <p className="text-slate-400 text-base md:text-lg">
-              Off-road recovery often requires more information than standard vehicle towing. Accurate details help
-              us understand access and ground conditions.
-            </p>
-          </div>
-
-          <div className="max-w-3xl mx-auto bg-background-dark rounded-2xl border border-white/10 p-8 md:p-10">
-            <h3 className="text-lg font-bold text-white mb-5">Provide:</h3>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 mb-6">
-              {infoChecklist.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-slate-300 text-sm">
-                  <span className="mt-1 w-4 h-4 rounded border-2 border-primary flex-shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <p className="text-slate-400 text-sm leading-relaxed border-t border-white/10 pt-5">
-              Do not place yourself in danger to collect photographs. Images should only be taken from stable and
-              safe ground.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Process */}
-      <section className="bg-white py-20 md:py-28">
-        <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
-          <div className="max-w-2xl mx-auto text-center mb-16">
-            <span className="text-primary font-black uppercase tracking-[0.2em] text-sm">How It Works</span>
-            <h2 className="text-3xl md:text-5xl font-black text-slate-900 mt-4 mb-4">
-              Our Off-Road Vehicle Recovery Process
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 mb-16">
-            {processSteps.map((step) => (
-              <div key={step.number} className="flex flex-col items-center text-center space-y-4">
-                <div className="w-20 h-20 rounded-full bg-navy-accent border-2 border-primary flex items-center justify-center flex-shrink-0">
-                  <span className="text-primary font-black text-2xl">{step.number}</span>
-                </div>
-                <h3 className="text-lg font-bold text-slate-900">{step.title}</h3>
-                <p className="text-slate-500 text-sm max-w-[220px]">{step.description}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center">
-            <a
-              href={`tel:${siteConfig.phoneTel}`}
-              className="inline-flex items-center gap-3 bg-primary text-background-dark px-8 py-4 rounded-lg font-black text-lg hover:scale-[1.02] transition-transform"
-            >
-              <Phone className="w-5 h-5" />
-              Request Off-Road Recovery
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Service comparison */}
-      <section className="bg-navy-accent py-20 md:py-28">
-        <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <span className="text-primary font-black uppercase tracking-[0.2em] text-sm">Choosing the Correct Service</span>
-            <h2 className="text-3xl md:text-4xl font-black text-white mt-4 mb-6 leading-tight">
-              Do You Need 4x4 Recovery or Winch-Out Recovery?
-            </h2>
-            <p className="text-slate-400 leading-relaxed">
-              4x4 and off-road recovery is designed for suitable vehicles stranded away from normal road surfaces.
-              It considers ground conditions, restricted access and the ability of recovery equipment to reach the
-              vehicle. Winch-out recovery may be suitable when a car or van is stuck in a verge, shallow ditch, mud
-              or another difficult position close to an accessible surface.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            <div className="rounded-2xl border border-white/10 bg-background-dark p-8">
-              <h3 className="text-xl font-bold text-primary mb-4">Choose 4x4 and off-road recovery when:</h3>
-              <ul className="space-y-3">
-                {fourByFourChoices.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-slate-400">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="rounded-2xl border border-white/10 bg-background-dark p-8">
-              <h3 className="text-xl font-bold text-primary mb-4">Choose winch-out recovery when:</h3>
-              <ul className="space-y-3">
-                {winchChoices.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-slate-400">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <p className="text-slate-400 leading-relaxed max-w-3xl mx-auto text-center mb-6">
-            If you are unsure, provide photographs and location details so the situation can be assessed.
-          </p>
-
-          <div className="text-center">
-            <Link
-              href="/services/winch-out-recovery"
-              className="inline-flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all"
-            >
-              View Winch-Out Recovery <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* Why choose us */}
       <section className="bg-white py-20 md:py-28">
         <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
           <div className="max-w-2xl mx-auto text-center mb-16">
             <span className="text-primary font-black uppercase tracking-[0.2em] text-sm">AHS Recovery</span>
-            <h2 className="text-3xl md:text-5xl font-black text-slate-900 mt-4 mb-4">
-              A Careful Approach to Specialist 4x4 Recovery
-            </h2>
+            <h2 className="text-3xl md:text-5xl font-black text-slate-900 mt-4 mb-4">Why Choose AHS Recovery?</h2>
             <p className="text-slate-500 text-base md:text-lg">
-              A rushed or poorly planned extraction can damage the vehicle, surrounding ground or recovery
-              equipment. Each situation must be assessed before any pulling or lifting begins.
+              When your vehicle becomes stuck off-road, choosing a recovery team that understands difficult ground
+              conditions matters. AHS Recovery focuses on careful assessment, suitable equipment and clear
+              communication.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
-            {benefits.map((benefit) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 mb-16">
+            {whyChooseUs.map((benefit) => (
               <div key={benefit.title} className="flex gap-5">
                 <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                   <benefit.icon className="w-6 h-6 text-primary" />
@@ -612,15 +407,121 @@ export default function FourByFourOffRoadRecoveryPage() {
               </div>
             ))}
           </div>
+
+          <div className="max-w-5xl mx-auto bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden grid grid-cols-1 md:grid-cols-2 items-center">
+            <div className="relative h-56 md:h-full min-h-[260px]">
+              <Image
+                src="/images/van-recovery-rural-road.webp"
+                alt="AHS Recovery vehicle recovery on a rural road"
+                fill
+                loading="lazy"
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+            <div className="p-8 md:p-10 text-center md:text-left">
+              <h3 className="text-lg font-bold text-slate-900 mb-3">Equipped for Rural and Off-Road Access</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Narrow lanes, farm tracks and soft verges call for the right recovery vehicle. Our{" "}
+                <Link href="/about" className="text-primary font-medium hover:underline">
+                  4x4 recovery trailers and recovery lorries
+                </Link>{" "}
+                are selected to suit the access available, so we can reach vehicles that standard recovery trucks
+                cannot.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Related services */}
+      {/* Process + safety advice */}
       <section className="bg-navy-accent py-20 md:py-28">
         <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-primary font-black uppercase tracking-[0.2em] text-sm">Other Recovery Options</span>
-            <h2 className="text-3xl md:text-5xl font-black text-white mt-4 mb-4">Related Vehicle Recovery Services</h2>
+          <div className="max-w-2xl mx-auto text-center mb-16">
+            <span className="text-primary font-black uppercase tracking-[0.2em] text-sm">How It Works</span>
+            <h2 className="text-3xl md:text-5xl font-black text-white mt-4 mb-4">How Our Off-Road Recovery Works</h2>
+            <p className="text-slate-400 text-base md:text-lg">
+              Getting your vehicle recovered starts with a few simple steps.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 mb-16">
+            {processSteps.map((step) => (
+              <div key={step.number} className="flex flex-col items-center text-center space-y-4">
+                <div className="w-20 h-20 rounded-full bg-background-dark border-2 border-primary flex items-center justify-center flex-shrink-0">
+                  <span className="text-primary font-black text-2xl">{step.number}</span>
+                </div>
+                <h3 className="text-lg font-bold text-white">{step.title}</h3>
+                <p className="text-slate-400 text-sm max-w-[240px]">{step.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="max-w-3xl mx-auto rounded-2xl border border-white/10 bg-background-dark p-8 md:p-10">
+            <div className="flex items-start gap-3 mb-5">
+              <TriangleAlert className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
+              <h3 className="text-lg font-bold text-white">Important Safety Advice</h3>
+            </div>
+            <div className="space-y-4 text-slate-400 text-sm leading-relaxed">
+              <p>
+                If your wheels are spinning without progress, stop trying to drive out. Repeated attempts can cause
+                the vehicle to sink deeper or become damaged.
+              </p>
+              <p>
+                Keep people away from unstable ground, slopes and moving recovery equipment. Never attempt to attach
+                recovery straps to unsuitable vehicle parts.
+              </p>
+              <p>
+                If your vehicle is in an unsafe position, move to a safe location where possible and{" "}
+                <Link href="/contact" className="text-primary font-medium hover:underline">
+                  contact a recovery professional
+                </Link>
+                .
+              </p>
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <a
+              href={`tel:${siteConfig.phoneTel}`}
+              className="inline-flex items-center gap-3 bg-primary text-background-dark px-8 py-4 rounded-lg font-black text-lg hover:scale-[1.02] transition-transform"
+            >
+              <Phone className="w-5 h-5" />
+              Request Off-Road Recovery
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Coverage and related services */}
+      <section className="bg-white py-20 md:py-28">
+        <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
+          <div className="max-w-3xl mx-auto text-center mb-16">
+            <span className="text-primary font-black uppercase tracking-[0.2em] text-sm">Local &amp; Nationwide Coverage</span>
+            <h2 className="text-3xl md:text-5xl font-black text-slate-900 mt-4 mb-4">
+              Off-Road Recovery Coverage &amp; Services
+            </h2>
+            <p className="text-slate-600 text-base md:text-lg leading-relaxed">
+              AHS Recovery is based in {siteConfig.location}, providing local recovery services across surrounding
+              areas within approximately 60 miles. We assess off-road recovery requests in Ilford, Essex, East London
+              and nearby locations. Availability depends on the vehicle&apos;s position, ground conditions and access
+              for recovery equipment. If your vehicle is stuck beyond our normal local coverage,{" "}
+              <Link href="/contact" className="text-primary font-medium hover:underline">
+                contact us
+              </Link>{" "}
+              with the location and recovery details so we can advise on available options.
+            </p>
+          </div>
+
+          <div className="max-w-2xl mx-auto text-center mb-12">
+            <h3 className="text-xl font-bold text-slate-900">Related Vehicle Recovery Services</h3>
+            <p className="text-slate-500 mt-2">
+              Depending on your situation, one of our other{" "}
+              <Link href="/services" className="text-primary font-medium hover:underline">
+                recovery services
+              </Link>{" "}
+              may be more suitable.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -641,33 +542,31 @@ export default function FourByFourOffRoadRecoveryPage() {
               href="/services"
               className="inline-flex items-center gap-2 bg-primary text-background-dark px-8 py-4 rounded-lg font-black hover:scale-[1.02] transition-transform"
             >
-              View All Services <ArrowRight className="w-4 h-4" />
+              View All Recovery Services <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="bg-white py-24">
+      <section className="bg-navy-accent py-24">
         <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
           <div className="text-center mb-16">
             <span className="text-primary font-black uppercase tracking-[0.2em] text-sm">Common Questions</span>
-            <h2 className="text-3xl md:text-5xl font-black text-slate-900 mt-4 mb-4">
-              Frequently Asked Questions About 4x4 Recovery
-            </h2>
+            <h2 className="text-3xl md:text-5xl font-black text-white mt-4 mb-4">Frequently Asked Questions</h2>
           </div>
 
           <div className="max-w-3xl mx-auto space-y-3">
             {faqs.map((faq) => (
               <details
                 key={faq.question}
-                className="group rounded-2xl border border-slate-200 bg-slate-50 open:border-primary/40 open:bg-primary/5"
+                className="group rounded-2xl border border-white/10 bg-background-dark open:border-primary/40"
               >
-                <summary className="cursor-pointer list-none flex items-center justify-between gap-4 px-5 md:px-6 py-4 md:py-5 font-bold text-slate-900 text-base md:text-lg">
+                <summary className="cursor-pointer list-none flex items-center justify-between gap-4 px-5 md:px-6 py-4 md:py-5 font-bold text-white text-base md:text-lg">
                   {faq.question}
                   <ChevronDown className="w-5 h-5 flex-shrink-0 text-primary transition-transform group-open:rotate-180" />
                 </summary>
-                <p className="text-slate-600 text-sm md:text-base leading-relaxed px-5 md:px-6 pb-4 md:pb-5">
+                <p className="text-slate-400 text-sm md:text-base leading-relaxed px-5 md:px-6 pb-4 md:pb-5">
                   {faq.answer}
                 </p>
               </details>
@@ -679,10 +578,11 @@ export default function FourByFourOffRoadRecoveryPage() {
       {/* Final CTA */}
       <section className="bg-background-dark py-20 md:py-28 text-center px-6">
         <span className="text-primary font-black uppercase tracking-[0.2em] text-sm">Request Specialist Recovery</span>
-        <h2 className="text-white text-3xl md:text-5xl font-black mt-4 mb-5">Arrange 4x4 and Off-Road Vehicle Recovery</h2>
+        <h2 className="text-white text-3xl md:text-5xl font-black mt-4 mb-5">Need 4x4 or Off-Road Recovery?</h2>
         <p className="text-slate-400 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-          Call AHS Recovery and provide your vehicle details, exact location, ground conditions and safe
-          photographs. We will assess the situation and identify the appropriate recovery approach.
+          Whether your vehicle is stuck in mud, a field, a ditch or another difficult location, AHS Recovery can
+          assess your situation and help arrange suitable recovery assistance. Contact our team with your location
+          and vehicle details.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
@@ -690,13 +590,13 @@ export default function FourByFourOffRoadRecoveryPage() {
             className="flex items-center justify-center gap-3 bg-primary text-background-dark px-8 py-4 rounded-lg font-black text-lg hover:scale-[1.02] transition-transform w-full sm:w-auto"
           >
             <Phone className="w-5 h-5" />
-            Call {siteConfig.phoneDisplay}
+            Call Now: {siteConfig.phoneDisplay}
           </a>
           <Link
             href="/contact"
             className="bg-white/5 hover:bg-white/10 text-white border border-white/10 px-8 py-4 rounded-lg font-bold text-lg transition-colors w-full sm:w-auto"
           >
-            Contact AHS Recovery
+            Request Off-Road Recovery
           </Link>
         </div>
       </section>
