@@ -9,8 +9,8 @@ export default function AboutProcess() {
       <section className="flex flex-col lg:flex-row w-full overflow-hidden bg-background-dark">
         <div className="w-full lg:w-1/2 min-h-[350px] relative bg-navy-accent overflow-hidden">
           <Image
-            src="/images/large-vehicle-recovery-hookloader.webp"
-            alt="AHS Recovery flatbed truck loaded with a large commercial vehicle"
+            src="/images/roadside-recovery-wet-weather-strapping.webp"
+            alt="AHS Recovery technician securing a vehicle for recovery in wet weather"
             fill
             loading="lazy"
             className="object-cover"
@@ -51,6 +51,16 @@ export default function AboutProcess() {
             AHS Recovery operates from {siteConfig.location}, providing local vehicle recovery and nationwide
             recovery and transportation services.
           </p>
+          <div className="max-w-3xl mx-auto relative h-64 md:h-80 rounded-2xl overflow-hidden">
+            <Image
+              src="/images/residential-breakdown-recovery-dusk.webp"
+              alt="AHS Recovery flatbed truck recovering a vehicle on a residential street"
+              fill
+              loading="lazy"
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 768px"
+            />
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 pt-4 text-left">
             {coverageHighlights.map((item) => (
               <div key={item.title} className="px-4 py-4 bg-white/5 border border-white/10 rounded-lg">

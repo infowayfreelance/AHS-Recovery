@@ -1,10 +1,11 @@
+import Image from "next/image"
 import Link from "next/link"
 import { siteConfig } from "@/lib/site-config"
 
 export default function AboutIntro() {
   return (
     <section className="px-6 md:px-20 lg:px-40 py-32 bg-background-dark">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <div className="space-y-10">
           <div className="flex items-center gap-4">
             <div className="h-[1px] w-12 bg-primary"></div>
@@ -46,6 +47,16 @@ export default function AboutIntro() {
               to see our fleet in action.
             </p>
           </div>
+        </div>
+        <div className="relative h-[320px] md:h-[420px] rounded-2xl overflow-hidden shadow-xl">
+          <Image
+            src="/images/recovery-driver-customer-london.webp"
+            alt="AHS Recovery driver talking with a customer beside their vehicle"
+            fill
+            loading="lazy"
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 50vw"
+          />
         </div>
       </div>
     </section>

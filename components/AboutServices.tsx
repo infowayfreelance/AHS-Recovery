@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight, Car, Wrench, TriangleAlert, LifeBuoy, Route, PackageCheck } from "lucide-react"
 
@@ -81,14 +82,26 @@ export default function AboutServices() {
           ))}
         </div>
 
-        <div className="max-w-3xl mx-auto bg-slate-50 rounded-2xl border border-slate-200 p-8 md:p-10 text-center">
-          <h3 className="text-lg font-bold text-slate-900 mb-3">Our Recovery Fleet</h3>
-          <p className="text-slate-600 leading-relaxed">
-            Our fleet ranges from 4x4 recovery trailers to 18-tonne recovery lorries. Having different recovery
-            vehicles allows us to handle a wider range of transport and recovery requirements. We assess each job
-            before arranging equipment, considering the vehicle&apos;s condition, weight, location, and
-            accessibility.
-          </p>
+        <div className="max-w-5xl mx-auto bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden grid grid-cols-1 md:grid-cols-2 items-center">
+          <div className="relative h-56 md:h-full min-h-[260px]">
+            <Image
+              src="/images/recovery-fleet-yard-depot.webp"
+              alt="AHS Recovery fleet of recovery vehicles at our yard"
+              fill
+              loading="lazy"
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
+          <div className="p-8 md:p-10 text-center md:text-left">
+            <h3 className="text-lg font-bold text-slate-900 mb-3">Our Recovery Fleet</h3>
+            <p className="text-slate-600 leading-relaxed">
+              Our fleet ranges from 4x4 recovery trailers to 18-tonne recovery lorries. Having different recovery
+              vehicles allows us to handle a wider range of transport and recovery requirements. We assess each job
+              before arranging equipment, considering the vehicle&apos;s condition, weight, location, and
+              accessibility.
+            </p>
+          </div>
         </div>
 
         <div className="text-center mt-12">
