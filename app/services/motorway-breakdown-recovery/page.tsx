@@ -479,7 +479,7 @@ export default function MotorwayBreakdownRecoveryPage() {
 
             <div className="text-center">
               <a
-                href="https://www.gov.uk/if-you-break-down-on-a-motorway"
+                href="https://www.gov.uk/guidance/the-highway-code/breakdowns-and-incidents-274-to-287"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all"
