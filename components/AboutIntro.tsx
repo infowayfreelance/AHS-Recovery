@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { siteConfig } from "@/lib/site-config"
 
 export default function AboutIntro() {
@@ -10,19 +11,39 @@ export default function AboutIntro() {
             <span className="text-primary font-bold tracking-[0.3em] uppercase text-sm">Our Identity</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">
-            A Local Team, Ready For The Road.
+            Your Local Vehicle Recovery Team in Ilford
           </h2>
           <div className="text-slate-400 text-xl leading-relaxed space-y-8 font-light">
             <p>
-              AHS Recovery is based in {siteConfig.location}, where we handle towing, breakdown assistance and
-              vehicle recovery for the local area. A breakdown or an accident disrupts your day, and our focus is on
-              getting you and your vehicle sorted with as little added stress as possible.
+              AHS Recovery is a vehicle recovery company based in {siteConfig.location}. We help drivers who need
+              reliable assistance following a breakdown, accident, or unexpected vehicle problem.
             </p>
             <p>
-              Alongside our local work, we run breakdown recovery and vehicle transportation services nationwide.
-              Our fleet — from 4x4 recovery trailers to 18-tonne recovery lorries — is put together so we can take
-              on different vehicles and different recovery situations, whether that&apos;s a car outside your home or a
-              larger vehicle further afield.
+              We understand how stressful it can be when your vehicle stops working. Our aim is to make the
+              recovery process straightforward, from your first phone call to the safe delivery of your vehicle.
+            </p>
+            <p>
+              Our team handles different{" "}
+              <Link href="/services/vehicle-recovery" className="text-primary font-medium hover:underline">
+                recovery situations
+              </Link>
+              , from cars stranded on residential roads to larger vehicles requiring specialist equipment. We also
+              provide{" "}
+              <Link
+                href="/services/vehicle-transportation-delivery"
+                className="text-primary font-medium hover:underline"
+              >
+                nationwide vehicle transportation
+              </Link>{" "}
+              for customers who need their vehicles moved over longer distances.
+            </p>
+            <p>
+              With recovery equipment ranging from 4x4 trailers to 18-tonne recovery lorries, we can assess
+              different vehicle types and arrange suitable recovery equipment for each job. Take a look at our{" "}
+              <Link href="/gallery" className="text-primary font-medium hover:underline">
+                recovery photo gallery
+              </Link>{" "}
+              to see our fleet in action.
             </p>
           </div>
         </div>
