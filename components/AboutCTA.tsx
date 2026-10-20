@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { siteConfig } from "@/lib/site-config"
 
 export default function AboutCTA() {
@@ -16,6 +17,14 @@ export default function AboutCTA() {
         <p className="mt-12 text-slate-500 font-medium text-lg italic uppercase tracking-widest">
           Local Recovery &amp; Nationwide Transportation
         </p>
+        <div className="mt-10">
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center bg-white/5 hover:bg-white/10 text-white border border-white/10 px-8 py-4 rounded-lg font-bold text-lg transition-colors"
+          >
+            Contact Us
+          </Link>
+        </div>
       </div>
     </section>
   )
