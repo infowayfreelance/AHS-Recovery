@@ -54,6 +54,7 @@ export default function RootLayout({
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "AutomotiveBusiness",
+    "@id": `${siteConfig.siteUrl}/#business`,
     name: siteConfig.name,
     url: siteConfig.siteUrl,
     telephone: siteConfig.phoneTel,

@@ -16,7 +16,7 @@ import {
   MessageSquare,
   Truck,
 } from "lucide-react"
-import { siteConfig, services } from "@/lib/site-config"
+import { siteConfig } from "@/lib/site-config"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
@@ -24,6 +24,15 @@ export const metadata = buildMetadata({
   description:
     "Accident recovery for damaged cars and vans. Call AHS Recovery on 07576 614651 for careful vehicle collection and transportation.",
   path: "/services/accident-recovery",
+  ogTitle: "Accident Recovery Ilford & Essex | AHS Recovery",
+  ogDescription:
+    "Need accident recovery in Ilford or Essex? AHS Recovery provides careful collection and transportation for accident-damaged cars and vans.",
+  ogImage: {
+    url: `${siteConfig.siteUrl}/images/accident-recovery-og-image.jpg`,
+    width: 1200,
+    height: 630,
+    alt: "AHS Recovery flatbed loading an accident-damaged van outside the workshop in Ilford",
+  },
 })
 
 const safetySteps = [
@@ -266,16 +275,17 @@ const faqs = [
   },
 ]
 
-const accidentRecoveryService = services.find((s) => s.slug === "accident-recovery")!
-
 export default function AccidentRecoveryPage() {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Accident Recovery Service",
-    serviceType: "Accident Recovery",
-    provider: { "@type": "AutomotiveBusiness", name: siteConfig.name, telephone: siteConfig.phoneTel },
+    name: "Accident Recovery",
+    serviceType: "Accident Vehicle Recovery",
+    provider: { "@id": `${siteConfig.siteUrl}/#business` },
     url: `${siteConfig.siteUrl}/services/accident-recovery`,
+    description:
+      "Accident recovery and transportation for damaged, non-running cars and vans in Ilford, Essex and surrounding areas.",
+    areaServed: "Ilford, Essex and surrounding areas within approximately 60 miles.",
   }
 
   const breadcrumbSchema = {
@@ -312,8 +322,8 @@ export default function AccidentRecoveryPage() {
       {/* 1. Hero */}
       <section className="relative w-full overflow-hidden border-b border-white/5 min-h-[75vh] flex items-center">
         <Image
-          src={accidentRecoveryService.image ?? "/images/accident-recovery-honda-accord.webp"}
-          alt="AHS Recovery professional accident recovery service"
+          src="/images/ahs-accident-recovery-hero-ilford.webp"
+          alt="AHS Recovery flatbed loading an accident-damaged van outside the workshop in Ilford"
           fill
           priority
           className="object-cover"
@@ -394,38 +404,50 @@ export default function AccidentRecoveryPage() {
             </p>
           </div>
 
-          <div className="max-w-3xl mx-auto rounded-2xl border-2 border-primary/30 bg-background-dark p-8 md:p-10">
-            <ol className="space-y-6">
-              {safetySteps.map((step, index) => (
-                <li key={step.title} className="flex items-start gap-4">
-                  <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-background-dark font-black flex items-center justify-center text-sm">
-                    {index + 1}
-                  </span>
-                  <div>
-                    <h3 className="text-white font-bold mb-1">{step.title}</h3>
-                    <p className="text-slate-300 leading-relaxed">
-                      {index === safetySteps.length - 1 ? (
-                        <>
-                          Once the scene is safe and vehicle removal is permitted,{" "}
-                          <Link href="/contact" className="text-primary font-medium hover:underline">
-                            contact AHS Recovery
-                          </Link>{" "}
-                          and provide your location and vehicle details.
-                        </>
-                      ) : (
-                        step.description
-                      )}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-            <div className="mt-8 pt-6 border-t border-white/10 flex items-start gap-3">
-              <AlertTriangle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-              <p className="text-slate-400 text-sm leading-relaxed">
-                <strong className="text-slate-300">Important:</strong> Do not attempt to drive an accident-damaged
-                vehicle if its steering, brakes, wheels or suspension may be affected.
-              </p>
+          <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+            <div className="relative h-64 lg:h-auto rounded-2xl overflow-hidden order-1 lg:order-2">
+              <Image
+                src="/images/accident-recovery-night-rainy-dolly.webp"
+                alt="AHS Recovery technician using a dolly to recover a crash-damaged car at night"
+                fill
+                loading="lazy"
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+            <div className="rounded-2xl border-2 border-primary/30 bg-background-dark p-8 md:p-10 order-2 lg:order-1">
+              <ol className="space-y-6">
+                {safetySteps.map((step, index) => (
+                  <li key={step.title} className="flex items-start gap-4">
+                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-background-dark font-black flex items-center justify-center text-sm">
+                      {index + 1}
+                    </span>
+                    <div>
+                      <h3 className="text-white font-bold mb-1">{step.title}</h3>
+                      <p className="text-slate-300 leading-relaxed">
+                        {index === safetySteps.length - 1 ? (
+                          <>
+                            Once the scene is safe and vehicle removal is permitted,{" "}
+                            <Link href="/contact" className="text-primary font-medium hover:underline">
+                              contact AHS Recovery
+                            </Link>{" "}
+                            and provide your location and vehicle details.
+                          </>
+                        ) : (
+                          step.description
+                        )}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+              <div className="mt-8 pt-6 border-t border-white/10 flex items-start gap-3">
+                <AlertTriangle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                <p className="text-slate-400 text-sm leading-relaxed">
+                  <strong className="text-slate-300">Important:</strong> Do not attempt to drive an accident-damaged
+                  vehicle if its steering, brakes, wheels or suspension may be affected.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -443,6 +465,17 @@ export default function AccidentRecoveryPage() {
               AHS Recovery provides damaged vehicle recovery for different accident situations. We assess vehicle
               damage, accessibility and loading requirements before arranging collection.
             </p>
+          </div>
+
+          <div className="relative h-56 md:h-72 rounded-2xl overflow-hidden mb-10 max-w-4xl mx-auto">
+            <Image
+              src="/images/accident-recovery-residential-street-collection.webp"
+              alt="AHS Recovery collecting an accident-damaged car from a residential street"
+              fill
+              loading="lazy"
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 896px"
+            />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -487,6 +520,17 @@ export default function AccidentRecoveryPage() {
             ))}
           </div>
 
+          <div className="relative h-56 md:h-72 rounded-2xl overflow-hidden mb-12 max-w-4xl mx-auto">
+            <Image
+              src="/images/accident-recovery-countryside-sunset-suv.webp"
+              alt="AHS Recovery flatbed transporting an accident-damaged SUV at sunset"
+              fill
+              loading="lazy"
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 896px"
+            />
+          </div>
+
           <div className="text-center">
             <a
               href={`tel:${siteConfig.phoneTel}`}
@@ -527,6 +571,26 @@ export default function AccidentRecoveryPage() {
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="max-w-5xl mx-auto bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden grid grid-cols-1 md:grid-cols-2 items-center mb-16">
+            <div className="relative h-56 md:h-full min-h-[260px]">
+              <Image
+                src="/images/accident-recovery-countryside-winch-misty.webp"
+                alt="AHS Recovery winching an accident-damaged car from a roadside ditch"
+                fill
+                loading="lazy"
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+            <div className="p-8 md:p-10 text-center md:text-left">
+              <h3 className="text-lg font-bold text-slate-900 mb-3">Prepared for Every Accident Scene</h3>
+              <p className="text-slate-600 leading-relaxed">
+                From residential streets to rural roadsides, our recovery vehicles are equipped to collect
+                accident-damaged cars and vans safely and transport them to your agreed destination.
+              </p>
+            </div>
           </div>
 
           <div className="max-w-3xl mx-auto border-t border-slate-200 pt-10">
