@@ -347,11 +347,6 @@ export default function AccidentRecoveryPage() {
 
             <div className="text-slate-300 text-base md:text-lg max-w-2xl leading-relaxed space-y-4">
               <p>
-                If your car or van has been damaged in a road accident and cannot be driven safely, AHS Recovery can
-                help. Our professional accident recovery service provides careful collection and transportation of
-                accident-damaged vehicles to an agreed garage, repair centre, storage facility or home.
-              </p>
-              <p>
                 We provide car accident recovery and post-accident vehicle recovery for suitable cars and vans.
                 Whether your vehicle has minor collision damage, broken wheels or mechanical problems, we assess its
                 condition before arranging safe recovery.
@@ -404,50 +399,38 @@ export default function AccidentRecoveryPage() {
             </p>
           </div>
 
-          <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-            <div className="relative h-64 lg:h-auto rounded-2xl overflow-hidden order-1 lg:order-2">
-              <Image
-                src="/images/accident-recovery-night-rainy-dolly.webp"
-                alt="AHS Recovery technician using a dolly to recover a crash-damaged car at night"
-                fill
-                loading="lazy"
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </div>
-            <div className="rounded-2xl border-2 border-primary/30 bg-background-dark p-8 md:p-10 order-2 lg:order-1">
-              <ol className="space-y-6">
-                {safetySteps.map((step, index) => (
-                  <li key={step.title} className="flex items-start gap-4">
-                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-background-dark font-black flex items-center justify-center text-sm">
-                      {index + 1}
-                    </span>
-                    <div>
-                      <h3 className="text-white font-bold mb-1">{step.title}</h3>
-                      <p className="text-slate-300 leading-relaxed">
-                        {index === safetySteps.length - 1 ? (
-                          <>
-                            Once the scene is safe and vehicle removal is permitted,{" "}
-                            <Link href="/contact" className="text-primary font-medium hover:underline">
-                              contact AHS Recovery
-                            </Link>{" "}
-                            and provide your location and vehicle details.
-                          </>
-                        ) : (
-                          step.description
-                        )}
-                      </p>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-              <div className="mt-8 pt-6 border-t border-white/10 flex items-start gap-3">
-                <AlertTriangle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                <p className="text-slate-400 text-sm leading-relaxed">
-                  <strong className="text-slate-300">Important:</strong> Do not attempt to drive an accident-damaged
-                  vehicle if its steering, brakes, wheels or suspension may be affected.
-                </p>
-              </div>
+          <div className="max-w-3xl mx-auto rounded-2xl border-2 border-primary/30 bg-background-dark p-8 md:p-10">
+            <ol className="space-y-6">
+              {safetySteps.map((step, index) => (
+                <li key={step.title} className="flex items-start gap-4">
+                  <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-background-dark font-black flex items-center justify-center text-sm">
+                    {index + 1}
+                  </span>
+                  <div>
+                    <h3 className="text-white font-bold mb-1">{step.title}</h3>
+                    <p className="text-slate-300 leading-relaxed">
+                      {index === safetySteps.length - 1 ? (
+                        <>
+                          Once the scene is safe and vehicle removal is permitted,{" "}
+                          <Link href="/contact" className="text-primary font-medium hover:underline">
+                            contact AHS Recovery
+                          </Link>{" "}
+                          and provide your location and vehicle details.
+                        </>
+                      ) : (
+                        step.description
+                      )}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+            <div className="mt-8 pt-6 border-t border-white/10 flex items-start gap-3">
+              <AlertTriangle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+              <p className="text-slate-400 text-sm leading-relaxed">
+                <strong className="text-slate-300">Important:</strong> Do not attempt to drive an accident-damaged
+                vehicle if its steering, brakes, wheels or suspension may be affected.
+              </p>
             </div>
           </div>
         </div>
