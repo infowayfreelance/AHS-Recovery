@@ -25,6 +25,15 @@ export const metadata = buildMetadata({
   description:
     "Need 4x4 or off-road recovery in Ilford, Essex? AHS Recovery helps with vehicles stuck in mud, fields, ditches and difficult terrain. Call us today.",
   path: "/services/4x4-off-road-recovery",
+  ogTitle: "4x4 & Off-Road Recovery Ilford | AHS Recovery",
+  ogDescription:
+    "Need 4x4 or off-road recovery in Ilford and Essex? AHS Recovery helps with vehicles stuck in mud, fields, ditches and difficult terrain.",
+  ogImage: {
+    url: `${siteConfig.siteUrl}/images/4x4-off-road-recovery-og-image.jpg`,
+    width: 1200,
+    height: 630,
+    alt: "AHS Recovery 4x4 recovery truck winching a Land Rover Defender down a muddy hillside track",
+  },
 })
 
 const trustPoints = ["4x4s, SUVs and Cars", "Mud and Field Recovery", "Difficult Vehicle Positions", "Careful Vehicle Extraction"]
@@ -176,11 +185,13 @@ export default function FourByFourOffRoadRecoveryPage() {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "4x4 & Off-Road Recovery Services",
-    serviceType: "Off-Road Vehicle Recovery",
-    provider: { "@type": "AutomotiveBusiness", name: siteConfig.name, telephone: siteConfig.phoneTel },
-    areaServed: "Ilford, Essex and surrounding areas",
+    name: "4x4 & Off-Road Recovery",
+    serviceType: "4x4 Recovery, Off-Road Vehicle Recovery",
+    provider: { "@id": `${siteConfig.siteUrl}/#business` },
     url: `${siteConfig.siteUrl}/services/4x4-off-road-recovery`,
+    description:
+      "Professional 4x4 and off-road vehicle recovery for vehicles stuck in mud, fields, ditches, rural tracks and difficult terrain.",
+    areaServed: "Ilford, Essex, East London and surrounding areas within approximately 60 miles.",
   }
 
   const breadcrumbSchema = {
