@@ -262,6 +262,8 @@ export default function BreakdownAssistancePage() {
           alt="AHS Recovery flatbed delivering a broken-down vehicle to the workshop"
           fill
           priority
+          fetchPriority="high"
+          quality={60}
           className="object-cover"
           sizes="100vw"
         />
@@ -281,14 +283,14 @@ export default function BreakdownAssistancePage() {
               Nationwide Breakdown Recovery Service
             </h1>
 
-            <div className="text-slate-300 text-base md:text-lg max-w-2xl leading-relaxed space-y-4">
+            <div className="text-slate-300 text-base md:text-lg max-w-2xl leading-relaxed">
               <p>
                 Broken down and unable to continue your journey? AHS Recovery provides nationwide breakdown recovery
-                for cars, vans and other suitable vehicles across the UK.
-              </p>
-              <p>
-                Based in {siteConfig.location}, we provide local breakdown recovery within approximately 60 miles,
-                alongside nationwide car recovery and{" "}
+                for cars, vans and other suitable vehicles across the UK. Based in {siteConfig.location}, we provide{" "}
+                <Link href="/services/roadside-assistance" className="text-primary font-medium hover:underline">
+                  local breakdown recovery
+                </Link>{" "}
+                within approximately 60 miles, alongside nationwide car recovery and{" "}
                 <Link href="/services/vehicle-transportation-delivery" className="text-primary font-medium hover:underline">
                   long-distance vehicle transportation
                 </Link>
