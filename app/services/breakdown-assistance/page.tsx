@@ -25,6 +25,15 @@ export const metadata = buildMetadata({
   description:
     "Nationwide breakdown recovery for cars and vans unable to continue their journey. Call AHS Recovery on 07576 614651 for assistance.",
   path: "/services/breakdown-assistance",
+  ogTitle: "Nationwide Breakdown Recovery | AHS Recovery",
+  ogDescription:
+    "Broken down anywhere in the UK? AHS Recovery provides nationwide breakdown recovery for cars and vans, with safe vehicle transportation to your chosen destination.",
+  ogImage: {
+    url: `${siteConfig.siteUrl}/images/breakdown-assistance-og-image.jpg`,
+    width: 1200,
+    height: 630,
+    alt: "AHS Recovery flatbed collecting a broken-down car on a UK motorway hard shoulder",
+  },
 })
 
 const trustPoints = ["Nationwide UK Coverage", "Cars and Vans", "Motorway Breakdown Recovery", "Long-Distance Vehicle Transport"]
@@ -201,17 +210,18 @@ const faqs = [
   },
 ]
 
-const breakdownAssistanceService = services.find((s) => s.slug === "breakdown-assistance")!
-
 export default function BreakdownAssistancePage() {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
     name: "Nationwide Breakdown Recovery",
-    serviceType: "Breakdown Recovery",
-    areaServed: "United Kingdom",
+    serviceType: "Breakdown Recovery and Vehicle Transportation",
     provider: { "@id": `${siteConfig.siteUrl}/#business` },
     url: `${siteConfig.siteUrl}/services/breakdown-assistance`,
+    description:
+      "Nationwide breakdown recovery for cars, vans and suitable vehicles, including mechanical failures, electrical faults and non-running vehicle transportation.",
+    areaServed: "United Kingdom",
+    telephone: siteConfig.phoneTel,
   }
 
   const breadcrumbSchema = {
@@ -248,8 +258,8 @@ export default function BreakdownAssistancePage() {
       {/* Hero */}
       <section className="relative w-full overflow-hidden border-b border-white/5 min-h-[75vh] flex items-center">
         <Image
-          src={breakdownAssistanceService.image ?? "/images/motorway-breakdown-recovery-van.webp"}
-          alt="AHS Recovery nationwide breakdown recovery service"
+          src="/images/breakdown-recovery-flatbed-workshop-collection.webp"
+          alt="AHS Recovery flatbed delivering a broken-down vehicle to the workshop"
           fill
           priority
           className="object-cover"
@@ -351,8 +361,8 @@ export default function BreakdownAssistancePage() {
             </div>
             <div className="relative h-[320px] md:h-[420px] rounded-2xl overflow-hidden shadow-xl">
               <Image
-                src="/images/roadside-assistance-petrol-station-night.webp"
-                alt="AHS Recovery vehicle providing roadside breakdown assistance"
+                src="/images/breakdown-recovery-night-city-dolly.webp"
+                alt="AHS Recovery technician using a dolly to recover a broken-down vehicle at night"
                 fill
                 loading="lazy"
                 className="object-cover"
@@ -421,42 +431,55 @@ export default function BreakdownAssistancePage() {
             </p>
           </div>
 
-          <div className="max-w-3xl mx-auto rounded-2xl border-2 border-primary/30 bg-background-dark p-8 md:p-10">
-            <ol className="space-y-6">
-              {safetySteps.map((step, index) => (
-                <li key={step.title} className="flex items-start gap-4">
-                  <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-background-dark font-black flex items-center justify-center text-sm">
-                    {index + 1}
-                  </span>
-                  <div>
-                    <h3 className="text-white font-bold mb-1">{step.title}</h3>
-                    <p className="text-slate-300 leading-relaxed">
-                      {index === safetySteps.length - 1 ? (
-                        <>
-                          Once you are safe,{" "}
-                          <Link href="/contact" className="text-primary font-medium hover:underline">
-                            call AHS Recovery
-                          </Link>{" "}
-                          and provide your location, vehicle details and a description of the fault.
-                        </>
-                      ) : (
-                        step.description
-                      )}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-            <div className="mt-8 pt-6 border-t border-white/10 flex items-start gap-3">
-              <AlertTriangle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-              <p className="text-slate-400 text-sm leading-relaxed">
-                <strong className="text-slate-300">Important Safety Advice:</strong> If your vehicle breaks down on a{" "}
-                <Link href="/services/motorway-breakdown-recovery" className="text-primary font-medium hover:underline">
-                  motorway
-                </Link>
-                , follow official motorway safety instructions. Never place yourself or your passengers at risk while
-                waiting for assistance.
-              </p>
+          <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+            <div className="relative h-64 lg:h-auto rounded-2xl overflow-hidden order-1 lg:order-2">
+              <Image
+                src="/images/breakdown-recovery-motorway-hard-shoulder.webp"
+                alt="AHS Recovery flatbed collecting a broken-down vehicle from a motorway hard shoulder"
+                fill
+                loading="lazy"
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+            <div className="rounded-2xl border-2 border-primary/30 bg-background-dark p-8 md:p-10 order-2 lg:order-1">
+              <ol className="space-y-6">
+                {safetySteps.map((step, index) => (
+                  <li key={step.title} className="flex items-start gap-4">
+                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-background-dark font-black flex items-center justify-center text-sm">
+                      {index + 1}
+                    </span>
+                    <div>
+                      <h3 className="text-white font-bold mb-1">{step.title}</h3>
+                      <p className="text-slate-300 leading-relaxed">
+                        {index === safetySteps.length - 1 ? (
+                          <>
+                            Once you are safe,{" "}
+                            <Link href="/contact" className="text-primary font-medium hover:underline">
+                              call AHS Recovery
+                            </Link>{" "}
+                            and provide your location, vehicle details and a description of the fault.
+                          </>
+                        ) : (
+                          step.description
+                        )}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+              <div className="mt-8 pt-6 border-t border-white/10 flex items-start gap-3">
+                <AlertTriangle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                <p className="text-slate-400 text-sm leading-relaxed">
+                  <strong className="text-slate-300">Important Safety Advice:</strong> If your vehicle breaks down on
+                  a{" "}
+                  <Link href="/services/motorway-breakdown-recovery" className="text-primary font-medium hover:underline">
+                    motorway
+                  </Link>
+                  , follow official motorway safety instructions. Never place yourself or your passengers at risk
+                  while waiting for assistance.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -515,6 +538,17 @@ export default function BreakdownAssistancePage() {
             </p>
           </div>
 
+          <div className="relative h-56 md:h-72 rounded-2xl overflow-hidden mb-10 max-w-4xl mx-auto">
+            <Image
+              src="/images/breakdown-recovery-countryside-misty-flatbed.webp"
+              alt="AHS Recovery flatbed transporting a car on a misty countryside road"
+              fill
+              loading="lazy"
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 896px"
+            />
+          </div>
+
           <div className="max-w-3xl mx-auto grid grid-cols-1 gap-8 mb-10">
             <div className="rounded-2xl border border-white/10 bg-background-dark p-8">
               <h3 className="text-lg font-bold text-white mb-3">Local Breakdown Recovery</h3>
@@ -557,19 +591,31 @@ export default function BreakdownAssistancePage() {
             </p>
           </div>
 
-          <div className="max-w-2xl mx-auto bg-slate-50 rounded-2xl border border-slate-200 p-8 md:p-10">
-            <ul className="space-y-3 mb-6">
-              {vehicleTypes.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-slate-700">
-                  <span className="mt-1 w-4 h-4 rounded border-2 border-primary flex-shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <p className="text-slate-500 text-sm leading-relaxed border-t border-slate-200 pt-5">
-              Recovery depends on the vehicle&apos;s dimensions, weight, condition and accessibility. Provide the
-              vehicle make, model and approximate size when calling.
-            </p>
+          <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+            <div className="relative h-64 lg:h-auto rounded-2xl overflow-hidden">
+              <Image
+                src="/images/breakdown-recovery-jump-start-sunrise.webp"
+                alt="AHS Recovery technician giving a customer's van a jump start at sunrise"
+                fill
+                loading="lazy"
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+            <div className="bg-slate-50 rounded-2xl border border-slate-200 p-8 md:p-10">
+              <ul className="space-y-3 mb-6">
+                {vehicleTypes.map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-slate-700">
+                    <span className="mt-1 w-4 h-4 rounded border-2 border-primary flex-shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p className="text-slate-500 text-sm leading-relaxed border-t border-slate-200 pt-5">
+                Recovery depends on the vehicle&apos;s dimensions, weight, condition and accessibility. Provide the
+                vehicle make, model and approximate size when calling.
+              </p>
+            </div>
           </div>
         </div>
       </section>
