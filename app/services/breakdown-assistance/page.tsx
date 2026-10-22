@@ -21,9 +21,9 @@ import { serviceIcons } from "@/lib/service-icons"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "Nationwide Breakdown Recovery | AHS Recovery",
+  title: "Nationwide Car Breakdown Recovery | AHS Recovery",
   description:
-    "Nationwide breakdown recovery for cars and vans unable to continue their journey. Call AHS Recovery on 07576 614651 for assistance.",
+    "Need nationwide breakdown recovery? AHS Recovery provides car and van recovery across the UK, with safe, reliable vehicle transportation. Call us today.",
   path: "/services/breakdown-assistance",
   ogTitle: "Nationwide Breakdown Recovery | AHS Recovery",
   ogDescription:
@@ -287,11 +287,6 @@ export default function BreakdownAssistancePage() {
                 for cars, vans and other suitable vehicles across the UK.
               </p>
               <p>
-                Whether your vehicle has suffered an engine failure, electrical fault or unexpected mechanical
-                problem, we can arrange suitable recovery equipment and transport your vehicle to an agreed garage,
-                home or another accessible destination.
-              </p>
-              <p>
                 Based in {siteConfig.location}, we provide local breakdown recovery within approximately 60 miles,
                 alongside nationwide car recovery and{" "}
                 <Link href="/services/vehicle-transportation-delivery" className="text-primary font-medium hover:underline">
@@ -371,28 +366,26 @@ export default function BreakdownAssistancePage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {situations.map((situation) => (
-              <div key={situation.title} className="flex gap-5">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+              <div key={situation.title} className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                   <situation.icon className="w-6 h-6 text-primary" />
                 </div>
-                <div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-1.5">{situation.title}</h3>
-                  <p className="text-slate-500 leading-relaxed">
-                    {situation.description}
-                    {situation.linkHref && (
-                      <>
-                        {" "}
-                        For battery-related problems, explore our{" "}
-                        <Link href={situation.linkHref} className="text-primary font-semibold hover:underline">
-                          {situation.linkText}
-                        </Link>
-                        .
-                      </>
-                    )}
-                  </p>
-                </div>
+                <h3 className="text-lg font-bold text-slate-900 mb-1.5">{situation.title}</h3>
+                <p className="text-slate-500 text-sm leading-relaxed">
+                  {situation.description}
+                  {situation.linkHref && (
+                    <>
+                      {" "}
+                      For battery-related problems, explore our{" "}
+                      <Link href={situation.linkHref} className="text-primary font-semibold hover:underline">
+                        {situation.linkText}
+                      </Link>
+                      .
+                    </>
+                  )}
+                </p>
               </div>
             ))}
           </div>
@@ -431,55 +424,42 @@ export default function BreakdownAssistancePage() {
             </p>
           </div>
 
-          <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-            <div className="relative h-64 lg:h-auto rounded-2xl overflow-hidden order-1 lg:order-2">
-              <Image
-                src="/images/breakdown-recovery-motorway-hard-shoulder.webp"
-                alt="AHS Recovery flatbed collecting a broken-down vehicle from a motorway hard shoulder"
-                fill
-                loading="lazy"
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </div>
-            <div className="rounded-2xl border-2 border-primary/30 bg-background-dark p-8 md:p-10 order-2 lg:order-1">
-              <ol className="space-y-6">
-                {safetySteps.map((step, index) => (
-                  <li key={step.title} className="flex items-start gap-4">
-                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-background-dark font-black flex items-center justify-center text-sm">
-                      {index + 1}
-                    </span>
-                    <div>
-                      <h3 className="text-white font-bold mb-1">{step.title}</h3>
-                      <p className="text-slate-300 leading-relaxed">
-                        {index === safetySteps.length - 1 ? (
-                          <>
-                            Once you are safe,{" "}
-                            <Link href="/contact" className="text-primary font-medium hover:underline">
-                              call AHS Recovery
-                            </Link>{" "}
-                            and provide your location, vehicle details and a description of the fault.
-                          </>
-                        ) : (
-                          step.description
-                        )}
-                      </p>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-              <div className="mt-8 pt-6 border-t border-white/10 flex items-start gap-3">
-                <AlertTriangle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                <p className="text-slate-400 text-sm leading-relaxed">
-                  <strong className="text-slate-300">Important Safety Advice:</strong> If your vehicle breaks down on
-                  a{" "}
-                  <Link href="/services/motorway-breakdown-recovery" className="text-primary font-medium hover:underline">
-                    motorway
-                  </Link>
-                  , follow official motorway safety instructions. Never place yourself or your passengers at risk
-                  while waiting for assistance.
-                </p>
-              </div>
+          <div className="max-w-3xl mx-auto rounded-2xl border-2 border-primary/30 bg-background-dark p-8 md:p-10">
+            <ol className="space-y-6">
+              {safetySteps.map((step, index) => (
+                <li key={step.title} className="flex items-start gap-4">
+                  <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-background-dark font-black flex items-center justify-center text-sm">
+                    {index + 1}
+                  </span>
+                  <div>
+                    <h3 className="text-white font-bold mb-1">{step.title}</h3>
+                    <p className="text-slate-300 leading-relaxed">
+                      {index === safetySteps.length - 1 ? (
+                        <>
+                          Once you are safe,{" "}
+                          <Link href="/contact" className="text-primary font-medium hover:underline">
+                            call AHS Recovery
+                          </Link>{" "}
+                          and provide your location, vehicle details and a description of the fault.
+                        </>
+                      ) : (
+                        step.description
+                      )}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+            <div className="mt-8 pt-6 border-t border-white/10 flex items-start gap-3">
+              <AlertTriangle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+              <p className="text-slate-400 text-sm leading-relaxed">
+                <strong className="text-slate-300">Important Safety Advice:</strong> If your vehicle breaks down on a{" "}
+                <Link href="/services/motorway-breakdown-recovery" className="text-primary font-medium hover:underline">
+                  motorway
+                </Link>
+                , follow official motorway safety instructions. Never place yourself or your passengers at risk while
+                waiting for assistance.
+              </p>
             </div>
           </div>
         </div>
@@ -549,7 +529,7 @@ export default function BreakdownAssistancePage() {
             />
           </div>
 
-          <div className="max-w-3xl mx-auto grid grid-cols-1 gap-8 mb-10">
+          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
             <div className="rounded-2xl border border-white/10 bg-background-dark p-8">
               <h3 className="text-lg font-bold text-white mb-3">Local Breakdown Recovery</h3>
               <p className="text-slate-400 leading-relaxed">
