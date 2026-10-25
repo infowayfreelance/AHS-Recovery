@@ -35,11 +35,7 @@ export default function ContactInfo() {
               <Phone className="w-5 h-5" />
             </span>
             <h3 className="text-white font-bold mb-1.5">Main Contact Number</h3>
-            <p className="text-primary font-bold tabular-nums mb-2">{siteConfig.phoneDisplay}</p>
-            <p className="text-slate-400 text-sm leading-relaxed">
-              Call our main number to request vehicle recovery, discuss a breakdown or arrange vehicle
-              transportation.
-            </p>
+            <p className="text-primary font-bold tabular-nums">{siteConfig.phoneDisplay}</p>
           </a>
 
           <a
@@ -50,29 +46,22 @@ export default function ContactInfo() {
               <Phone className="w-5 h-5" />
             </span>
             <h3 className="text-white font-bold mb-1.5">Alternative Contact Number</h3>
-            <p className="text-primary font-bold tabular-nums mb-2">{siteConfig.phoneAltDisplay}</p>
-            <p className="text-slate-400 text-sm leading-relaxed">
-              You can also reach us on our alternative number for recovery enquiries and assistance.
-            </p>
+            <p className="text-primary font-bold tabular-nums">{siteConfig.phoneAltDisplay}</p>
           </a>
 
           <div className="rounded-2xl bg-navy-accent border border-white/10 p-6">
             <span className="flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center bg-[#25D366]/15 text-[#25D366] mb-4">
               <WhatsAppIcon className="w-5 h-5" />
             </span>
-            <h3 className="text-white font-bold mb-1.5">Contact AHS Recovery on WhatsApp</h3>
-            <p className="text-slate-400 text-sm leading-relaxed mb-3">
-              Prefer to send a message? Contact us through WhatsApp with your vehicle details, current location and
-              the type of assistance you need.
-            </p>
-            <div className="flex flex-col gap-1.5">
+            <h3 className="text-white font-bold mb-1.5">WhatsApp</h3>
+            <div className="flex flex-col gap-1">
               <a
                 href={siteConfig.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#25D366] font-bold text-sm hover:underline tabular-nums min-h-[44px] flex items-center"
               >
-                WhatsApp Main: {siteConfig.phoneDisplay}
+                {siteConfig.phoneDisplay}
               </a>
               <a
                 href={siteConfig.whatsappAlt}
@@ -80,7 +69,7 @@ export default function ContactInfo() {
                 rel="noopener noreferrer"
                 className="text-[#25D366] font-bold text-sm hover:underline tabular-nums min-h-[44px] flex items-center"
               >
-                WhatsApp Alternative: {siteConfig.phoneAltDisplay}
+                {siteConfig.phoneAltDisplay}
               </a>
             </div>
           </div>
@@ -90,25 +79,10 @@ export default function ContactInfo() {
               <MapPin className="w-5 h-5" />
             </span>
             <h3 className="text-white font-bold mb-1.5">Our Location</h3>
-            <p className="text-slate-300 text-sm leading-relaxed mb-2">
-              <strong className="text-white">AHS Recovery</strong>
-              <br />
+            <p className="text-slate-300 text-sm leading-relaxed mb-3">
               {siteConfig.addressStreet}
               <br />
               {siteConfig.addressLocality}, {siteConfig.addressRegion} {siteConfig.addressPostcode}
-              <br />
-              {siteConfig.country}
-            </p>
-            <p className="text-slate-400 text-sm leading-relaxed mb-3">
-              We are based in {siteConfig.addressLocality} and provide{" "}
-              <Link href="/services/vehicle-recovery" className="text-primary font-medium hover:underline">
-                vehicle recovery services
-              </Link>{" "}
-              across Essex, East London and surrounding locations.{" "}
-              <Link href="/about" className="text-primary font-medium hover:underline">
-                Learn more about us
-              </Link>
-              .
             </p>
             <a
               href={siteConfig.googleMapsUrl}

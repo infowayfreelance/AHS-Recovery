@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import ContactHero from "@/components/ContactHero"
 import ContactInfo from "@/components/ContactInfo"
-import EmergencyRequestForm from "@/components/EmergencyRequestForm"
+import ContactRecoveryForm from "@/components/ContactRecoveryForm"
 import ContactServiceArea from "@/components/ContactServiceArea"
 import ContactFAQ, { faqs } from "@/components/ContactFAQ"
 import { siteConfig } from "@/lib/site-config"
@@ -112,7 +112,7 @@ export default function ContactPage() {
             </div>
 
             <div>
-              <EmergencyRequestForm
+              <ContactRecoveryForm
                 submitLabel="Request Recovery via WhatsApp"
                 footnote={
                   <>

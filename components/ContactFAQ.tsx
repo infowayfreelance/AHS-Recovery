@@ -78,7 +78,11 @@ export default function ContactFAQ() {
           <p className="text-slate-500 leading-relaxed mb-8">
             Whether you need breakdown recovery in {siteConfig.addressLocality}, car recovery across{" "}
             {siteConfig.addressRegion} or nationwide vehicle transportation, AHS Recovery is here to discuss your
-            requirements.
+            requirements.{" "}
+            <Link href="/about" className="text-primary font-medium hover:underline">
+              Learn more about us
+            </Link>
+            .
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
