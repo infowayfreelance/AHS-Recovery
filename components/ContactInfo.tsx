@@ -1,5 +1,5 @@
-import type { ReactNode } from "react"
-import { MapPin, Phone } from "lucide-react"
+import Link from "next/link"
+import { MapPin, Phone, ArrowUpRight } from "lucide-react"
 import { siteConfig } from "@/lib/site-config"
 
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -10,91 +10,117 @@ function WhatsAppIcon({ className }: { className?: string }) {
   )
 }
 
-interface ContactRow {
-  label: string
-  value: string
-  href: string
-  external?: boolean
-}
-
-function ContactBlock({
-  icon,
-  iconClass,
-  title,
-  rows,
-}: {
-  icon: ReactNode
-  iconClass: string
-  title: string
-  rows: ContactRow[]
-}) {
-  return (
-    <div className="flex gap-4">
-      <span className={`flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center ${iconClass}`}>
-        {icon}
-      </span>
-      <div className="flex-1 min-w-0">
-        <p className="text-white font-bold mb-1.5">{title}</p>
-        <div className="flex flex-wrap gap-x-5 gap-y-1">
-          {rows.map((row) => (
-            <a
-              key={row.value}
-              href={row.href}
-              target={row.external ? "_blank" : undefined}
-              rel={row.external ? "noopener noreferrer" : undefined}
-              className="text-slate-400 hover:text-primary transition-colors text-sm"
-            >
-              <span className="tabular-nums font-medium">{row.value}</span>
-              {row.label && <span className="text-slate-600"> &middot; {row.label}</span>}
-            </a>
-          ))}
-        </div>
-      </div>
-    </div>
-  )
-}
-
 export default function ContactInfo() {
   return (
-    <div className="rounded-3xl bg-navy-accent border border-white/10 p-6 md:p-8 space-y-7">
-      <div>
-        <p className="text-primary font-bold uppercase tracking-[0.2em] text-xs mb-2">Contact Details</p>
-        <h2 className="text-white text-2xl md:text-3xl font-black">Speak to AHS Recovery</h2>
-      </div>
+    <section className="bg-background-dark py-20 md:py-28">
+      <div className="max-w-[1280px] mx-auto px-6 md:px-20 lg:px-40">
+        <div className="max-w-2xl mx-auto text-center mb-14">
+          <span className="text-primary font-black uppercase tracking-[0.2em] text-sm">Contact Details</span>
+          <h2 className="text-3xl md:text-5xl font-black text-white mt-4 mb-4">Get in Touch With Our Team</h2>
+          <p className="text-slate-400 text-base md:text-lg">
+            Looking for the AHS Recovery phone number or need to arrange{" "}
+            <Link href="/services/vehicle-recovery" className="text-primary font-medium hover:underline">
+              vehicle collection
+            </Link>
+            ? Use the contact details below to speak with our team.
+          </p>
+        </div>
 
-      <div className="space-y-6">
-        <ContactBlock
-          icon={<Phone className="w-5 h-5" />}
-          iconClass="bg-primary/15 text-primary"
-          title="Call Us"
-          rows={[
-            { label: "Main", value: siteConfig.phoneDisplay, href: `tel:${siteConfig.phoneTel}` },
-            { label: "Alternative", value: siteConfig.phoneAltDisplay, href: `tel:${siteConfig.phoneAltTel}` },
-          ]}
-        />
-        <ContactBlock
-          icon={<WhatsAppIcon className="w-5 h-5" />}
-          iconClass="bg-[#25D366]/15 text-[#25D366]"
-          title="WhatsApp Us"
-          rows={[
-            { label: "Main", value: siteConfig.phoneDisplay, href: siteConfig.whatsapp, external: true },
-            { label: "Alternative", value: siteConfig.phoneAltDisplay, href: siteConfig.whatsappAlt, external: true },
-          ]}
-        />
-        <ContactBlock
-          icon={<MapPin className="w-5 h-5" />}
-          iconClass="bg-white/10 text-white"
-          title="Based In"
-          rows={[
-            {
-              label: "",
-              value: siteConfig.fullAddress,
-              href: siteConfig.googleMapsUrl,
-              external: true,
-            },
-          ]}
-        />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <a
+            href={`tel:${siteConfig.phoneTel}`}
+            className="group rounded-2xl bg-navy-accent border border-white/10 p-6 hover:border-primary/40 transition-colors min-h-[44px]"
+          >
+            <span className="flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center bg-primary/15 text-primary mb-4">
+              <Phone className="w-5 h-5" />
+            </span>
+            <h3 className="text-white font-bold mb-1.5">Main Contact Number</h3>
+            <p className="text-primary font-bold tabular-nums mb-2">{siteConfig.phoneDisplay}</p>
+            <p className="text-slate-400 text-sm leading-relaxed">
+              Call our main number to request vehicle recovery, discuss a breakdown or arrange vehicle
+              transportation.
+            </p>
+          </a>
+
+          <a
+            href={`tel:${siteConfig.phoneAltTel}`}
+            className="group rounded-2xl bg-navy-accent border border-white/10 p-6 hover:border-primary/40 transition-colors min-h-[44px]"
+          >
+            <span className="flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center bg-primary/15 text-primary mb-4">
+              <Phone className="w-5 h-5" />
+            </span>
+            <h3 className="text-white font-bold mb-1.5">Alternative Contact Number</h3>
+            <p className="text-primary font-bold tabular-nums mb-2">{siteConfig.phoneAltDisplay}</p>
+            <p className="text-slate-400 text-sm leading-relaxed">
+              You can also reach us on our alternative number for recovery enquiries and assistance.
+            </p>
+          </a>
+
+          <div className="rounded-2xl bg-navy-accent border border-white/10 p-6">
+            <span className="flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center bg-[#25D366]/15 text-[#25D366] mb-4">
+              <WhatsAppIcon className="w-5 h-5" />
+            </span>
+            <h3 className="text-white font-bold mb-1.5">Contact AHS Recovery on WhatsApp</h3>
+            <p className="text-slate-400 text-sm leading-relaxed mb-3">
+              Prefer to send a message? Contact us through WhatsApp with your vehicle details, current location and
+              the type of assistance you need.
+            </p>
+            <div className="flex flex-col gap-1.5">
+              <a
+                href={siteConfig.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#25D366] font-bold text-sm hover:underline tabular-nums min-h-[44px] flex items-center"
+              >
+                WhatsApp Main: {siteConfig.phoneDisplay}
+              </a>
+              <a
+                href={siteConfig.whatsappAlt}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#25D366] font-bold text-sm hover:underline tabular-nums min-h-[44px] flex items-center"
+              >
+                WhatsApp Alternative: {siteConfig.phoneAltDisplay}
+              </a>
+            </div>
+          </div>
+
+          <div className="rounded-2xl bg-navy-accent border border-white/10 p-6">
+            <span className="flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center bg-white/10 text-white mb-4">
+              <MapPin className="w-5 h-5" />
+            </span>
+            <h3 className="text-white font-bold mb-1.5">Our Location</h3>
+            <p className="text-slate-300 text-sm leading-relaxed mb-2">
+              <strong className="text-white">AHS Recovery</strong>
+              <br />
+              {siteConfig.addressStreet}
+              <br />
+              {siteConfig.addressLocality}, {siteConfig.addressRegion} {siteConfig.addressPostcode}
+              <br />
+              {siteConfig.country}
+            </p>
+            <p className="text-slate-400 text-sm leading-relaxed mb-3">
+              We are based in {siteConfig.addressLocality} and provide{" "}
+              <Link href="/services/vehicle-recovery" className="text-primary font-medium hover:underline">
+                vehicle recovery services
+              </Link>{" "}
+              across Essex, East London and surrounding locations.{" "}
+              <Link href="/about" className="text-primary font-medium hover:underline">
+                Learn more about us
+              </Link>
+              .
+            </p>
+            <a
+              href={siteConfig.googleMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-primary font-bold text-sm hover:underline min-h-[44px]"
+            >
+              Get Directions <ArrowUpRight className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   )
 }

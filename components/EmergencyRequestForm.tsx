@@ -24,7 +24,13 @@ function Field({ icon, children }: { icon: ReactNode; children: ReactNode }) {
   )
 }
 
-export default function EmergencyRequestForm() {
+export default function EmergencyRequestForm({
+  footnote,
+  submitLabel = "Request Vehicle Recovery",
+}: {
+  footnote?: ReactNode
+  submitLabel?: string
+}) {
   const [submitted, setSubmitted] = useState(false)
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -207,11 +213,13 @@ export default function EmergencyRequestForm() {
             className="w-full bg-primary text-background-dark font-black text-base py-4 rounded-xl shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:scale-[1.02] active:scale-[0.99] transition-all flex items-center justify-center gap-2"
           >
             <Siren className="w-5 h-5" />
-            Request Vehicle Recovery
+            {submitLabel}
           </button>
 
           <p className="text-center text-xs text-slate-400">
-            Local recovery across {siteConfig.localCoverageArea}, plus nationwide breakdown and transport.
+            {footnote ?? (
+              <>Local recovery across {siteConfig.localCoverageArea}, plus nationwide breakdown and transport.</>
+            )}
           </p>
 
           {submitted && (
