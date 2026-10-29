@@ -26,7 +26,7 @@ export default function ContactInfo() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
           <a
             href={`tel:${siteConfig.phoneTel}`}
             className="group rounded-2xl bg-navy-accent border border-white/10 p-6 hover:border-primary/40 transition-colors min-h-[44px]"
@@ -34,45 +34,22 @@ export default function ContactInfo() {
             <span className="flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center bg-primary/15 text-primary mb-4">
               <Phone className="w-5 h-5" />
             </span>
-            <h3 className="text-white font-bold mb-1.5">Main Contact Number</h3>
+            <h3 className="text-white font-bold mb-1.5">Contact Number</h3>
             <p className="text-primary font-bold tabular-nums">{siteConfig.phoneDisplay}</p>
           </a>
 
           <a
-            href={`tel:${siteConfig.phoneAltTel}`}
+            href={siteConfig.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
             className="group rounded-2xl bg-navy-accent border border-white/10 p-6 hover:border-primary/40 transition-colors min-h-[44px]"
           >
-            <span className="flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center bg-primary/15 text-primary mb-4">
-              <Phone className="w-5 h-5" />
-            </span>
-            <h3 className="text-white font-bold mb-1.5">Alternative Contact Number</h3>
-            <p className="text-primary font-bold tabular-nums">{siteConfig.phoneAltDisplay}</p>
-          </a>
-
-          <div className="rounded-2xl bg-navy-accent border border-white/10 p-6">
             <span className="flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center bg-[#25D366]/15 text-[#25D366] mb-4">
               <WhatsAppIcon className="w-5 h-5" />
             </span>
             <h3 className="text-white font-bold mb-1.5">WhatsApp</h3>
-            <div className="flex flex-col gap-1">
-              <a
-                href={siteConfig.whatsapp}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#25D366] font-bold text-sm hover:underline tabular-nums min-h-[44px] flex items-center"
-              >
-                {siteConfig.phoneDisplay}
-              </a>
-              <a
-                href={siteConfig.whatsappAlt}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#25D366] font-bold text-sm hover:underline tabular-nums min-h-[44px] flex items-center"
-              >
-                {siteConfig.phoneAltDisplay}
-              </a>
-            </div>
-          </div>
+            <p className="text-[#25D366] font-bold tabular-nums">{siteConfig.phoneDisplay}</p>
+          </a>
 
           <div className="rounded-2xl bg-navy-accent border border-white/10 p-6">
             <span className="flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center bg-white/10 text-white mb-4">

@@ -25,7 +25,7 @@ const geistMono = Geist_Mono({
 
 const title = "AHS Recovery | Vehicle Recovery, Breakdown & Transportation"
 const description =
-  "AHS Recovery, based in Ilford, Essex, provides towing, breakdown assistance, RTC and accident recovery, roadside assistance and 4x4 recovery locally within 60 miles, plus nationwide breakdown recovery and vehicle transportation. Call 07576 614651."
+  "AHS Recovery, based in Ilford, Essex, provides towing, breakdown assistance, RTC and accident recovery, roadside assistance and 4x4 recovery locally within 60 miles, plus nationwide breakdown recovery and vehicle transportation. Call 07883 546955."
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),

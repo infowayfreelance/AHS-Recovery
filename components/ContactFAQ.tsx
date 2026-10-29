@@ -13,7 +13,7 @@ function WhatsAppIcon({ className }: { className?: string }) {
 export const faqs = [
   {
     question: "How can I contact AHS Recovery?",
-    answer: `You can call AHS Recovery on ${siteConfig.phoneDisplay} or ${siteConfig.phoneAltDisplay}. You can also contact us through WhatsApp or complete the recovery request form on this page.`,
+    answer: `You can call AHS Recovery on ${siteConfig.phoneDisplay}. You can also contact us through WhatsApp or complete the recovery request form on this page.`,
   },
   {
     question: "What information do I need to request vehicle recovery?",
