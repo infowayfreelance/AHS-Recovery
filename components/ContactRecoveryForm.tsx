@@ -17,5 +17,5 @@ export default function ContactRecoveryForm({
   submitLabel?: string
   footnote?: ReactNode
 }) {
-  return <EmergencyRequestForm submitLabel={submitLabel} footnote={footnote} />
+  return <EmergencyRequestForm submitLabel={submitLabel} footnote={footnote} formLocation="contact" />
 }

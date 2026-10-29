@@ -77,7 +77,7 @@ export default function HeroSection() {
           </div>
 
           <div className="w-full lg:w-1/2">
-            <EmergencyRequestForm />
+            <EmergencyRequestForm formLocation="home" />
           </div>
         </div>
       </div>
