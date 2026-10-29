@@ -19,7 +19,7 @@ export default function ContactCTA() {
           Our team is ready to help with local and nationwide recovery.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto mb-4">
+        <div className="max-w-xl mx-auto mb-4">
           <a
             href={`tel:${siteConfig.phoneTel}`}
             className="flex items-center justify-center gap-3 bg-primary text-background-dark px-6 py-4 rounded-xl font-black text-lg hover:brightness-110 hover:scale-[1.02] transition-all"
@@ -27,16 +27,9 @@ export default function ContactCTA() {
             <Phone className="w-5 h-5 flex-shrink-0" />
             <span className="tabular-nums">{siteConfig.phoneDisplay}</span>
           </a>
-          <a
-            href={`tel:${siteConfig.phoneAltTel}`}
-            className="flex items-center justify-center gap-3 bg-white/5 text-white border border-white/15 px-6 py-4 rounded-xl font-black text-lg hover:bg-white/10 hover:scale-[1.02] transition-all"
-          >
-            <Phone className="w-5 h-5 flex-shrink-0" />
-            <span className="tabular-nums">{siteConfig.phoneAltDisplay}</span>
-          </a>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto">
+        <div className="max-w-xl mx-auto">
           <a
             href={siteConfig.whatsapp}
             target="_blank"
@@ -45,15 +38,6 @@ export default function ContactCTA() {
           >
             <WhatsAppIcon className="w-4 h-4 flex-shrink-0" />
             <span className="tabular-nums text-sm">WhatsApp {siteConfig.phoneDisplay}</span>
-          </a>
-          <a
-            href={siteConfig.whatsappAlt}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center gap-3 bg-[#25D366]/10 text-[#25D366] border border-[#25D366]/25 px-6 py-3 rounded-xl font-bold hover:bg-[#25D366]/15 transition-all"
-          >
-            <WhatsAppIcon className="w-4 h-4 flex-shrink-0" />
-            <span className="tabular-nums text-sm">WhatsApp {siteConfig.phoneAltDisplay}</span>
           </a>
         </div>
 

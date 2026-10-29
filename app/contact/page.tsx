@@ -50,13 +50,6 @@ export default function ContactPage() {
         areaServed: "GB",
         availableLanguage: "en-GB",
       },
-      {
-        "@type": "ContactPoint",
-        contactType: "customer service",
-        telephone: siteConfig.phoneAltTel,
-        areaServed: "GB",
-        availableLanguage: "en-GB",
-      },
     ],
   }
 

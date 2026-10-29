@@ -22,7 +22,7 @@ import { buildMetadata } from "@/lib/seo"
 export const metadata = buildMetadata({
   title: "Professional Accident Recovery Service | AHS Recovery",
   description:
-    "Accident recovery for damaged cars and vans. Call AHS Recovery on 07576 614651 for careful vehicle collection and transportation.",
+    "Accident recovery for damaged cars and vans. Call AHS Recovery on 07883 546955 for careful vehicle collection and transportation.",
   path: "/services/accident-recovery",
   ogTitle: "Accident Recovery Ilford & Essex | AHS Recovery",
   ogDescription:

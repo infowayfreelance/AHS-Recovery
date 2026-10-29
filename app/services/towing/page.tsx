@@ -23,7 +23,7 @@ import { buildMetadata } from "@/lib/seo"
 export const metadata = buildMetadata({
   title: "Professional Vehicle Towing Service | AHS Recovery",
   description:
-    "Professional towing for broken-down and non-running vehicles. Call AHS Recovery on 07576 614651 to arrange safe transport.",
+    "Professional towing for broken-down and non-running vehicles. Call AHS Recovery on 07883 546955 to arrange safe transport.",
   path: "/services/towing",
 })
 

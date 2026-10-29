@@ -28,7 +28,7 @@ import { buildMetadata } from "@/lib/seo"
 export const metadata = buildMetadata({
   title: "12V & 24V Jump Start Service | AHS Recovery",
   description:
-    "Professional jump starts for suitable 12V and 24V vehicles with flat batteries. Call AHS Recovery on 07576 614651 for assistance.",
+    "Professional jump starts for suitable 12V and 24V vehicles with flat batteries. Call AHS Recovery on 07883 546955 for assistance.",
   path: "/services/jump-starts",
 })
 

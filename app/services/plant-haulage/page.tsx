@@ -25,7 +25,7 @@ import { buildMetadata } from "@/lib/seo"
 export const metadata = buildMetadata({
   title: "Plant Haulage Services | Machinery Transport | AHS Recovery",
   description:
-    "AHS Recovery provides plant haulage for mini diggers, excavators, rollers, forklifts, tractors and construction machinery. Call 07576 614651 for a quote.",
+    "AHS Recovery provides plant haulage for mini diggers, excavators, rollers, forklifts, tractors and construction machinery. Call 07883 546955 for a quote.",
   path: "/services/plant-haulage",
 })
 

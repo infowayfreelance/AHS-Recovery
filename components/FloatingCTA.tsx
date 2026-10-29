@@ -1,8 +1,6 @@
 "use client"
 
-import type { ReactNode } from "react"
-import { useEffect, useRef, useState } from "react"
-import { Phone, Mail, ChevronRight } from "lucide-react"
+import { Phone, Mail } from "lucide-react"
 import { siteConfig } from "@/lib/site-config"
 import { useCookieConsent } from "@/lib/cookie-consent"
 
@@ -14,142 +12,35 @@ function WhatsAppIcon({ className }: { className?: string }) {
   )
 }
 
-interface MenuOption {
-  label: string
-  value: string
-  href: string
-  external?: boolean
-}
-
-function OptionsCard({
-  title,
-  accentClass,
-  icon,
-  options,
-}: {
-  title: string
-  accentClass: string
-  icon: ReactNode
-  options: MenuOption[]
-}) {
-  return (
-    <div className="w-64 rounded-2xl bg-navy-accent/95 backdrop-blur-md border border-white/10 shadow-2xl shadow-black/40 overflow-hidden animate-in fade-in-0 zoom-in-95 slide-in-from-bottom-2 duration-200">
-      <p className="px-4 pt-3.5 pb-2 text-[11px] font-bold uppercase tracking-widest text-slate-400">{title}</p>
-      <div className="px-2 pb-2 flex flex-col gap-1">
-        {options.map((option) => (
-          <a
-            key={option.value}
-            href={option.href}
-            target={option.external ? "_blank" : undefined}
-            rel={option.external ? "noopener noreferrer" : undefined}
-            className="group flex items-center gap-3 rounded-xl px-2.5 py-2.5 hover:bg-white/5 transition-colors"
-          >
-            <span className={`flex items-center justify-center w-9 h-9 rounded-full flex-shrink-0 ${accentClass}`}>
-              {icon}
-            </span>
-            <span className="flex-1 min-w-0 text-left">
-              <span className="block text-sm font-bold text-white leading-tight">{option.label}</span>
-              <span className="block text-xs text-slate-400 tabular-nums">{option.value}</span>
-            </span>
-            <ChevronRight className="w-4 h-4 text-slate-500 group-hover:text-slate-300 transition-colors flex-shrink-0" />
-          </a>
-        ))}
-      </div>
-    </div>
-  )
-}
-
 export default function FloatingCTA() {
-  const [openMenu, setOpenMenu] = useState<"call" | "whatsapp" | null>(null)
-  const containerRef = useRef<HTMLDivElement>(null)
   const { isBannerOpen } = useCookieConsent()
-
-  useEffect(() => {
-    if (!openMenu) return
-
-    function handleClickOutside(event: MouseEvent) {
-      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
-        setOpenMenu(null)
-      }
-    }
-    function handleEscape(event: KeyboardEvent) {
-      if (event.key === "Escape") setOpenMenu(null)
-    }
-
-    document.addEventListener("mousedown", handleClickOutside)
-    document.addEventListener("keydown", handleEscape)
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside)
-      document.removeEventListener("keydown", handleEscape)
-    }
-  }, [openMenu])
-
-  const toggle = (menu: "call" | "whatsapp") => setOpenMenu((current) => (current === menu ? null : menu))
-
-  const callOptions: MenuOption[] = [
-    { label: "Main Number", value: siteConfig.phoneDisplay, href: `tel:${siteConfig.phoneTel}` },
-    { label: "Alternative Number", value: siteConfig.phoneAltDisplay, href: `tel:${siteConfig.phoneAltTel}` },
-  ]
-
-  const whatsappOptions: MenuOption[] = [
-    { label: "Main Number", value: siteConfig.phoneDisplay, href: siteConfig.whatsapp, external: true },
-    { label: "Alternative Number", value: siteConfig.phoneAltDisplay, href: siteConfig.whatsappAlt, external: true },
-  ]
 
   return (
     <div
-      ref={containerRef}
       className={`fixed right-6 z-50 flex flex-col items-end gap-3 transition-[bottom] duration-200 ${
         isBannerOpen ? "bottom-[calc(6rem+env(safe-area-inset-bottom))] md:bottom-6" : "bottom-6"
       }`}
     >
-      {openMenu === "call" && (
-        <OptionsCard
-          title="Call AHS Recovery"
-          accentClass="bg-[#ff1a1a]/15 text-[#ff1a1a]"
-          icon={<Phone className="w-4 h-4" />}
-          options={callOptions}
-        />
-      )}
-      {openMenu === "whatsapp" && (
-        <OptionsCard
-          title="WhatsApp AHS Recovery"
-          accentClass="bg-[#25D366]/15 text-[#25D366]"
-          icon={<WhatsAppIcon className="w-4 h-4" />}
-          options={whatsappOptions}
-        />
-      )}
-
       <div className="relative">
-        {openMenu !== "call" && (
-          <>
-            <span className="absolute inset-0 rounded-full bg-[#ff1a1a] animate-ping opacity-75 pointer-events-none" />
-            <span className="absolute inset-0 rounded-full bg-[#ff1a1a] animate-pulse opacity-40 pointer-events-none" />
-          </>
-        )}
-        <button
-          type="button"
-          onClick={() => toggle("call")}
-          className={`relative flex items-center justify-center w-12 h-12 md:w-[60px] md:h-[60px] rounded-full text-white shadow-lg shadow-[#ff1a1a]/50 hover:shadow-xl transition-all ${
-            openMenu === "call" ? "bg-white text-[#ff1a1a] ring-2 ring-[#ff1a1a]" : "bg-[#ff1a1a] hover:brightness-110"
-          }`}
-          aria-label="Call AHS Recovery"
-          aria-expanded={openMenu === "call"}
+        <span className="absolute inset-0 rounded-full bg-[#ff1a1a] animate-ping opacity-75 pointer-events-none" />
+        <span className="absolute inset-0 rounded-full bg-[#ff1a1a] animate-pulse opacity-40 pointer-events-none" />
+        <a
+          href={`tel:${siteConfig.phoneTel}`}
+          className="relative flex items-center justify-center w-12 h-12 md:w-[60px] md:h-[60px] rounded-full text-white bg-[#ff1a1a] shadow-lg shadow-[#ff1a1a]/50 hover:shadow-xl hover:brightness-110 transition-all"
+          aria-label={`Call AHS Recovery on ${siteConfig.phoneDisplay}`}
         >
           <Phone className="w-5 h-5 md:w-6 md:h-6" />
-        </button>
+        </a>
       </div>
-      <button
-        type="button"
-        onClick={() => toggle("whatsapp")}
-        className={`flex items-center justify-center w-12 h-12 md:w-[60px] md:h-[60px] rounded-full text-white shadow-lg hover:shadow-xl transition-all ${
-          openMenu === "whatsapp" ? "bg-[#1da851] ring-2 ring-[#25D366]" : "bg-[#25D366] hover:brightness-110"
-        }`}
-        aria-label="Message AHS Recovery on WhatsApp"
-        aria-expanded={openMenu === "whatsapp"}
+      <a
+        href={siteConfig.whatsapp}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center justify-center w-12 h-12 md:w-[60px] md:h-[60px] rounded-full text-white bg-[#25D366] shadow-lg hover:shadow-xl hover:brightness-110 transition-all"
+        aria-label={`Message AHS Recovery on WhatsApp: ${siteConfig.phoneDisplay}`}
       >
         <WhatsAppIcon className="w-5 h-5 md:w-6 md:h-6" />
-      </button>
+      </a>
       <a
         href={`mailto:${siteConfig.email}`}
         className="flex items-center justify-center w-12 h-12 md:w-[60px] md:h-[60px] rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/10 shadow-lg hover:shadow-xl transition-all"

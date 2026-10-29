@@ -25,7 +25,7 @@ import { buildMetadata } from "@/lib/seo"
 export const metadata = buildMetadata({
   title: "Professional Car Recovery Service | AHS Recovery",
   description:
-    "Car recovery for broken-down, damaged and non-running vehicles. Call AHS Recovery on 07576 614651 to arrange safe transportation.",
+    "Car recovery for broken-down, damaged and non-running vehicles. Call AHS Recovery on 07883 546955 to arrange safe transportation.",
   path: "/services/vehicle-recovery",
 })
 

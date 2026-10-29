@@ -26,7 +26,7 @@ import { buildMetadata } from "@/lib/seo"
 export const metadata = buildMetadata({
   title: "Professional Winch-Out Recovery | AHS Recovery",
   description:
-    "Winch recovery for vehicles stuck in mud, ditches, fields and verges. Call AHS Recovery on 07576 614651 for safe vehicle extraction.",
+    "Winch recovery for vehicles stuck in mud, ditches, fields and verges. Call AHS Recovery on 07883 546955 for safe vehicle extraction.",
   path: "/services/winch-out-recovery",
 })
 
