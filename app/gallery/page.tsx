@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Phone } from "lucide-react"
-import GalleryGrid from "@/components/GalleryGrid"
+import GalleryGridLazy from "@/components/GalleryGridLazy"
 import { siteConfig } from "@/lib/site-config"
 import { galleryImages } from "@/lib/gallery"
 import { buildMetadata } from "@/lib/seo"
@@ -132,7 +132,7 @@ export default function GalleryPage() {
 
         <section className="px-6 md:px-20 lg:px-40 py-24 bg-background-dark">
           <div className="max-w-[1400px] mx-auto">
-            <GalleryGrid />
+            <GalleryGridLazy />
           </div>
         </section>
 
