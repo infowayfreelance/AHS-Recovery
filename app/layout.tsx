@@ -78,6 +78,16 @@ export default function RootLayout({
     sameAs: [],
   }
 
+  const webSiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${siteConfig.siteUrl}/#website`,
+    name: siteConfig.name,
+    url: siteConfig.siteUrl,
+    publisher: { "@id": `${siteConfig.siteUrl}/#business` },
+    inLanguage: "en-GB",
+  }
+
   return (
     <html lang="en-GB" className={`dark ${geist.variable} ${geistMono.variable}`}>
       <head>
@@ -85,6 +95,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }} />
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
