@@ -1,8 +1,9 @@
 "use client"
 
-import { useState, type FormEvent, type ReactNode } from "react"
+import { useRef, useState, type FormEvent, type ReactNode } from "react"
 import { User, Phone, Hash, Car, MapPin, Wrench, MessageSquare, AlertTriangle, Siren, ChevronDown } from "lucide-react"
 import { siteConfig, services } from "@/lib/site-config"
+import { pushContactFormSuccessEvent } from "@/lib/analytics"
 
 const urgencyLevels = [
   { value: "standard", label: "Standard – can wait a few hours" },
@@ -27,44 +28,66 @@ function Field({ icon, children }: { icon: ReactNode; children: ReactNode }) {
 export default function EmergencyRequestForm({
   footnote,
   submitLabel = "Request Vehicle Recovery",
+  formLocation = "contact",
 }: {
   footnote?: ReactNode
   submitLabel?: string
+  formLocation?: string
 }) {
   const [submitted, setSubmitted] = useState(false)
+  const isSubmittingRef = useRef(false)
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    const form = event.currentTarget
-    const data = new FormData(form)
 
-    const fullName = data.get("fullName")
-    const phone = data.get("phone")
-    const registration = data.get("registration")
-    const vehicle = data.get("vehicle")
-    const location = data.get("location")
-    const assistanceType = data.get("assistanceType")
-    const description = data.get("description")
-    const urgencyValue = data.get("urgency")
-    const urgencyLabel = urgencyLevels.find((u) => u.value === urgencyValue)?.label ?? urgencyValue
+    // Guards against a duplicate dataLayer push if the submit handler is
+    // ever invoked twice for the same click (e.g. a fast double-submit).
+    if (isSubmittingRef.current) return
+    isSubmittingRef.current = true
 
-    const body = [
-      `*New Recovery Request*`,
-      `Name: ${fullName}`,
-      `Phone: ${phone}`,
-      `Vehicle Registration: ${registration}`,
-      `Vehicle Make & Model: ${vehicle}`,
-      `Location/Postcode: ${location}`,
-      `Assistance Needed: ${assistanceType}`,
-      `Problem Description: ${description}`,
-      `Urgency: ${urgencyLabel}`,
-    ].join("\n")
+    try {
+      const form = event.currentTarget
+      const data = new FormData(form)
 
-    const whatsappUrl = `${siteConfig.whatsapp}?text=${encodeURIComponent(body)}`
+      const fullName = data.get("fullName")
+      const phone = data.get("phone")
+      const registration = data.get("registration")
+      const vehicle = data.get("vehicle")
+      const location = data.get("location")
+      const assistanceType = data.get("assistanceType")
+      const description = data.get("description")
+      const urgencyValue = data.get("urgency")
+      const urgencyLabel = urgencyLevels.find((u) => u.value === urgencyValue)?.label ?? urgencyValue
 
-    window.open(whatsappUrl, "_blank", "noopener,noreferrer")
-    setSubmitted(true)
-    form.reset()
+      const body = [
+        `*New Recovery Request*`,
+        `Name: ${fullName}`,
+        `Phone: ${phone}`,
+        `Vehicle Registration: ${registration}`,
+        `Vehicle Make & Model: ${vehicle}`,
+        `Location/Postcode: ${location}`,
+        `Assistance Needed: ${assistanceType}`,
+        `Problem Description: ${description}`,
+        `Urgency: ${urgencyLabel}`,
+      ].join("\n")
+
+      const whatsappUrl = `${siteConfig.whatsapp}?text=${encodeURIComponent(body)}`
+
+      window.open(whatsappUrl, "_blank", "noopener,noreferrer")
+
+      // Submission has been handed off to WhatsApp successfully (the only
+      // "delivery" this form performs) — track it once, with no personal
+      // data, then reflect the existing success state in the UI.
+      pushContactFormSuccessEvent(formLocation)
+      setSubmitted(true)
+      form.reset()
+    } catch (error) {
+      // Do not push the success event or show a success state if anything
+      // in the submission flow above failed.
+      console.error("Recovery request submission failed", error)
+    } finally {
+      isSubmittingRef.current = false
+    }
   }
 
   return (
