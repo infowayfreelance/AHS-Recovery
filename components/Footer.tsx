@@ -43,6 +43,11 @@ export default function Footer() {
                 About Us
               </Link>
             </li>
+            <li>
+              <Link className="hover:text-primary" href="/blog">
+                Blog
+              </Link>
+            </li>
           </ul>
           <h4 className="text-white font-bold uppercase tracking-wider text-sm">Contact</h4>
           <ul className="space-y-2 text-slate-500 text-sm">

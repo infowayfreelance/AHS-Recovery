@@ -85,6 +85,9 @@ export default function Header() {
             <Link className="text-sm font-medium hover:text-primary transition-colors" href="/about">
               About Us
             </Link>
+            <Link className="text-sm font-medium hover:text-primary transition-colors" href="/blog">
+              Blog
+            </Link>
             <Link className="text-sm font-medium hover:text-primary transition-colors" href="/contact">
               Contact Us
             </Link>
@@ -164,6 +167,13 @@ export default function Header() {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 About Us
+              </Link>
+              <Link
+                href="/blog"
+                className="text-base font-medium text-white hover:text-primary transition-colors py-3 border-b border-white/10"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Blog
               </Link>
               <Link
                 href="/contact"

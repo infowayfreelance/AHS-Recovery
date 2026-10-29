@@ -11,6 +11,8 @@ interface BuildMetadataOptions {
   ogDescription?: string
   /** Adds a page-specific Open Graph / Twitter image. Falls back to the site default when omitted. */
   ogImage?: { url: string; width: number; height: number; alt: string }
+  /** Open Graph object type. Defaults to "website"; pass "article" for blog posts. */
+  ogType?: "website" | "article"
 }
 
 export function buildMetadata({
@@ -20,6 +22,7 @@ export function buildMetadata({
   ogTitle,
   ogDescription,
   ogImage,
+  ogType = "website",
 }: BuildMetadataOptions): Metadata {
   const url = `${siteConfig.siteUrl}${path}`
   const resolvedOgTitle = ogTitle ?? title
@@ -39,7 +42,7 @@ export function buildMetadata({
       follow: true,
     },
     openGraph: {
-      type: "website",
+      type: ogType,
       locale: "en_GB",
       url,
       siteName: siteConfig.name,
