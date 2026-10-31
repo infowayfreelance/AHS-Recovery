@@ -9,6 +9,15 @@ export const metadata = buildMetadata({
   description:
     "Professional jump starts for suitable 12V and 24V vehicles with flat batteries. Call AHS Recovery on 07883 546955 for assistance.",
   path: "/services/jump-starts",
+  ogTitle: "12V & 24V Jump Start Services | AHS Recovery",
+  ogDescription:
+    "Flat battery or car won't start? AHS Recovery provides professional 12V and 24V jump start assistance for suitable cars, vans and commercial vehicles.",
+  ogImage: {
+    url: `${siteConfig.siteUrl}/images/jump-starts-og-image.jpg`,
+    width: 1200,
+    height: 630,
+    alt: "AHS Recovery technician jump-starting a car roadside beside the branded recovery van",
+  },
 })
 
 const scenarios = [
@@ -145,10 +154,14 @@ export default function JumpStartsPage() {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "12V & 24V Jump Start Service",
-    serviceType: "Battery Jump Start",
-    provider: { "@type": "AutomotiveBusiness", name: siteConfig.name, telephone: siteConfig.phoneTel },
+    name: "12V & 24V Jump Start Services",
+    serviceType: "Vehicle Battery Jump Start Assistance",
+    provider: { "@id": `${siteConfig.siteUrl}/#business` },
     url: `${siteConfig.siteUrl}/services/jump-starts`,
+    description:
+      "Professional 12V and 24V jump start assistance for suitable cars, vans and commercial vehicles with flat or discharged batteries.",
+    areaServed: siteConfig.localCoverageArea,
+    telephone: siteConfig.phoneTel,
   }
 
   const breadcrumbSchema = {
@@ -269,7 +282,20 @@ export default function JumpStartsPage() {
             {scenarios.map((scenario) => (
               <div key={scenario.title} className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
                 <h3 className="text-lg font-bold text-slate-900 mb-1.5">{scenario.title}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed">{scenario.description}</p>
+                <p className="text-slate-500 text-sm leading-relaxed">
+                  {scenario.title === "Vehicle Not Used for a Long Time" ? (
+                    <>
+                      Cars and vans left parked for several days or weeks may develop a discharged battery. If your
+                      car won&apos;t start after being parked, our{" "}
+                      <Link href="/services/roadside-assistance" className="text-primary font-medium hover:underline">
+                        roadside battery assistance service
+                      </Link>{" "}
+                      can help assess the problem.
+                    </>
+                  ) : (
+                    scenario.description
+                  )}
+                </p>
               </div>
             ))}
           </div>
@@ -462,8 +488,14 @@ export default function JumpStartsPage() {
               A jump start cannot fix every battery, alternator or starter motor problem.
             </p>
             <p className="text-slate-400 leading-relaxed">
-              If your vehicle still cannot start, our team can discuss appropriate recovery arrangements and
-              transportation to an agreed destination.
+              If your vehicle still cannot start, our team can discuss appropriate recovery arrangements and{" "}
+              <Link
+                href="/services/vehicle-transportation-delivery"
+                className="text-primary font-medium hover:underline"
+              >
+                transportation
+              </Link>{" "}
+              to an agreed destination.
             </p>
           </div>
 
@@ -522,9 +554,12 @@ export default function JumpStartsPage() {
               Need 12V or 24V Jump Start Assistance?
             </h3>
             <p className="text-slate-500 leading-relaxed mb-8">
-              If your car or van has a flat battery or won&apos;t start, contact AHS Recovery to discuss suitable
-              roadside battery jump start assistance. Tell us your location, vehicle details and the symptoms
-              you&apos;re experiencing. We&apos;ll help you understand the available options.
+              If your car or van has a flat battery or won&apos;t start,{" "}
+              <Link href="/contact" className="text-primary font-medium hover:underline">
+                contact AHS Recovery
+              </Link>{" "}
+              to discuss suitable roadside battery jump start assistance. Tell us your location, vehicle details and
+              the symptoms you&apos;re experiencing. We&apos;ll help you understand the available options.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
