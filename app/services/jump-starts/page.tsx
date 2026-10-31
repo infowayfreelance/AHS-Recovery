@@ -1,28 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
-import {
-  Phone,
-  ArrowRight,
-  ChevronDown,
-  Volume2,
-  Gauge,
-  Power,
-  LightbulbOff,
-  ZapOff,
-  BatteryWarning,
-  MoonStar,
-  Lightbulb,
-  Car,
-  Truck,
-  Search,
-  ClipboardList,
-  MessageSquare,
-  HeartHandshake,
-  AlertTriangle,
-} from "lucide-react"
-import ServiceCard from "@/components/ServiceCard"
-import { siteConfig, services } from "@/lib/site-config"
-import { serviceIcons } from "@/lib/service-icons"
+import { Phone, ChevronDown, Car, Truck, Search, ClipboardList, Wrench } from "lucide-react"
+import { siteConfig } from "@/lib/site-config"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
@@ -30,167 +9,91 @@ export const metadata = buildMetadata({
   description:
     "Professional jump starts for suitable 12V and 24V vehicles with flat batteries. Call AHS Recovery on 07883 546955 for assistance.",
   path: "/services/jump-starts",
+  ogTitle: "12V & 24V Jump Start Services | AHS Recovery",
+  ogDescription:
+    "Flat battery or car won't start? AHS Recovery provides professional 12V and 24V jump start assistance for suitable cars, vans and commercial vehicles.",
+  ogImage: {
+    url: `${siteConfig.siteUrl}/images/jump-starts-og-image.jpg`,
+    width: 1200,
+    height: 630,
+    alt: "AHS Recovery technician jump-starting a car roadside beside the branded recovery van",
+  },
 })
 
-const trustPoints = ["12V Battery Jump Starts", "24V Battery Jump Starts", "Cars and Vans", "Battery-System Assessment"]
-
-const symptoms = [
+const scenarios = [
   {
-    icon: Volume2,
-    title: "Clicking When Starting",
-    description: "A repeated clicking sound may mean the battery does not have enough power to operate the starter motor.",
+    title: "Flat or Dead Battery",
+    description:
+      "If your battery has lost its charge, your vehicle may struggle to start or fail to respond when you turn the key. Our flat battery assistance service can help assess whether a jump start is suitable.",
   },
   {
-    icon: Gauge,
-    title: "Slow Engine Cranking",
-    description: "If the engine turns more slowly than normal, the battery may be weak or discharged.",
+    title: "Car Clicking but Not Starting",
+    description:
+      "A rapid clicking sound when starting your car can indicate a weak battery or an electrical problem. If your car won't start but makes a clicking noise, a battery boost may help, depending on the cause.",
   },
   {
-    icon: Power,
-    title: "No Engine Response",
-    description: "The dashboard may light up while the engine does not turn when the key or start button is used.",
+    title: "Lights or Accessories Left On",
+    description:
+      "Leaving headlights, interior lights or other electrical accessories running while the engine is switched off can drain the battery. Our emergency jump start service can assist when the battery no longer has enough charge to start the engine.",
   },
   {
-    icon: LightbulbOff,
-    title: "Dim Interior or Dashboard Lights",
-    description: "Lights that appear unusually dim may indicate low battery power.",
-  },
-  {
-    icon: ZapOff,
-    title: "Electrical Systems Not Working",
-    description: "Central locking, dashboard displays or other electrical features may stop working when the battery is fully discharged.",
-  },
-  {
-    icon: BatteryWarning,
-    title: "Battery Warning Light",
-    description: "A battery warning light while the engine is running can indicate a charging-system problem rather than a simple flat battery.",
-  },
-  {
-    icon: MoonStar,
-    title: "Vehicle Left Unused",
-    description: "A battery can gradually lose charge when a vehicle remains unused for an extended period.",
-  },
-  {
-    icon: Lightbulb,
-    title: "Lights Left On",
-    description: "Headlights, interior lights or other electrical equipment left running can discharge the battery while the engine is off.",
+    title: "Vehicle Not Used for a Long Time",
+    description:
+      "Cars and vans left parked for several days or weeks may develop a discharged battery. If your car won't start after being parked, our roadside battery assistance service can help assess the problem.",
   },
 ]
 
-const voltageSystems = [
-  {
-    icon: Car,
-    voltage: "12V",
-    title: "Cars, Vans and 4x4s",
-    description: "Most cars and many smaller vans use a 12V electrical system.",
-  },
-  {
-    icon: Truck,
-    voltage: "24V",
-    title: "Larger Vans and Commercial Vehicles",
-    description: "Some larger vans and commercial vehicles may use a 24V system.",
-  },
-]
-
-const suitableVehicles = [
-  "Cars using suitable 12V systems",
-  "Small and medium-sized vans",
-  "Suitable 4x4s and SUVs",
-  "Certain commercial vehicles using 24V systems",
-  "Vehicles with discharged batteries",
-  "Vehicles that have been left unused",
-  "Vehicles affected by electrical drain",
-  "Vehicles with enough access to the battery or approved connection points",
-]
-
-const infoChecklist = [
-  "Exact vehicle location",
-  "Vehicle make and model",
-  "Vehicle year where known",
-  "Whether it uses a 12V or 24V system",
-  "What happens when you try to start it",
-  "Whether dashboard lights appear",
-  "Whether a clicking sound is present",
-  "Whether the engine turns slowly",
-  "Whether lights or accessories were left on",
-  "How long the vehicle has been unused",
-  "Whether warning lights appeared before the problem",
-  "Whether the battery is damaged, leaking or swollen",
-  "Whether the vehicle has been in an accident",
-  "Whether battery access is restricted",
-  "Any previous battery or alternator problems",
+const twelveVItems = [
+  "Petrol and diesel cars",
+  "Family hatchbacks and saloons",
+  "SUVs and 4x4 vehicles",
+  "Small vans and light commercial vehicles",
 ]
 
 const processSteps = [
   {
     number: "1",
     title: "Contact AHS Recovery",
-    description: `Call ${siteConfig.phoneDisplay} and explain the starting problem.`,
+    description: `Call ${siteConfig.phoneDisplay} or send us a WhatsApp message to request vehicle jump start assistance. Tell us whether your car, van or commercial vehicle is unable to start.`,
   },
   {
     number: "2",
-    title: "Share Vehicle Details",
-    description: "Provide the make, model, year and battery voltage where known.",
+    title: "Share Your Vehicle Details",
+    description:
+      "Provide your exact location, vehicle make and model, and a brief description of the problem. If known, tell us whether your vehicle uses a 12V or 24V battery system.",
   },
   {
     number: "3",
-    title: "Describe the Symptoms",
-    description: "Tell us whether the engine clicks, cranks slowly or does not respond.",
+    title: "Battery and Starting Assessment",
+    description:
+      "We assess the information provided and check whether jump-starting is appropriate for your vehicle. The battery condition, electrical system and any visible safety concerns are considered before an attempt is made.",
   },
   {
     number: "4",
-    title: "Battery-System Assessment",
-    description: "The battery condition, voltage system and approved connection points are considered.",
-  },
-  {
-    number: "5",
-    title: "Controlled Jump Start",
-    description: "Suitable equipment is connected using the correct procedure for the vehicle.",
-  },
-  {
-    number: "6",
-    title: "Starting Check",
-    description: "The vehicle is started where possible and checked for clear signs that further assistance may be required.",
-  },
-  {
-    number: "7",
-    title: "Recovery When Necessary",
-    description: "If the vehicle cannot start or continue safely, complete vehicle recovery can be arranged.",
+    title: "Jump Start or Recovery",
+    description:
+      "If suitable, we attempt to restart your vehicle using compatible jump start equipment.",
   },
 ]
 
-const recoveryReasons = [
-  "The engine does not start after an appropriate attempt",
-  "The battery appears damaged",
-  "The battery warning light remains on",
-  "The engine stops again",
-  "The alternator is not charging",
-  "A starter motor fault is suspected",
-  "Serious dashboard warnings are displayed",
-  "The vehicle has another mechanical problem",
-  "Continuing the journey may be unsafe",
-]
-
-const benefits = [
+const whyChoose = [
   {
-    icon: Search,
-    title: "12V and 24V Assistance",
-    description: "We can assist with suitable vehicles using 12V and 24V battery systems.",
+    icon: Car,
+    title: "12V and 24V Battery Assistance",
+    description:
+      "We assess suitable cars, vans and commercial vehicles with 12V and 24V electrical systems, helping customers find the right battery starting assistance.",
   },
   {
-    icon: ClipboardList,
-    title: "Vehicle Assessment",
-    description: "We ask about the vehicle, battery and starting symptoms before assistance.",
+    icon: Truck,
+    title: "Mobile Roadside Support",
+    description:
+      "Our mobile car jump start service helps drivers request assistance at an accessible location, without needing to arrange transportation first when a jump start is suitable.",
   },
   {
-    icon: MessageSquare,
-    title: "Controlled Connections",
-    description: "Suitable connection points and battery-system requirements are considered before equipment is attached.",
-  },
-  {
-    icon: HeartHandshake,
-    title: "Recovery When Required",
-    description: "If a jump start does not resolve the problem, vehicle recovery may be arranged.",
+    icon: Wrench,
+    title: "Suitable Jump Start Equipment",
+    description:
+      "Different batteries and electrical systems require compatible equipment. We consider your vehicle's requirements before attempting a portable battery jump start.",
   },
 ]
 
@@ -198,65 +101,67 @@ const relatedServices = [
   {
     slug: "roadside-assistance",
     title: "Roadside Assistance",
-    description: "Support for common vehicle problems that leave a car or van unable to continue.",
+    description: "For common roadside vehicle problems that may require more than battery starting assistance.",
   },
   {
     slug: "breakdown-assistance",
     title: "Breakdown Assistance",
-    description: "Recovery when a mechanical or electrical fault prevents the vehicle from continuing.",
+    description:
+      "For mechanical breakdowns, electrical faults and other problems that prevent your vehicle from continuing its journey.",
   },
   {
     slug: "vehicle-recovery",
     title: "Vehicle Recovery",
-    description: "Transportation for non-starting, broken-down or damaged vehicles.",
+    description:
+      "For non-running or damaged vehicles that need to be transported to a garage, home or another agreed destination.",
   },
 ]
 
 const faqs = [
   {
-    question: "Do you provide 12V battery jump starts?",
-    answer: "Yes. We can assist many suitable cars, vans and 4x4s using 12V battery systems.",
+    question: "Can you jump-start a car with a completely flat battery?",
+    answer:
+      "A car with a discharged battery may start with suitable jump start equipment. However, if the battery is damaged, severely deteriorated or has an internal fault, a jump start may not work or may be unsafe.",
   },
   {
-    question: "Do you provide 24V jump starts?",
-    answer: "We can assist certain suitable commercial vehicles using 24V systems. Provide the vehicle details before assistance is arranged.",
+    question: "Do you provide both 12V and 24V jump start services?",
+    answer:
+      "Yes. AHS Recovery provides 12V and 24V vehicle battery jump start assistance for suitable vehicles. The correct equipment depends on the vehicle's electrical system and battery condition.",
   },
   {
-    question: "How do I know if my battery is flat?",
-    answer: "Common signs include clicking, slow cranking, dim lights or no response when attempting to start. These symptoms can also be caused by other faults.",
+    question: "Can you jump-start cars and vans?",
+    answer:
+      "Yes. Our car and van jump start service covers suitable petrol and diesel vehicles, including many cars, SUVs and light commercial vehicles. Larger commercial vehicles are assessed according to their electrical requirements.",
   },
   {
-    question: "Can a jump start damage my vehicle?",
-    answer: "Incorrect voltage, polarity or connection points can damage electrical components. The correct vehicle procedure and equipment must be used.",
+    question: "What if my car still won't start after a jump start?",
+    answer:
+      "If your car battery boost does not resolve the problem, the fault may involve the battery, alternator, starter motor or another electrical component. Further diagnosis may be needed. If the vehicle cannot be driven safely, we can discuss breakdown recovery.",
   },
   {
-    question: "Can you jump-start a vehicle with a damaged battery?",
-    answer: "A battery that is cracked, leaking, swollen, frozen or producing a strong smell should not be jump-started.",
+    question: "Is jump-starting safe for modern vehicles?",
+    answer:
+      "Jump-starting can be safe when the correct equipment and manufacturer-approved procedure are used. Incorrect connections or unsuitable voltage can damage sensitive electronics. Some hybrid and electric vehicles have specific restrictions, so their manufacturer's instructions must be followed.",
   },
   {
-    question: "Will a jump start fix my battery permanently?",
-    answer: "No. A jump start only provides enough power to start the vehicle. A failing battery or charging-system fault requires further assessment.",
-  },
-  {
-    question: "What if my vehicle still does not start?",
-    answer: "If a suitable jump-start attempt does not work, the vehicle may require breakdown recovery and transportation to a garage.",
-  },
-  {
-    question: "What vehicle details should I provide?",
-    answer: "Provide the make, model, year, battery voltage where known and a clear description of what happens when you attempt to start the vehicle.",
+    question: "Do you offer emergency mobile jump start assistance?",
+    answer:
+      "You can contact AHS Recovery to request emergency battery assistance when your vehicle won't start. Availability and recovery arrangements depend on your location, vehicle and circumstances.",
   },
 ]
-
-const jumpStartsService = services.find((s) => s.slug === "jump-starts")!
 
 export default function JumpStartsPage() {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "12V & 24V Jump Start Service",
-    serviceType: "Battery Jump Start",
-    provider: { "@type": "AutomotiveBusiness", name: siteConfig.name, telephone: siteConfig.phoneTel },
+    name: "12V & 24V Jump Start Services",
+    serviceType: "Vehicle Battery Jump Start Assistance",
+    provider: { "@id": `${siteConfig.siteUrl}/#business` },
     url: `${siteConfig.siteUrl}/services/jump-starts`,
+    description:
+      "Professional 12V and 24V jump start assistance for suitable cars, vans and commercial vehicles with flat or discharged batteries.",
+    areaServed: siteConfig.localCoverageArea,
+    telephone: siteConfig.phoneTel,
   }
 
   const breadcrumbSchema = {
@@ -285,13 +190,15 @@ export default function JumpStartsPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      {/* Hero */}
+      {/* H1: Hero */}
       <section className="relative w-full overflow-hidden border-b border-white/5 min-h-[75vh] flex items-center">
         <Image
-          src={jumpStartsService.image ?? "/images/roadside-assistance-petrol-station-night.webp"}
-          alt="AHS Recovery 12V and 24V jump start service"
+          src="/images/jump-start-ahs-branded-van-roadside.webp"
+          alt="AHS Recovery technician jump-starting a car roadside beside the branded recovery van"
           fill
           priority
+          fetchPriority="high"
+          quality={60}
           className="object-cover"
           sizes="100vw"
         />
@@ -308,14 +215,20 @@ export default function JumpStartsPage() {
             </div>
 
             <h1 className="text-4xl md:text-6xl font-black text-white leading-[1.1] tracking-tight">
-              Jump Start Service 12V &amp; 24V
+              12V &amp; 24V Jump Start Services
             </h1>
 
-            <p className="text-slate-300 text-base md:text-lg max-w-2xl leading-relaxed">
-              Has a flat or discharged battery left your vehicle unable to start? AHS Recovery provides a
-              professional jump start service for suitable 12V and 24V cars, vans and commercial vehicles. We
-              assess the vehicle and battery system before attempting a controlled jump start.
-            </p>
+            <div className="text-slate-300 text-base md:text-lg max-w-2xl leading-relaxed space-y-4">
+              <p>
+                Car or van won&apos;t start because of a flat battery? AHS Recovery provides professional 12V &amp;
+                24V Jump Start assistance for suitable cars, vans and commercial vehicles.
+              </p>
+              <p>
+                Whether your battery has gone flat overnight, your vehicle has been parked for a long time, or
+                you&apos;re dealing with an unexpected starting problem, our mobile jump start service can help you
+                get moving again.
+              </p>
+            </div>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
               <a
@@ -323,65 +236,40 @@ export default function JumpStartsPage() {
                 className="flex-1 whitespace-nowrap bg-primary text-background-dark px-6 py-4 rounded-lg font-black text-base flex items-center justify-center gap-2.5 hover:scale-[1.02] transition-transform"
               >
                 <Phone className="w-5 h-5 flex-shrink-0" />
-                Call {siteConfig.phoneDisplay}
+                Call Now: {siteConfig.phoneDisplay}
               </a>
               <Link
                 href="/contact"
                 className="flex-1 whitespace-nowrap bg-white/5 hover:bg-white/10 text-white border border-white/10 px-6 py-4 rounded-lg font-bold text-base transition-colors text-center flex items-center justify-center"
               >
-                Request a Jump Start
+                Request Jump Start Assistance
               </Link>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-3 pt-6 border-t border-white/10">
-              {trustPoints.map((label) => (
-                <div key={label} className="flex items-center gap-2 text-slate-300 text-sm font-medium">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-                  {label}
-                </div>
-              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Introduction */}
+      {/* H2: When Do You Need a Jump Start? */}
       <section className="bg-white py-20 md:py-28">
         <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
             <div>
-              <span className="text-primary font-black uppercase tracking-[0.2em] text-sm">Roadside Battery Assistance</span>
+              <span className="text-primary font-black uppercase tracking-[0.2em] text-sm">Common Starting Problems</span>
               <h2 className="text-3xl md:text-4xl font-black text-slate-900 mt-4 mb-6 leading-tight">
-                Professional Help for a Flat Vehicle Battery
+                When Do You Need a Jump Start?
               </h2>
               <div className="space-y-4 text-slate-600 text-base md:text-lg leading-relaxed">
                 <p>
-                  A vehicle battery can lose its charge because of cold weather, age, electrical use while the
-                  engine is off or a fault in the charging system. When the battery does not hold enough power, the
-                  engine may turn slowly, make a clicking sound or fail to start.
+                  A flat or discharged battery is a common reason a vehicle won&apos;t start. However, starting
+                  problems can also be caused by electrical or mechanical faults.
                 </p>
-                <p>
-                  AHS Recovery provides car battery assistance for suitable vehicles with discharged 12V and 24V
-                  batteries. Before attempting a jump start, we ask about the vehicle, symptoms and events that
-                  happened before it stopped starting.
-                </p>
-                <p>
-                  A jump start may get the engine running, but it does not repair a damaged battery, faulty
-                  alternator, starter motor problem or other electrical fault. If the vehicle still cannot start or
-                  continue safely, complete recovery may be required.
-                </p>
+                <p>Our car battery jump start service can help in several situations.</p>
               </div>
-              <Link
-                href="/services/jump-starts"
-                className="inline-flex items-center gap-2 text-primary font-bold mt-6 hover:gap-3 transition-all"
-              >
-                Explore Our Jump Start Service <ArrowRight className="w-4 h-4" />
-              </Link>
             </div>
             <div className="relative h-[320px] md:h-[420px] rounded-2xl overflow-hidden shadow-xl">
               <Image
-                src="/images/roadside-assistance-petrol-station-night.webp"
-                alt="AHS Recovery attending a vehicle with a flat battery"
+                src="/images/jump-start-broken-down-car-sunset.webp"
+                alt="A driver waiting beside a broken-down car at sunset next to the AHS Recovery van with jump start equipment"
                 fill
                 loading="lazy"
                 className="object-cover"
@@ -389,149 +277,133 @@ export default function JumpStartsPage() {
               />
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Immediate assistance CTA */}
-      <section className="bg-primary py-10 md:py-12">
-        <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="text-center md:text-left">
-            <h2 className="text-background-dark text-xl md:text-2xl font-black mb-1">Need Help with a Flat Battery?</h2>
-            <p className="text-background-dark/80 text-sm md:text-base max-w-2xl">
-              Call AHS Recovery on {siteConfig.phoneDisplay} and provide your vehicle make, model, battery voltage
-              and the symptoms you notice when trying to start the engine.
-            </p>
-          </div>
-          <a
-            href={`tel:${siteConfig.phoneTel}`}
-            className="flex-shrink-0 flex items-center justify-center gap-3 bg-background-dark text-white px-8 py-4 rounded-lg font-black text-lg hover:scale-[1.02] transition-transform"
-          >
-            <Phone className="w-5 h-5" />
-            Call for a Jump Start
-          </a>
-        </div>
-      </section>
-
-      {/* Battery symptoms */}
-      <section className="bg-navy-accent py-20 md:py-28">
-        <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
-          <div className="max-w-2xl mx-auto text-center mb-16">
-            <span className="text-primary font-black uppercase tracking-[0.2em] text-sm">Common Warning Signs</span>
-            <h2 className="text-3xl md:text-5xl font-black text-white mt-4 mb-4">
-              Signs Your Vehicle May Need a Battery Jump Start
-            </h2>
-            <p className="text-slate-400 text-base md:text-lg">
-              A flat battery can cause several clear symptoms, but similar signs may also result from other
-              electrical or mechanical faults.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 mb-12">
-            {symptoms.map((symptom) => (
-              <div key={symptom.title} className="flex gap-5">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                  <symptom.icon className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-white mb-1.5">{symptom.title}</h3>
-                  <p className="text-slate-400 leading-relaxed">{symptom.description}</p>
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+            {scenarios.map((scenario) => (
+              <div key={scenario.title} className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+                <h3 className="text-lg font-bold text-slate-900 mb-1.5">{scenario.title}</h3>
+                <p className="text-slate-500 text-sm leading-relaxed">
+                  {scenario.title === "Vehicle Not Used for a Long Time" ? (
+                    <>
+                      Cars and vans left parked for several days or weeks may develop a discharged battery. If your
+                      car won&apos;t start after being parked, our{" "}
+                      <Link href="/services/roadside-assistance" className="text-primary font-medium hover:underline">
+                        roadside battery assistance service
+                      </Link>{" "}
+                      can help assess the problem.
+                    </>
+                  ) : (
+                    scenario.description
+                  )}
+                </p>
               </div>
             ))}
           </div>
 
-          <p className="max-w-3xl mx-auto text-center text-slate-400 text-sm leading-relaxed border-t border-white/10 pt-8">
-            These signs do not confirm that the battery is the only problem. The vehicle may still require recovery
-            or mechanical assessment.
+          <p className="max-w-3xl mx-auto text-center text-slate-500 text-sm leading-relaxed border-t border-slate-200 pt-8">
+            Not every starting problem is caused by a flat battery. If your vehicle has a faulty starter motor,
+            alternator or another electrical issue, further inspection or recovery may be required.
           </p>
         </div>
       </section>
 
-      {/* 12V and 24V comparison */}
-      <section className="bg-white py-20 md:py-28">
-        <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
-          <div className="max-w-2xl mx-auto text-center mb-16">
-            <span className="text-primary font-black uppercase tracking-[0.2em] text-sm">Different Battery Systems</span>
-            <h2 className="text-3xl md:text-5xl font-black text-slate-900 mt-4 mb-4">
-              Jump Starts for Suitable 12V and 24V Vehicles
-            </h2>
-            <p className="text-slate-500 text-base md:text-lg max-w-3xl mx-auto">
-              The correct voltage and connection procedure must be identified before jump-start equipment is
-              attached. Using unsuitable equipment or an incorrect connection can damage the battery, electrical
-              system or vehicle electronics.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-            {voltageSystems.map((system) => (
-              <div key={system.voltage} className="rounded-2xl border border-slate-200 bg-slate-50 p-8">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="flex-shrink-0 w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
-                    <system.icon className="w-7 h-7 text-primary" />
-                  </div>
-                  <span className="text-primary font-black text-3xl">{system.voltage}</span>
-                </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">{system.title}</h3>
-                <p className="text-slate-500 leading-relaxed">{system.description}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="max-w-3xl mx-auto bg-slate-50 rounded-2xl border border-slate-200 p-8 md:p-10">
-            <h3 className="text-lg font-bold text-slate-900 mb-5">We may be able to assist with:</h3>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 mb-6">
-              {suitableVehicles.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-slate-600 text-sm">
-                  <span className="mt-1 w-4 h-4 rounded border-2 border-primary flex-shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <p className="text-slate-500 text-sm leading-relaxed border-t border-slate-200 pt-5">
-              Provide the vehicle make, model, year and battery-system details where available. Some vehicles have
-              specific manufacturer procedures that must be followed.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Information checklist */}
+      {/* H2: Professional 12V & 24V Jump Start Assistance */}
       <section className="bg-navy-accent py-20 md:py-28">
         <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
           <div className="max-w-2xl mx-auto text-center mb-16">
-            <span className="text-primary font-black uppercase tracking-[0.2em] text-sm">Help Us Assess the Vehicle</span>
+            <span className="text-primary font-black uppercase tracking-[0.2em] text-sm">Different Battery Systems</span>
             <h2 className="text-3xl md:text-5xl font-black text-white mt-4 mb-4">
-              Details to Provide When Requesting a Jump Start
+              Professional 12V &amp; 24V Jump Start Assistance
             </h2>
+            <p className="text-slate-400 text-base md:text-lg">
+              Different vehicles use different electrical systems. AHS Recovery provides 12V battery jump start and
+              24V jump start assistance for suitable vehicles, using equipment appropriate to their requirements.
+            </p>
           </div>
 
-          <div className="max-w-3xl mx-auto bg-background-dark rounded-2xl border border-white/10 p-8 md:p-10">
-            <h3 className="text-lg font-bold text-white mb-5">Provide:</h3>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 mb-6">
-              {infoChecklist.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-slate-300 text-sm">
-                  <span className="mt-1 w-4 h-4 rounded border-2 border-primary flex-shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <div className="border-t border-white/10 pt-6 flex items-start gap-3">
-              <AlertTriangle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-              <p className="text-slate-300 text-sm leading-relaxed">
-                Do not attempt a jump start if the battery is cracked, leaking, swollen, frozen or giving off a
-                strong unusual smell. Move away from the vehicle and seek professional advice.
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+            <div className="relative h-[280px] md:h-[380px] rounded-2xl overflow-hidden order-last lg:order-first">
+              <Image
+                src="/images/jump-start-leads-battery-closeup.webp"
+                alt="Jump start leads connected to a car battery on the hard shoulder with a broken-down car in the background"
+                fill
+                loading="lazy"
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-lg font-bold text-white mb-2">12V Car Battery Jump Starts</h3>
+                <p className="text-slate-400 leading-relaxed mb-4">
+                  Most standard petrol and diesel cars use a 12V electrical system. Our 12V jump start service can
+                  assist with suitable:
+                </p>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 mb-4">
+                  {twelveVItems.map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-slate-300 text-sm">
+                      <span className="mt-1 w-4 h-4 rounded border-2 border-primary flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-slate-400 leading-relaxed">
+                  Whether you need a car jump start after leaving the lights on or help with a discharged battery,
+                  we assess the vehicle before connecting jump start equipment.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div className="rounded-2xl border border-white/10 bg-background-dark p-8">
+              <h3 className="text-lg font-bold text-white mb-3">24V Van and Commercial Vehicle Jump Starts</h3>
+              <p className="text-slate-400 leading-relaxed mb-3">
+                Some larger commercial vehicles use 24V electrical systems and require compatible equipment.
+              </p>
+              <p className="text-slate-400 leading-relaxed mb-3">
+                Our 24V battery jump start service can assist with suitable commercial vehicles, depending on their
+                electrical systems and battery condition. This may include certain larger vans and commercial
+                vehicles.
+              </p>
+              <p className="text-slate-400 leading-relaxed">
+                Contact us with your vehicle make, model and battery system details so we can confirm whether
+                assistance is suitable.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-background-dark p-8">
+              <h3 className="text-lg font-bold text-white mb-3">Safe and Suitable Battery Assistance</h3>
+              <p className="text-slate-400 leading-relaxed mb-3">
+                Jump-starting a vehicle incorrectly can damage electrical components or create safety risks. Our
+                professional jump start service focuses on checking the vehicle&apos;s requirements, using
+                compatible equipment and following suitable safety procedures.
+              </p>
+              <p className="text-slate-400 leading-relaxed">
+                Modern vehicles, including some hybrid and electric models, may have special jump-starting
+                instructions. Assistance is subject to the manufacturer&apos;s requirements and the vehicle&apos;s
+                condition. If a jump start is not appropriate, we can discuss other options, including{" "}
+                <Link href="/services/breakdown-assistance" className="text-primary font-medium hover:underline">
+                  breakdown recovery
+                </Link>
+                .
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Process */}
+      {/* H2: How Our Jump Start Service Works */}
       <section className="bg-white py-20 md:py-28">
         <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
           <div className="max-w-2xl mx-auto text-center mb-16">
             <span className="text-primary font-black uppercase tracking-[0.2em] text-sm">How It Works</span>
-            <h2 className="text-3xl md:text-5xl font-black text-slate-900 mt-4 mb-4">Our Vehicle Jump Start Process</h2>
+            <h2 className="text-3xl md:text-5xl font-black text-slate-900 mt-4 mb-4">
+              How Our Jump Start Service Works
+            </h2>
+            <p className="text-slate-500 text-base md:text-lg">
+              Requesting mobile battery jump start assistance is straightforward. We collect the necessary
+              information and assess the starting problem before arranging help.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 mb-16">
@@ -541,7 +413,20 @@ export default function JumpStartsPage() {
                   <span className="text-primary font-black text-2xl">{step.number}</span>
                 </div>
                 <h3 className="text-lg font-bold text-slate-900">{step.title}</h3>
-                <p className="text-slate-500 text-sm max-w-[220px]">{step.description}</p>
+                <p className="text-slate-500 text-sm max-w-[240px]">
+                  {step.number === "4" ? (
+                    <>
+                      If suitable, we attempt to restart your vehicle using compatible jump start equipment. If the
+                      battery boost service does not resolve the problem, we can discuss{" "}
+                      <Link href="/services/vehicle-recovery" className="text-primary font-semibold hover:underline">
+                        vehicle recovery
+                      </Link>{" "}
+                      or further mechanical assistance.
+                    </>
+                  ) : (
+                    step.description
+                  )}
+                </p>
               </div>
             ))}
           </div>
@@ -552,121 +437,99 @@ export default function JumpStartsPage() {
               className="inline-flex items-center gap-3 bg-primary text-background-dark px-8 py-4 rounded-lg font-black text-lg hover:scale-[1.02] transition-transform"
             >
               <Phone className="w-5 h-5" />
-              Request Battery Assistance
+              Request Jump Start Assistance
             </a>
           </div>
         </div>
       </section>
 
-      {/* When a jump start is not enough */}
+      {/* H2: Why Choose AHS Recovery? */}
       <section className="bg-navy-accent py-20 md:py-28">
         <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <span className="text-primary font-black uppercase tracking-[0.2em] text-sm">Further Assistance</span>
-            <h2 className="text-3xl md:text-4xl font-black text-white mt-4 mb-6 leading-tight">
-              When Your Vehicle May Need Recovery
-            </h2>
-            <p className="text-slate-400 leading-relaxed">
-              A jump start only supplies temporary electrical power. It cannot repair a failed battery, damaged
-              alternator, faulty starter motor or another mechanical or electrical problem.
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
+            <div>
+              <span className="text-primary font-black uppercase tracking-[0.2em] text-sm">AHS Recovery</span>
+              <h2 className="text-3xl md:text-4xl font-black text-white mt-4 mb-6 leading-tight">
+                Why Choose AHS Recovery?
+              </h2>
+              <p className="text-slate-400 text-base md:text-lg leading-relaxed">
+                When your vehicle won&apos;t start, you need clear advice and suitable assistance. AHS Recovery
+                provides practical roadside jump start support for drivers experiencing battery-related starting
+                problems.
+              </p>
+            </div>
+            <div className="relative h-[280px] md:h-[380px] rounded-2xl overflow-hidden shadow-xl">
+              <Image
+                src="/images/jump-start-technician-customer-consultation.webp"
+                alt="AHS Recovery technician discussing jump start assistance with a customer beside the recovery van"
+                fill
+                loading="lazy"
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
           </div>
 
-          <div className="max-w-3xl mx-auto mb-10">
-            <h3 className="text-lg font-bold text-white mb-5 text-center md:text-left">
-              Vehicle recovery may be required when:
-            </h3>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
-              {recoveryReasons.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-slate-300">
-                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="max-w-3xl mx-auto flex flex-col sm:flex-row gap-x-8 gap-y-3">
-            <Link href="/services/vehicle-recovery" className="inline-flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all">
-              View Our Vehicle Recovery Service <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link href="/services/breakdown-assistance" className="inline-flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all">
-              Explore Our Breakdown Recovery Service <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Why choose us */}
-      <section className="bg-white py-20 md:py-28">
-        <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
-          <div className="max-w-2xl mx-auto text-center mb-16">
-            <span className="text-primary font-black uppercase tracking-[0.2em] text-sm">AHS Recovery</span>
-            <h2 className="text-3xl md:text-5xl font-black text-slate-900 mt-4 mb-4">
-              A Careful Approach to Vehicle Jump Starts
-            </h2>
-            <p className="text-slate-500 text-base md:text-lg">
-              Modern vehicles contain sensitive electrical systems. Battery voltage, connection points and visible
-              battery condition should be considered before attempting a jump start.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
-            {benefits.map((benefit) => (
-              <div key={benefit.title} className="flex gap-5">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                  <benefit.icon className="w-6 h-6 text-primary" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            {whyChoose.map((item) => (
+              <div key={item.title} className="rounded-2xl border border-white/10 bg-background-dark p-8">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                  <item.icon className="w-6 h-6 text-primary" />
                 </div>
-                <div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-1.5">{benefit.title}</h3>
-                  <p className="text-slate-500 leading-relaxed">{benefit.description}</p>
-                </div>
+                <h3 className="text-lg font-bold text-white mb-1.5">{item.title}</h3>
+                <p className="text-slate-400 leading-relaxed">{item.description}</p>
               </div>
             ))}
           </div>
+
+          <div className="max-w-3xl mx-auto bg-background-dark rounded-2xl border border-white/10 p-8 md:p-10 mb-16">
+            <h3 className="text-lg font-bold text-white mb-3">Recovery Options if Your Vehicle Won&apos;t Start</h3>
+            <p className="text-slate-400 leading-relaxed mb-3">
+              A jump start cannot fix every battery, alternator or starter motor problem.
+            </p>
+            <p className="text-slate-400 leading-relaxed">
+              If your vehicle still cannot start, our team can discuss appropriate recovery arrangements and{" "}
+              <Link
+                href="/services/vehicle-transportation-delivery"
+                className="text-primary font-medium hover:underline"
+              >
+                transportation
+              </Link>{" "}
+              to an agreed destination.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-center text-lg font-bold text-white mb-8">Related Recovery Services</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {relatedServices.map((related) => (
+                <Link
+                  key={related.slug}
+                  href={`/services/${related.slug}`}
+                  className="group rounded-2xl border border-white/10 bg-background-dark p-6 hover:border-primary/40 transition-colors"
+                >
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                    {related.slug === "roadside-assistance" && <Search className="w-5 h-5 text-primary" />}
+                    {related.slug === "breakdown-assistance" && <ClipboardList className="w-5 h-5 text-primary" />}
+                    {related.slug === "vehicle-recovery" && <Truck className="w-5 h-5 text-primary" />}
+                  </div>
+                  <h4 className="text-base font-bold text-white mb-1.5 group-hover:text-primary transition-colors">
+                    {related.title}
+                  </h4>
+                  <p className="text-slate-400 text-sm leading-relaxed">{related.description}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Related services */}
-      <section className="bg-navy-accent py-20 md:py-28">
-        <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-primary font-black uppercase tracking-[0.2em] text-sm">Other Recovery Options</span>
-            <h2 className="text-3xl md:text-5xl font-black text-white mt-4 mb-4">Related Breakdown and Recovery Services</h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {relatedServices.map((related) => (
-              <ServiceCard
-                key={related.slug}
-                title={related.title}
-                description={related.description}
-                href={`/services/${related.slug}`}
-                image={services.find((s) => s.slug === related.slug)?.image}
-                icon={serviceIcons[related.slug]}
-              />
-            ))}
-          </div>
-
-          <div className="text-center mt-16">
-            <Link
-              href="/services"
-              className="inline-flex items-center gap-2 bg-primary text-background-dark px-8 py-4 rounded-lg font-black hover:scale-[1.02] transition-transform"
-            >
-              View All Services <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
+      {/* H2: Jump Start Service FAQs */}
       <section className="bg-white py-24">
         <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
           <div className="text-center mb-16">
             <span className="text-primary font-black uppercase tracking-[0.2em] text-sm">Common Questions</span>
-            <h2 className="text-3xl md:text-5xl font-black text-slate-900 mt-4 mb-4">
-              Frequently Asked Questions About Jump Starts
-            </h2>
+            <h2 className="text-3xl md:text-5xl font-black text-slate-900 mt-4 mb-4">Jump Start Service FAQs</h2>
           </div>
 
           <div className="max-w-3xl mx-auto space-y-3">
@@ -685,31 +548,37 @@ export default function JumpStartsPage() {
               </details>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Final CTA */}
-      <section className="bg-background-dark py-20 md:py-28 text-center px-6">
-        <span className="text-primary font-black uppercase tracking-[0.2em] text-sm">Flat Battery Help</span>
-        <h2 className="text-white text-3xl md:text-5xl font-black mt-4 mb-5">Request a Professional Battery Jump Start</h2>
-        <p className="text-slate-400 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-          Call AHS Recovery and explain the vehicle&apos;s starting symptoms. Provide the make, model, location and
-          battery voltage where known so we can assess the appropriate next step.
-        </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a
-            href={`tel:${siteConfig.phoneTel}`}
-            className="flex items-center justify-center gap-3 bg-primary text-background-dark px-8 py-4 rounded-lg font-black text-lg hover:scale-[1.02] transition-transform w-full sm:w-auto"
-          >
-            <Phone className="w-5 h-5" />
-            Call {siteConfig.phoneDisplay}
-          </a>
-          <Link
-            href="/contact"
-            className="bg-white/5 hover:bg-white/10 text-white border border-white/10 px-8 py-4 rounded-lg font-bold text-lg transition-colors w-full sm:w-auto"
-          >
-            Contact AHS Recovery
-          </Link>
+          <div className="max-w-3xl mx-auto text-center mt-16 pt-12 border-t border-slate-200">
+            <h3 className="text-slate-900 text-2xl md:text-3xl font-black mb-3">
+              Need 12V or 24V Jump Start Assistance?
+            </h3>
+            <p className="text-slate-500 leading-relaxed mb-8">
+              If your car or van has a flat battery or won&apos;t start,{" "}
+              <Link href="/contact" className="text-primary font-medium hover:underline">
+                contact AHS Recovery
+              </Link>{" "}
+              to discuss suitable roadside battery jump start assistance. Tell us your location, vehicle details and
+              the symptoms you&apos;re experiencing. We&apos;ll help you understand the available options.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href={`tel:${siteConfig.phoneTel}`}
+                className="flex items-center justify-center gap-3 bg-primary text-background-dark px-8 py-4 rounded-lg font-black text-lg hover:scale-[1.02] transition-transform w-full sm:w-auto"
+              >
+                <Phone className="w-5 h-5" />
+                Call Now: {siteConfig.phoneDisplay}
+              </a>
+              <a
+                href={siteConfig.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#25D366]/10 hover:bg-[#25D366]/15 text-[#1a9c4b] border border-[#25D366]/30 px-8 py-4 rounded-lg font-bold text-lg transition-colors w-full sm:w-auto"
+              >
+                Request Jump Start via WhatsApp
+              </a>
+            </div>
+          </div>
         </div>
       </section>
     </main>
