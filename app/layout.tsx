@@ -75,7 +75,17 @@ export default function RootLayout({
       addressCountry: siteConfig.addressCountryCode,
     },
     image: `${siteConfig.siteUrl}/opengraph-image.png`,
+    logo: `${siteConfig.siteUrl}/images/ahs-logo-wordmark.webp`,
     sameAs: [],
+    makesOffer: [
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Vehicle Recovery", url: `${siteConfig.siteUrl}/services/vehicle-recovery` } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Breakdown Assistance", url: `${siteConfig.siteUrl}/services/breakdown-assistance` } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Accident Recovery", url: `${siteConfig.siteUrl}/services/accident-recovery` } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Towing", url: `${siteConfig.siteUrl}/services/towing` } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Jump Starts", url: `${siteConfig.siteUrl}/services/jump-starts` } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Roadside Assistance", url: `${siteConfig.siteUrl}/services/roadside-assistance` } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Vehicle Transportation", url: `${siteConfig.siteUrl}/services/vehicle-transportation-delivery` } },
+    ],
   }
 
   const webSiteSchema = {
