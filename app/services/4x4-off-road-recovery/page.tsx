@@ -232,6 +232,7 @@ export default function FourByFourOffRoadRecoveryPage() {
           alt="AHS Recovery 4x4 recovery vehicle winching a stuck Land Rover down a hillside"
           fill
           priority
+          quality={50}
           className="object-cover"
           sizes="100vw"
         />
@@ -332,6 +333,7 @@ export default function FourByFourOffRoadRecoveryPage() {
                 alt="AHS Recovery winching a Land Rover Defender out of a roadside ditch"
                 fill
                 loading="lazy"
+                quality={60}
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
@@ -424,6 +426,7 @@ export default function FourByFourOffRoadRecoveryPage() {
                 alt="AHS Recovery winching a 4x4 along a muddy forest track"
                 fill
                 loading="lazy"
+                quality={60}
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
@@ -473,6 +476,7 @@ export default function FourByFourOffRoadRecoveryPage() {
                 alt="AHS Recovery winching a 4x4 stuck in mud on a farm lane"
                 fill
                 loading="lazy"
+                quality={60}
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
@@ -540,6 +544,7 @@ export default function FourByFourOffRoadRecoveryPage() {
                 alt="AHS Recovery flatbed loading a recovered 4x4 on a country lane"
                 fill
                 loading="lazy"
+                quality={60}
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
