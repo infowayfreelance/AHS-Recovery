@@ -32,6 +32,7 @@ export default function ServiceCard({
               alt={title}
               fill
               loading="lazy"
+              quality={60}
               className="object-cover transition-transform duration-500 group-hover:scale-105"
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
