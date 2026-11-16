@@ -9,16 +9,13 @@ import CTASection from "@/components/CTASection"
 import { siteConfig } from "@/lib/site-config"
 import { buildMetadata } from "@/lib/seo"
 
-const homeTitle = "Vehicle Recovery Ilford, Essex | Nationwide Breakdown & Transport | AHS Recovery"
+const homeTitle = "Car Recovery & Towing Ilford, Essex | AHS Recovery"
 const homeDescription =
-  "AHS Recovery is based in Ilford, Essex, offering towing, breakdown assistance, accident recovery and roadside assistance locally within 60 miles, plus nationwide breakdown recovery and vehicle transportation. Call 07883 546955."
+  "Car and vehicle recovery in Ilford, Essex: towing, breakdown and accident recovery within ~60 miles, plus nationwide transport. Call 07883 546955."
 
-export const metadata = buildMetadata({
+const homeMetadata = buildMetadata({
   title: homeTitle,
   description: homeDescription,
-  ogTitle: "AHS Recovery | Vehicle Recovery & Breakdown Assistance",
-  ogDescription:
-    "AHS Recovery provides towing, vehicle recovery and breakdown assistance in Ilford, Essex, with nationwide breakdown recovery and vehicle transportation.",
   ogImage: {
     url: `${siteConfig.siteUrl}/images/homepage-og-image.jpg`,
     width: 1200,
@@ -26,6 +23,16 @@ export const metadata = buildMetadata({
     alt: "AHS Recovery flatbed truck transporting an SUV on the motorway at sunset",
   },
 })
+
+export const metadata = {
+  ...homeMetadata,
+  twitter: {
+    ...homeMetadata.twitter,
+    title: "AHS Recovery | Vehicle Recovery & Breakdown Assistance",
+    description:
+      "AHS Recovery provides towing, vehicle recovery and breakdown assistance in Ilford, Essex, with nationwide breakdown recovery and vehicle transportation.",
+  },
+}
 
 export default function HomePage() {
   const webPageSchema = {

@@ -41,7 +41,7 @@ const faqs: FAQ[] = [
   },
   {
     question: "How do I book a recovery?",
-    answer: `Call us on ${siteConfig.phoneDisplay} or email ${siteConfig.email} with your location and vehicle details, and we'll take it from there.`,
+    answer: `Call us on ${siteConfig.phoneDisplay} or use the recovery request form on this page (it opens WhatsApp) with your location and vehicle details, and we'll take it from there.`,
   },
   {
     question: "Do I need to be with my vehicle when you arrive?",

@@ -35,9 +35,9 @@ export default function HeroSection() {
               </div>
             </div>
             <h1 className="text-3xl md:text-6xl font-black text-white leading-[1.2] md:leading-[1.1] tracking-tight">
-              Vehicle Recovery{" "}
+              Car &amp; Vehicle Recovery{" "}
               <span className="block mt-2 md:inline md:mt-0">
-                You Can <span className="text-primary">Rely On</span>
+                in <span className="text-primary">Ilford, Essex</span>
               </span>
             </h1>
             <p className="text-slate-400 text-base md:text-lg max-w-lg leading-relaxed pt-2 md:pt-0">
