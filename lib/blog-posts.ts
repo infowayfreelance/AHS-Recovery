@@ -14,6 +14,20 @@ export interface BlogPostMeta {
 // this array, so a new entry is all that's needed to publish another post.
 export const blogPosts: BlogPostMeta[] = [
   {
+    slug: "moving-a-non-running-vehicle-uk",
+    title: "Moving a Non-Running Vehicle Across the UK: A Planning Checklist",
+    excerpt:
+      "Plan non-running vehicle transport with checks for vehicle condition, access, keys, paperwork, collection and delivery.",
+    metaDescription:
+      "A planning checklist for transporting a non-running vehicle across the UK: what to tell the operator, access, keys, paperwork, and how collection and delivery usually work.",
+    publishedDate: "2026-11-20",
+    updatedDate: "2026-11-20",
+    heroImage: "/images/non-running-vehicle-uk-featured.webp",
+    heroImageAlt:
+      "A recovery transporter carrying a car on a quiet UK road",
+    readTime: "11 min read",
+  },
+  {
     slug: "what-to-do-if-your-car-breaks-down-on-a-motorway",
     title: "What to Do If Your Car Breaks Down on a Motorway in the UK",
     excerpt:
