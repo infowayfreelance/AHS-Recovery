@@ -11,7 +11,7 @@ export default function ServicesGrid() {
             <ServiceCard
               key={service.slug}
               title={service.title}
-              description={service.shortDescription}
+              description={service.shortDescription.replace("light commercial fleets", "light commercial vehicles")}
               href={`/services/${service.slug}`}
               image={service.image}
               icon={serviceIcons[service.slug]}

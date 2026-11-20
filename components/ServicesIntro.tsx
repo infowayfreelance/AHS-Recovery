@@ -8,8 +8,7 @@ export default function ServicesIntro() {
         <h2 className="text-3xl md:text-5xl font-black text-white leading-tight">Based In Ilford, Ready To Help</h2>
         <p className="text-slate-400 text-lg leading-relaxed max-w-2xl mx-auto">
           AHS Recovery is based in {siteConfig.location} and covers local recovery work across{" "}
-          {siteConfig.localCoverageArea}. We also provide breakdown recovery and vehicle transportation nationwide,
-          with a fleet that ranges from 4x4 recovery trailers to 18-tonne recovery lorries.
+          {siteConfig.localCoverageArea}. We also provide breakdown recovery and vehicle transportation nationwide.
         </p>
         <div className="flex flex-wrap justify-center gap-8 pt-4">
           <div className="flex flex-col items-center">

@@ -9,7 +9,7 @@ interface FAQ {
   answer: string
 }
 
-const faqs: FAQ[] = [
+const defaultFaqs: FAQ[] = [
   {
     question: "Where is AHS Recovery based?",
     answer: `AHS Recovery is based in ${siteConfig.location}, and handles local recovery work across ${siteConfig.localCoverageArea}.`,
@@ -60,7 +60,7 @@ const faqs: FAQ[] = [
   },
 ]
 
-export default function FAQSection() {
+export default function FAQSection({ faqs = defaultFaqs }: { faqs?: FAQ[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   const faqSchema = {
