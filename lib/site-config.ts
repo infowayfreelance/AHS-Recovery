@@ -14,7 +14,6 @@ export const siteConfig = {
   addressPostcode: "IG5 0ST",
   addressCountryCode: "GB",
   fullAddress: "203 Tiptree Cres, Ilford IG5 0ST, United Kingdom",
-  fleetNote: "a fleet ranging from 4x4 recovery trailers to 18-tonne recovery lorries",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://ahsrecovery.co.uk",
   googleMapsEmbedUrl:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2478.806465426483!2d0.06434237566336311!3d51.590110304658964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a70acaba3835%3A0xc1376bcac5af5795!2sAHS%20recovery!5e0!3m2!1sen!2s!4v1789374682046!5m2!1sen!2s",
@@ -65,7 +64,7 @@ export const services: ServiceInfo[] = [
   {
     slug: "jump-starts",
     title: "Jump Starts (12V & 24V)",
-    shortDescription: "On-the-spot jump starts for both 12V and 24V vehicles and light commercial fleets.",
+    shortDescription: "On-the-spot jump starts for both 12V and 24V vehicles and light commercial vehicles.",
     metaTitle: "12V & 24V Jump Starts | AHS Recovery Ilford, Essex",
     metaDescription:
       "Flat battery? AHS Recovery offers 12V and 24V jump starts across Ilford, Essex and within around 60 miles. Call 07883 546955.",

@@ -146,7 +146,7 @@ const benefits = [
   {
     icon: Truck,
     title: "Suitable Recovery Equipment",
-    description: "Our fleet ranges from 4x4 recovery trailers to 18-tonne recovery lorries, allowing us to assess different vehicle recovery requirements.",
+    description: "We assess the vehicle condition and collection location before confirming suitable recovery arrangements.",
   },
   {
     icon: MessageSquare,

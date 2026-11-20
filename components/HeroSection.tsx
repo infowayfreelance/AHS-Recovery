@@ -1,12 +1,11 @@
 import Image from "next/image"
-import { Phone, MapPin, Truck, Route, ShieldCheck } from "lucide-react"
+import { Phone, MapPin, Route, ShieldCheck } from "lucide-react"
 import { siteConfig } from "@/lib/site-config"
 import EmergencyRequestForm from "./EmergencyRequestForm"
 
 const trustSignals = [
   { icon: MapPin, label: "Based In Ilford, Essex" },
   { icon: Route, label: "Local Coverage ~60 Miles" },
-  { icon: Truck, label: "4x4 Trailers to 18-Tonne Lorries" },
 ]
 
 export default function HeroSection() {

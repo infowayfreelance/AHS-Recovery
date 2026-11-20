@@ -59,10 +59,10 @@ export default function RecoveryFeatures() {
         />
         <div className="absolute inset-0 bg-background-dark/70" />
         <div className="relative z-10 max-w-3xl space-y-8">
-          <h2 className="text-4xl md:text-5xl font-black text-white">A Fleet Built For Any Recovery Situation</h2>
+          <h2 className="text-4xl md:text-5xl font-black text-white">Recovery Planned Around Your Situation</h2>
           <p className="text-xl text-slate-300 leading-relaxed">
-            From 4x4 recovery trailers to 18-tonne recovery lorries, AHS Recovery brings the right vehicle for the
-            job, whether that&apos;s a local roadside callout or a longer-distance breakdown recovery.
+            Tell AHS Recovery your location, vehicle details and what has happened. We assess the recovery
+            requirements before confirming the next step.
           </p>
           <div className="flex justify-center">
             <a

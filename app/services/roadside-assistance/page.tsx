@@ -355,7 +355,7 @@ export default function RoadsideAssistancePage() {
             <div className="relative h-[320px] md:h-[420px] rounded-2xl overflow-hidden shadow-xl">
               <Image
                 src="/images/recovery-truck-fleet-transport.webp"
-                alt="AHS Recovery fleet attending a roadside assistance call"
+                alt="Recovery vehicle attending a roadside assistance call"
                 fill
                 loading="lazy"
                 className="object-cover"
