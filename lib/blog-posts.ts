@@ -14,6 +14,19 @@ export interface BlogPostMeta {
 // this array, so a new entry is all that's needed to publish another post.
 export const blogPosts: BlogPostMeta[] = [
   {
+    slug: "car-stuck-in-mud-or-a-ditch",
+    title: "Car Stuck in Mud or a Ditch? A Calm Guide to Safe Winch-Out Recovery",
+    excerpt:
+      "A calm guide to staying safe, describing the ground and access, and understanding what a professional winch-out may involve.",
+    metaDescription:
+      "What to do if your car is stuck in mud, a ditch or on a soft verge: stay safe, what to tell the operator, and how winch-out recovery usually works.",
+    publishedDate: "2026-11-20",
+    updatedDate: "2026-11-20",
+    heroImage: "/images/car-stuck-mud-ditch-featured.webp",
+    heroImageAlt: "A car stuck in soft mud beside a UK rural lane with a recovery truck on firm ground",
+    readTime: "10 min read",
+  },
+  {
     slug: "moving-a-non-running-vehicle-uk",
     title: "Moving a Non-Running Vehicle Across the UK: A Planning Checklist",
     excerpt:
