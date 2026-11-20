@@ -1,3 +1,6 @@
+"use client"
+
+import { usePathname } from "next/navigation"
 import Link from "next/link"
 import { Phone, MapPin } from "lucide-react"
 import Logo from "./Logo"
@@ -6,6 +9,8 @@ import CookieSettingsButton from "./cookies/CookieSettingsButton"
 import { services, siteConfig } from "@/lib/site-config"
 
 export default function Footer() {
+  const pathname = usePathname()
+
   return (
     <footer className="bg-background-dark border-t border-white/5 px-6 md:px-20 lg:px-40 py-16">
       <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
@@ -14,7 +19,8 @@ export default function Footer() {
           <p className="text-slate-500 max-w-sm">
             {siteConfig.name} is based in {siteConfig.location}, providing towing, breakdown assistance and vehicle
             recovery across {siteConfig.localCoverageArea}, plus nationwide breakdown recovery and vehicle
-            transportation. Our fleet ranges from 4x4 recovery trailers to 18-tonne recovery lorries.
+            transportation.
+            {pathname !== "/services" && " Our fleet ranges from 4x4 recovery trailers to 18-tonne recovery lorries."}
           </p>
           <PaymentMethods />
         </div>

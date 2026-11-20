@@ -7,7 +7,7 @@ export default function ServicesCTA() {
       <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="text-center md:text-left">
           <h3 className="text-2xl font-black text-white">Need immediate recovery assistance?</h3>
-          <p className="text-slate-400 mt-1">Our dispatchers are standing by to send help your way.</p>
+          <p className="text-slate-400 mt-1">Call us with your location and vehicle details and we&apos;ll explain the next step.</p>
         </div>
         <a
           href={`tel:${siteConfig.phoneTel}`}
