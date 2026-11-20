@@ -23,11 +23,11 @@ import { buildMetadata } from "@/lib/seo"
 export const metadata = buildMetadata({
   title: "4x4 & Off-Road Recovery Ilford | AHS Recovery",
   description:
-    "Need 4x4 or off-road recovery in Ilford, Essex? AHS Recovery helps with vehicles stuck in mud, fields, ditches and difficult terrain. Call us today.",
+    "4x4 and off-road recovery in Ilford and Essex for vehicles stuck in mud, fields, ditches or rural tracks. Call AHS Recovery on 07883 546955.",
   path: "/services/4x4-off-road-recovery",
   ogTitle: "4x4 & Off-Road Recovery Ilford | AHS Recovery",
   ogDescription:
-    "Need 4x4 or off-road recovery in Ilford and Essex? AHS Recovery helps with vehicles stuck in mud, fields, ditches and difficult terrain.",
+    "4x4 and off-road recovery in Ilford and Essex for vehicles stuck in mud, fields, ditches or rural tracks. Call AHS Recovery on 07883 546955.",
   ogImage: {
     url: `${siteConfig.siteUrl}/images/4x4-off-road-recovery-og-image.jpg`,
     width: 1200,
@@ -179,19 +179,38 @@ const faqs = [
     answer:
       "Please provide your location, vehicle make and model, the type of ground, and details of how the vehicle is stuck. Photographs of the vehicle and surrounding area can help if taken from a safe position.",
   },
+  {
+    question: "Do you cover Romford, Barking and Epping as well as Ilford?",
+    answer:
+      "We assess off-road recovery around Ilford, Essex and East London within approximately 60 miles, including Romford, Barking, Dagenham and, where we can reach the vehicle, nearby areas towards Epping. Call 07883 546955 with the exact location so we can confirm.",
+  },
+  {
+    question: "Can you recover a vehicle from a private field or farm track?",
+    answer:
+      "Often, yes, if we can reach the vehicle safely. Tell us about the access (gate, soft ground, narrow lane) and, if the land is private, make sure we have permission to enter. Photographs of the access route help.",
+  },
+  {
+    question: "How much does 4x4 or off-road recovery cost?",
+    answer:
+      "It depends on the vehicle, the ground, how easy the access is, and whether the vehicle needs transporting afterwards. We'll explain the job and the cost before anything is arranged.",
+  },
 ]
 
 export default function FourByFourOffRoadRecoveryPage() {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "4x4 & Off-Road Recovery",
+    name: "4x4 & Off-Road Recovery Ilford",
     serviceType: "4x4 Recovery, Off-Road Vehicle Recovery",
     provider: { "@id": `${siteConfig.siteUrl}/#business` },
     url: `${siteConfig.siteUrl}/services/4x4-off-road-recovery`,
     description:
       "Professional 4x4 and off-road vehicle recovery for vehicles stuck in mud, fields, ditches, rural tracks and difficult terrain.",
-    areaServed: "Ilford, Essex, East London and surrounding areas within approximately 60 miles.",
+    areaServed: [
+      { "@type": "City", name: "Ilford" },
+      { "@type": "AdministrativeArea", name: "Essex" },
+      "East London and surrounding areas within approximately 60 miles",
+    ],
   }
 
   const breadcrumbSchema = {
@@ -249,7 +268,7 @@ export default function FourByFourOffRoadRecoveryPage() {
             </div>
 
             <h1 className="text-4xl md:text-6xl font-black text-white leading-[1.1] tracking-tight">
-              4x4 &amp; Off-Road Recovery Services
+              4x4 &amp; Off-Road Recovery in Ilford, Essex
             </h1>
 
             <p className="text-slate-300 text-base md:text-lg max-w-2xl leading-relaxed">
@@ -392,6 +411,59 @@ export default function FourByFourOffRoadRecoveryPage() {
         </div>
       </section>
 
+      {/* Local access and onward recovery */}
+      <section className="bg-white py-20 md:py-28">
+        <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
+          <div className="max-w-3xl mx-auto space-y-6 text-slate-600 text-base md:text-lg leading-relaxed">
+            <h2 className="text-3xl md:text-5xl font-black text-slate-900">
+              Off-Road Recovery Around Ilford, Essex and East London
+            </h2>
+            <p>
+              AHS Recovery is based at 203 Tiptree Cres, Ilford IG5 0ST. We assess 4x4 and off-road recovery around
+              Ilford, Essex and East London, within approximately 60 miles, including Gants Hill, Barkingside,
+              Clayhall, Hainault, Chigwell, Woodford, Seven Kings, Goodmayes, Romford, Barking, Dagenham and, where we
+              can reach the vehicle, nearby countryside and tracks towards Epping, Hainault Forest and Havering.
+            </p>
+            <p>
+              Main roads in this area include the A12, the A406 North Circular and the M11 — but off-road jobs
+              often start just off those routes: a field entrance, a farm track, a country park car park, a verge
+              or a ditch after leaving the carriageway. Tell us the nearest road, a postcode or a shared map pin,
+              and send photographs of the vehicle and the access route if it is safe to do so. If the location
+              is beyond our usual local coverage, we&apos;ll say so.
+            </p>
+            <h2 className="text-3xl md:text-5xl font-black text-slate-900">
+              After the Vehicle Is Back on Stable Ground
+            </h2>
+            <p>
+              Once the vehicle is on stable ground, it may or may not be safe to drive. If it is damaged, has a
+              puncture, or you would rather not drive it, we can arrange{" "}
+              <Link href="/services/vehicle-recovery" className="text-primary font-medium hover:underline">
+                vehicle recovery
+              </Link>{" "}
+              or <Link href="/services/towing" className="text-primary font-medium hover:underline">towing</Link>{" "}
+              to your home, a garage or another agreed address. If the job is more of a short pull from a verge
+              or shallow ditch than true off-road access,{" "}
+              <Link href="/services/winch-out-recovery" className="text-primary font-medium hover:underline">
+                winch-out recovery
+              </Link>{" "}
+              may be the better fit — we&apos;ll tell you when you call.
+            </p>
+            <p>
+              Read our{" "}
+              <Link href="/blog/car-stuck-in-mud-or-a-ditch" className="text-primary font-medium hover:underline">
+                guide to a car stuck in mud or a ditch
+              </Link>{" "}
+              for information about staying safe and the details to share with the operator.
+              If the vehicle is on firm ground and a roadside breakdown is the main problem,{" "}
+              <Link href="/services/breakdown-assistance" className="text-primary font-medium hover:underline">
+                breakdown assistance
+              </Link>{" "}
+              may be more appropriate.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Why choose us */}
       <section className="bg-white py-20 md:py-28">
         <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
@@ -434,12 +506,9 @@ export default function FourByFourOffRoadRecoveryPage() {
             <div className="p-8 md:p-10 text-center md:text-left">
               <h3 className="text-lg font-bold text-slate-900 mb-3">Equipped for Rural and Off-Road Access</h3>
               <p className="text-slate-600 leading-relaxed">
-                Narrow lanes, farm tracks and soft verges call for the right recovery vehicle. Our{" "}
-                <Link href="/about" className="text-primary font-medium hover:underline">
-                  4x4 recovery trailers and recovery lorries
-                </Link>{" "}
-                are selected to suit the access available, so we can reach vehicles that standard recovery trucks
-                cannot.
+                Narrow lanes, farm tracks and soft verges need a careful approach. We assess the access first
+                and arrange suitable recovery equipment for the vehicle and the ground, so we only attend when
+                we can reach the vehicle safely.
               </p>
             </div>
           </div>
