@@ -22,7 +22,7 @@ const defaultFaqs: FAQ[] = [
   {
     question: "What types of vehicles can you recover?",
     answer:
-      "We recover cars, vans, 4x4s and larger vehicles. Our fleet ranges from 4x4 recovery trailers to 18-tonne recovery lorries, so we can match the right vehicle to the job.",
+      "We assess the vehicle, its condition and access before confirming suitable recovery arrangements. Tell us the make and model when you call.",
   },
   {
     question: "Can you help if my vehicle won't start?",

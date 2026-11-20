@@ -21,7 +21,7 @@ export const aboutFaqs: AboutFaq[] = [
   {
     question: "What types of vehicles can AHS Recovery recover?",
     answer:
-      "Our fleet includes equipment ranging from 4x4 recovery trailers to 18-tonne recovery lorries. Contact us with your vehicle details so we can confirm suitable recovery arrangements.",
+      "We assess the vehicle and collection conditions before confirming recovery. Contact us with your vehicle details so we can confirm suitable recovery arrangements.",
   },
   {
     question: "Can you recover vehicles from motorways?",
@@ -52,7 +52,7 @@ export const aboutFaqs: AboutFaq[] = [
 const linkedAnswers: Record<string, ReactNode> = {
   "What types of vehicles can AHS Recovery recover?": (
     <>
-      Our fleet includes equipment ranging from 4x4 recovery trailers to 18-tonne recovery lorries.{" "}
+      We assess the vehicle and collection conditions before confirming recovery.{" "}
       <Link href="/contact" className="text-primary font-medium hover:underline">
         Contact us
       </Link>{" "}

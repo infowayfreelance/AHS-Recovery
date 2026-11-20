@@ -39,12 +39,11 @@ export default function AboutIntro() {
               for customers who need their vehicles moved over longer distances.
             </p>
             <p>
-              With recovery equipment ranging from 4x4 trailers to 18-tonne recovery lorries, we can assess
-              different vehicle types and arrange suitable recovery equipment for each job. Take a look at our{" "}
+              We assess the vehicle and collection conditions before confirming recovery arrangements. Take a look at our{" "}
               <Link href="/gallery" className="text-primary font-medium hover:underline">
                 recovery photo gallery
               </Link>{" "}
-              to see our fleet in action.
+              to see examples of recovery work.
             </p>
           </div>
         </div>

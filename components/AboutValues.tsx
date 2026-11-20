@@ -18,12 +18,11 @@ export default function AboutValues() {
             <div className="text-primary text-4xl font-black">01.</div>
             <h3 className="text-xl font-bold text-white uppercase tracking-tight">Suitable Recovery Equipment</h3>
             <p className="text-slate-400 leading-relaxed">
-              Our fleet includes{" "}
+              We assess your vehicle and recovery requirements before confirming arrangements, including{" "}
               <Link href="/services/4x4-off-road-recovery" className="text-primary font-medium hover:underline">
-                4x4 recovery trailers
-              </Link>{" "}
-              and recovery lorries up to 18 tonnes. This allows us to arrange suitable equipment based on your
-              vehicle and recovery requirements.
+                4x4 and off-road recovery
+              </Link>
+              .
             </p>
           </div>
           <div className="space-y-4">

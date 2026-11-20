@@ -82,7 +82,7 @@ const whyChooseUs = [
     icon: Truck,
     title: "Suitable Recovery Equipment",
     description:
-      "Our recovery fleet includes 4x4 recovery trailers and recovery lorries up to 18 tonnes. We assess your vehicle and location before selecting suitable equipment.",
+      "We assess your vehicle and location before confirming suitable recovery arrangements.",
   },
   {
     icon: ShieldCheck,
@@ -309,9 +309,9 @@ export default function FourByFourOffRoadRecoveryPage() {
                 <p>
                   Before arranging recovery, AHS Recovery assesses the type of vehicle, ground conditions,
                   surrounding space and the position in which the vehicle is stuck. This information helps determine
-                  the suitable recovery method and equipment from our{" "}
+                  a suitable recovery method. Learn more about our{" "}
                   <Link href="/about" className="text-primary font-medium hover:underline">
-                    recovery fleet
+                    recovery approach
                   </Link>
                   .
                 </p>

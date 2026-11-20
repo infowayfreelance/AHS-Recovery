@@ -48,7 +48,7 @@ const categoryLinks = [
   },
   {
     heading: "Plant & Large Vehicle Transport",
-    description: "Transportation of plant machinery, large vehicles and commercial vehicles on our flatbed fleet.",
+    description: "Transportation of plant machinery and commercial vehicles.",
     href: "/services/plant-haulage",
     linkText: "Plant Haulage",
   },

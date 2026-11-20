@@ -182,7 +182,7 @@ const benefits = [
   {
     icon: Truck,
     title: "Suitable Recovery Equipment",
-    description: "Our recovery fleet includes equipment ranging from 4x4 recovery trailers to 18-tonne recovery lorries. We select a suitable recovery method based on the vehicle and circumstances.",
+    description: "We assess the vehicle and circumstances before confirming a suitable recovery method.",
   },
   {
     icon: ClipboardList,
@@ -221,11 +221,11 @@ const processLinkedDescriptions: Record<string, ReactNode> = {
 const benefitLinkedDescriptions: Record<string, ReactNode> = {
   "Suitable Recovery Equipment": (
     <>
-      Our recovery fleet includes equipment ranging from{" "}
+      We assess the vehicle and circumstances before confirming a suitable recovery method, including{" "}
       <Link href="/services/4x4-off-road-recovery" className="text-primary font-medium hover:underline">
-        4x4 recovery trailers
+        off-road recovery
       </Link>{" "}
-      to 18-tonne recovery lorries. We select a suitable recovery method based on the vehicle and circumstances.
+      where required.
     </>
   ),
 }

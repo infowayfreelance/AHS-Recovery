@@ -54,7 +54,7 @@ export default function AboutServices() {
         <div className="max-w-2xl mx-auto text-center mb-16">
           <span className="text-primary font-black uppercase tracking-[0.2em] text-sm">What We Do</span>
           <h2 className="text-3xl md:text-5xl font-black text-slate-900 mt-4 mb-4">
-            Our Recovery Services and Fleet
+            Our Recovery Services
           </h2>
           <p className="text-slate-500 text-base md:text-lg">
             AHS Recovery offers a range of recovery and roadside services for different situations. Whether your
@@ -86,7 +86,7 @@ export default function AboutServices() {
           <div className="relative h-56 md:h-full min-h-[260px]">
             <Image
               src="/images/recovery-fleet-yard-depot.webp"
-              alt="AHS Recovery fleet of recovery vehicles at our yard"
+              alt="Recovery vehicles parked at a yard"
               fill
               loading="lazy"
               className="object-cover"
@@ -94,12 +94,11 @@ export default function AboutServices() {
             />
           </div>
           <div className="p-8 md:p-10 text-center md:text-left">
-            <h3 className="text-lg font-bold text-slate-900 mb-3">Our Recovery Fleet</h3>
+            <h3 className="text-lg font-bold text-slate-900 mb-3">Planning Your Recovery</h3>
             <p className="text-slate-600 leading-relaxed">
-              Our fleet ranges from 4x4 recovery trailers to 18-tonne recovery lorries. Having different recovery
-              vehicles allows us to handle a wider range of transport and recovery requirements. We assess each job
-              before arranging equipment, considering the vehicle&apos;s condition, weight, location, and
-              accessibility.
+              We assess each job before arranging recovery, considering the vehicle&apos;s condition, weight,
+              location and accessibility. Share these details when you contact us so we can discuss the
+              recovery requirements.
             </p>
           </div>
         </div>

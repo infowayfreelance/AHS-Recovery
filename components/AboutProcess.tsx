@@ -35,10 +35,6 @@ export default function AboutProcess() {
                 <div className="text-3xl font-black text-white">Ilford</div>
                 <div className="text-slate-500 text-sm uppercase font-bold tracking-wider">Base Location</div>
               </div>
-              <div>
-                <div className="text-3xl font-black text-white">4x4 &ndash; 18t</div>
-                <div className="text-slate-500 text-sm uppercase font-bold tracking-wider">Fleet Range</div>
-              </div>
             </div>
           </div>
         </div>
