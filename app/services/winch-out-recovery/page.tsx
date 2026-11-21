@@ -24,9 +24,9 @@ import { serviceIcons } from "@/lib/service-icons"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "Professional Winch-Out Recovery | AHS Recovery",
+  title: "Winch-Out Recovery Ilford & Essex | AHS Recovery",
   description:
-    "Winch recovery for vehicles stuck in mud, ditches, fields and verges. Call AHS Recovery on 07883 546955 for safe vehicle extraction.",
+    "Specialist winching for cars, vans and 4x4s stuck in mud, ditches, verges or fields around Ilford and East London. Call AHS Recovery on 07883 546955.",
   path: "/services/winch-out-recovery",
 })
 
@@ -245,50 +245,90 @@ const faqs = [
     question: "What is the difference between winch recovery and off-road recovery?",
     answer: "Winch recovery is often used when equipment can operate from nearby stable ground. Off-road recovery may be required when difficult terrain must be crossed to reach the vehicle.",
   },
+  {
+    question: "Do you cover Romford, Barking and Woodford as well as Ilford?",
+    answer:
+      "Yes. We're based at 203 Tiptree Cres, Ilford IG5 0ST and assess winch-out recovery around Ilford, Essex and East London within approximately 60 miles, including Romford, Barking, Dagenham and Woodford. Call 07883 546955 with the exact location so we can confirm.",
+  },
+  {
+    question: "Can winching damage my vehicle?",
+    answer:
+      "Any recovery carries some risk, which is why we assess the vehicle's position, the ground and suitable attachment points before the pull, and keep the movement slow and controlled. Tell us about any existing damage when you call, and don't attach ropes or straps to parts of the vehicle that aren't designed for recovery.",
+  },
+  {
+    question: "How much does winch-out recovery cost?",
+    answer:
+      "It depends on the vehicle, how and where it is stuck, the access and whether it needs transporting afterwards. We'll explain the job and the cost before anything is arranged.",
+  },
 ]
 
 const winchOutService = services.find((s) => s.slug === "winch-out-recovery")!
 
 export default function WinchOutRecoveryPage() {
-  const serviceSchema = {
+  const schemaGraph = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    name: "Winch-Out Recovery",
-    serviceType: "Winch Recovery",
-    provider: { "@type": "AutomotiveBusiness", name: siteConfig.name, telephone: siteConfig.phoneTel },
-    url: `${siteConfig.siteUrl}/services/winch-out-recovery`,
-  }
-
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.siteUrl },
-      { "@type": "ListItem", position: 2, name: "Services", item: `${siteConfig.siteUrl}/services` },
+    "@graph": [
       {
-        "@type": "ListItem",
-        position: 3,
-        name: "Winch-Out Recovery",
-        item: `${siteConfig.siteUrl}/services/winch-out-recovery`,
+        "@type": "Service",
+        "@id": "https://ahsrecovery.co.uk/services/winch-out-recovery#service",
+        "name": "Winch-Out Recovery Ilford",
+        "serviceType": "Winch Recovery",
+        "url": "https://ahsrecovery.co.uk/services/winch-out-recovery",
+        "description": "Specialist winch-out recovery for cars, vans and 4x4s stuck in mud, ditches, verges, fields and difficult positions around Ilford, Essex and East London.",
+        "provider": {
+          "@id": "https://ahsrecovery.co.uk/#business"
+        },
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Ilford"
+          },
+          {
+            "@type": "AdministrativeArea",
+            "name": "Essex"
+          },
+          "East London and surrounding areas within approximately 60 miles"
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://ahsrecovery.co.uk/services/winch-out-recovery#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://ahsrecovery.co.uk"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Services",
+            "item": "https://ahsrecovery.co.uk/services"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Winch-Out Recovery",
+            "item": "https://ahsrecovery.co.uk/services/winch-out-recovery"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${siteConfig.siteUrl}/services/winch-out-recovery#faq`,
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: { "@type": "Answer", text: faq.answer },
+        })),
       },
     ],
   }
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: { "@type": "Answer", text: faq.answer },
-    })),
-  }
-
   return (
     <main>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaGraph) }} />
 
       {/* Hero */}
       <section className="relative w-full overflow-hidden border-b border-white/5 min-h-[75vh] flex items-center">
@@ -313,13 +353,14 @@ export default function WinchOutRecoveryPage() {
             </div>
 
             <h1 className="text-4xl md:text-6xl font-black text-white leading-[1.1] tracking-tight">
-              Professional Winch-Out Recovery
+              Specialist Winch-Out Recovery in Ilford, Essex
             </h1>
 
             <p className="text-slate-300 text-base md:text-lg max-w-2xl leading-relaxed">
-              Is your car, van or 4x4 stuck in mud, a ditch, field, verge or another difficult position? AHS
-              Recovery provides professional winch recovery using a controlled approach based on the vehicle&apos;s
-              position, condition, ground stability and available access.
+              Is your car, van or 4x4 stuck in mud, a ditch, field, verge or another difficult position in or
+              around Ilford? AHS Recovery provides specialist winch recovery across Ilford, Essex and East London,
+              using a controlled approach based on the vehicle&apos;s position, condition, ground stability and
+              available access.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
@@ -490,6 +531,28 @@ export default function WinchOutRecoveryPage() {
         </div>
       </section>
 
+      {/* Self-recovery guidance */}
+      <section className="bg-white py-20 md:py-28">
+        <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6">
+              Why Self-Recovery Often Makes It Worse
+            </h2>
+            <p className="text-slate-600 text-base md:text-lg leading-relaxed">
+              Spinning the wheels digs them deeper and can damage tyres, the clutch or the gearbox. Towing with
+              a rope from another car, or tying a strap to a bumper, a suspension arm or anything not designed
+              for recovery, can bend parts or snap the strap. A specialist winch-out uses a planned direction
+              of pull from stable ground, suitable attachment points and a slow, controlled movement, with
+              everyone kept clear of the line. For more advice, read our guide to a{" "}
+              <Link href="/blog/car-stuck-in-mud-or-a-ditch" className="text-primary font-medium hover:underline">
+                car stuck in mud or a ditch
+              </Link>
+              .
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Information required */}
       <section className="bg-navy-accent py-20 md:py-28">
         <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
@@ -537,7 +600,19 @@ export default function WinchOutRecoveryPage() {
                   <span className="text-primary font-black text-2xl">{step.number}</span>
                 </div>
                 <h3 className="text-lg font-bold text-slate-900">{step.title}</h3>
-                <p className="text-slate-500 text-sm max-w-[220px]">{step.description}</p>
+                <p className="text-slate-500 text-sm max-w-[220px]">
+                  {step.number === "9" ? (
+                    <>
+                      If the vehicle cannot continue safely,{" "}
+                      <Link href="/services/vehicle-recovery" className="text-primary font-medium hover:underline">
+                        complete vehicle recovery
+                      </Link>{" "}
+                      can be arranged.
+                    </>
+                  ) : (
+                    step.description
+                  )}
+                </p>
               </div>
             ))}
           </div>
@@ -607,6 +682,29 @@ export default function WinchOutRecoveryPage() {
         </div>
       </section>
 
+      {/* Local winch-out coverage */}
+      <section className="bg-white py-20 md:py-28">
+        <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
+          <div className="max-w-3xl mx-auto space-y-6">
+            <h2 className="text-3xl md:text-5xl font-black text-slate-900">
+              Winch-Out Recovery Around Ilford, Essex and East London
+            </h2>
+            <p className="text-slate-600 text-base md:text-lg leading-relaxed">
+              AHS Recovery is based at 203 Tiptree Cres, Ilford IG5 0ST. We assess winch-out recovery around Ilford,
+              Essex and East London, within approximately 60 miles, including Gants Hill, Barkingside, Clayhall,
+              Hainault, Chigwell, Woodford, Seven Kings, Goodmayes, Romford, Barking and Dagenham.
+            </p>
+            <p className="text-slate-600 text-base md:text-lg leading-relaxed">
+              Many winch-outs start just off the main roads: a verge or ditch beside the A12 or the A406 North
+              Circular, a soft field entrance near the M11, a grass verge on a residential street or a tight spot
+              in a car park. Tell us the nearest road, a postcode or a shared map pin, and send photographs of the
+              vehicle and the access route if it is safe to do so. If the location is beyond our usual local
+              coverage, we&apos;ll say so.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Why choose us */}
       <section className="bg-white py-20 md:py-28">
         <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
@@ -643,6 +741,13 @@ export default function WinchOutRecoveryPage() {
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="text-primary font-black uppercase tracking-[0.2em] text-sm">Other Recovery Options</span>
             <h2 className="text-3xl md:text-5xl font-black text-white mt-4 mb-4">Related Vehicle Recovery Services</h2>
+            <p className="text-slate-400 leading-relaxed">
+              Need the vehicle moved after it&apos;s back on firm ground? See{" "}
+              <Link href="/services/towing" className="text-primary font-medium hover:underline">
+                towing
+              </Link>
+              .
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
