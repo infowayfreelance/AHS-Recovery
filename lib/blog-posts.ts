@@ -14,6 +14,20 @@ export interface BlogPostMeta {
 // this array, so a new entry is all that's needed to publish another post.
 export const blogPosts: BlogPostMeta[] = [
   {
+    slug: "broken-down-no-breakdown-cover",
+    title: "Broken Down With No Breakdown Cover? A Clear Plan for What to Do Next",
+    excerpt:
+      "Get safe, check whether you already have cover, choose roadside help or recovery, and prepare the details the operator needs.",
+    metaDescription:
+      "Broken down without breakdown cover? A step-by-step plan: get safe, check for hidden cover, choose roadside help or recovery, and what to tell the operator.",
+    publishedDate: "2026-11-21",
+    updatedDate: "2026-11-21",
+    heroImage: "/images/broken-down-no-breakdown-cover-featured.webp",
+    heroImageAlt:
+      "Driver standing safely on a verge beside a broken-down car with hazard lights on, calling for help",
+    readTime: "9 min read",
+  },
+  {
     slug: "car-stuck-in-mud-or-a-ditch",
     title: "Car Stuck in Mud or a Ditch? A Calm Guide to Safe Winch-Out Recovery",
     excerpt:
