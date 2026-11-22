@@ -22,28 +22,28 @@ export const metadata = buildMetadata({
 
 const faqs = [
   {
-    "question": "Can I get breakdown help without breakdown cover?",
-    "answer": "Yes. You can call a recovery company directly and pay for roadside assistance or recovery. AHS Recovery can discuss the job with you and agree the price before it goes ahead."
+    "question": "Can I get breakdown help without cover?",
+    "answer": "Yes. Explain that the vehicle has already broken down and ask a recovery operator to assess the job. Confirm whether you need roadside help or transport, where the vehicle should go and the agreed cost before booking."
   },
   {
-    "question": "Should I buy breakdown cover after I have broken down?",
-    "answer": "Be careful. The RAC advises against buying a standard policy after you have broken down, because most policies start 24 hours after purchase and may not cover a breakdown that already exists."
+    "question": "Can I buy a policy after the car has stopped?",
+    "answer": "Do not assume a new standard policy covers an existing breakdown. The RAC warns that most policies start 24 hours after purchase. Tell the provider what has already happened and ask specifically about help for this incident."
   },
   {
-    "question": "What should I do first if I break down with no cover on a motorway?",
-    "answer": "The same as anyone else: go left, get safe, get help. Stop on the hard shoulder or in an emergency area, leave by the side away from traffic if it is safe, wait behind the barrier, and use the emergency telephone or call National Highways on 0300 123 5000. If you cannot get out of a live lane safely, call 999."
+    "question": "What if I am broken down on a motorway with no cover?",
+    "answer": "Deal with the danger first. If you cannot reach relative safety and cannot leave safely, stay belted in with hazards on and call 999 for police. Otherwise follow the official motorway safety steps, then arrange help."
   },
   {
-    "question": "How much does recovery cost without cover?",
-    "answer": "It depends on the location, the vehicle's condition, the equipment needed and the destination. Describe the job clearly and ask for the price before work starts."
+    "question": "Can you collect a car that will not start on my driveway?",
+    "answer": "AHS Recovery can discuss a driveway collection, subject to the vehicle and access. Provide the address, vehicle details, whether it rolls and steers, and the destination. Mention slopes, gates or limited space before the job is arranged."
   },
   {
-    "question": "Can you take my vehicle home rather than to a garage?",
-    "answer": "Yes, recovery can be arranged to a garage, your home or another agreed destination. Tell the operator where you want it to go when you call."
+    "question": "Will paying for recovery include repairing the fault?",
+    "answer": "Ask what the booking includes. Moving the vehicle and repairing it are different jobs. Roadside assistance may be appropriate for some faults; a vehicle that cannot continue safely may need transport to a garage."
   },
   {
-    "question": "Will the operator try to fix it at the roadside first?",
-    "answer": "Where the problem is simple and it is safe to do so, roadside assistance or a jump start may get the vehicle moving. If it cannot be made safe to continue, recovery can be arranged."
+    "question": "Can the vehicle go home instead of to a garage?",
+    "answer": "Discuss your preferred destination when you call. Recovery can be arranged to a home, garage or another agreed address, subject to suitable access. Confirm who will receive the vehicle and keys before collection."
   }
 ]
 
@@ -131,27 +131,24 @@ export default function NoBreakdownCoverBlogPost() {
         <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-16">
             <article className="blog-content max-w-3xl">
-              <p className="text-lg text-slate-700 leading-relaxed">Many drivers only find out they have no breakdown cover at the moment they need it. The car has stopped, the warning lights are on, and the policy you thought you had lapsed months ago, or never existed.</p>
-              <p>Having no cover does not mean having no help. You can still get roadside assistance or vehicle recovery; you arrange and pay for it directly rather than through a policy. This guide sets out a clear order of steps: get safe, check whether you are covered after all, decide what kind of help you need, and give the operator the information that gets the right vehicle and equipment to you.</p>
-              <h2>The short answer</h2>
-              <p>If you have broken down and you have no breakdown cover:</p>
-              <ol>
-                <li><strong>Get yourself and your passengers safe first.</strong> Cover makes no difference to this step.</li>
-                <li><strong>Call 999</strong> if anyone is injured, you are in a live lane and cannot get out safely, or the vehicle is causing a danger.</li>
-                <li><strong>Check for cover you may already have</strong>, such as through your insurer, bank account or vehicle warranty.</li>
-                <li><strong>Do not rely on buying a new policy now.</strong> Many policies do not cover a breakdown that has already happened.</li>
-                <li><strong>Call a recovery company directly</strong>, describe the problem clearly and agree the price before work starts.</li>
-              </ol>
-              <h2>Step 1: Get safe — the same steps apply with or without cover</h2>
-              <p>The first minutes after a breakdown are about safety, not paperwork.</p>
-              <p><strong>On an ordinary road</strong></p>
+              <p>If you are broken down with no breakdown cover, you can still arrange help. The difficult part is deciding what to book while you are worried about the car, your passengers and an unexpected bill.</p>
+              <p>Use this seven-step plan to get safe, check your options and arrange the right move. It covers motorway stops, everyday roadside problems and a car that will not start at home, without assuming you have a membership or promising a roadside repair.</p>
+              <h2>Broken down with no breakdown cover: your next decisions</h2>
+              <p>Arrange the help you need for this incident, after dealing with any immediate danger. A recovery operator needs a clear description of the vehicle and its location, rather than a diagnosis you cannot confirm.</p>
               <ul>
-                <li>Move the vehicle off the road if you can: a lay-by, side road, car park or driveway.</li>
-                <li>Switch on your hazard warning lights, and sidelights if it is dark or visibility is poor.</li>
-                <li>If it is safe to get out, leave by the side away from traffic and wait somewhere well clear of the road.</li>
-                <li>The Highway Code allows a warning triangle on an ordinary road, at least 45 metres behind the vehicle on the same side of the road, but only if it is safe to place it.</li>
-              </ul>
-              <div className="relative h-64 md:h-96 rounded-2xl overflow-hidden my-10">
+<li>Put people first and contact emergency services if there is immediate danger.</li>
+<li>Check whether an existing agreement includes assistance before paying for another service.</li>
+<li>Explain that the breakdown has already happened when discussing any new cover.</li>
+<li>Choose roadside help or transport based on the symptoms, access and destination.</li>
+<li>Confirm the job, cost and handover arrangements before booking.</li>
+</ul>
+              <p>Keep the details together in a short note on your phone. That makes it easier to give the same information if you speak to a provider, a garage and someone receiving the vehicle.</p>
+              <h2>1. Deal with the location before the paperwork</h2>
+              <p>Your safety steps depend on where the car has stopped. A lack of cover does not change them, and searching for a policy should never delay an emergency call.</p>
+              <h3>On an ordinary road</h3>
+              <p>If possible, stop off the road and use hazard lights to warn traffic. Keep sidelights on in darkness or poor visibility. Wait away from moving vehicles, and never stand between the car and approaching traffic.</p>
+              <p>The <a href="https://www.gov.uk/guidance/the-highway-code/breakdowns-and-incidents-274-to-287" className="font-semibold hover:underline">Highway Code</a> says a warning triangle should be at least 45 metres behind a broken-down vehicle on the same side of an ordinary road. Place and retrieve it only when safe; never use one on a motorway.</p>
+                            <div className="relative h-64 md:h-96 rounded-2xl overflow-hidden my-10">
                 <Image
                   src="/images/no-cover-lay-by-hazards-safe.webp"
                   alt="Car stopped in a lay-by with hazard lights on and a warning triangle placed well behind on an ordinary road"
@@ -161,18 +158,14 @@ export default function NoBreakdownCoverBlogPost() {
                   sizes="(max-width: 1024px) 100vw, 1080px"
                 />
               </div>
-              <p><strong>On a motorway</strong></p>
-              <ul>
-                <li>Leave at the next exit or use a service area if you can.</li>
-                <li>If not, follow National Highways&#x27; &quot;Go left, get safe, get help&quot;: move into the left lane, stop on the hard shoulder or in an emergency area as far left as possible, hazard lights on.</li>
-                <li>Leave by the side away from traffic if it is safe and possible, and wait behind the safety barrier where there is one.</li>
-                <li><strong>Do not place a warning triangle on a motorway</strong>, and do not attempt repairs.</li>
-                <li>Use the free emergency telephone, or call National Highways on 0300 123 5000, and contact a recovery service.</li>
-                <li>If you cannot get out of a live lane safely, stay in the vehicle with your seat belt and hazard lights on and call 999.</li>
-              </ul>
-              <p>Our full guide to <Link href="/blog/what-to-do-if-your-car-breaks-down-on-a-motorway" className="font-semibold hover:underline">what to do if your car breaks down on a motorway</Link> covers this in more detail.</p>
-              <h2>Step 2: Check whether you are covered after all</h2>
-              <div className="relative h-64 md:h-96 rounded-2xl overflow-hidden my-10">
+              <h3>On a motorway</h3>
+              <p><a href="https://nationalhighways.co.uk/safety/driving-on-our-roads/driving-on-motorways/" className="font-semibold hover:underline">National Highways</a> advises leaving at an exit or service area if possible. Otherwise, move left towards an emergency area or hard shoulder, stop as far left as possible and switch on the hazards.</p>
+              <p>Leave through the side away from traffic only if safe, and wait behind a barrier where available, checking for hazards beyond it. Do not attempt repairs or put out a warning triangle.</p>
+              <p>If you cannot reach relative safety and cannot get out safely, stay belted in with hazards on and call 999 for police. In a safer stopping place, use the emergency telephone where provided; National Highways also lists 0300 123 5000 for assistance.</p>
+              <p>Follow the emergency operator&#x27;s instructions. Tell them if anyone cannot leave the vehicle safely. For the full sequence and location-sign details, read <Link href="/blog/what-to-do-if-your-car-breaks-down-on-a-motorway" className="font-semibold hover:underline">what to do if your car breaks down on a motorway</Link>.</p>
+              <h2>2. Check whether you already have assistance</h2>
+              <p>Look through existing agreements before arranging a second service, once everyone is safe. You may discover assistance you did not remember, but treat it as a possibility to check rather than proof that this breakdown qualifies.</p>
+                            <div className="relative h-64 md:h-96 rounded-2xl overflow-hidden my-10">
                 <Image
                   src="/images/no-cover-checking-policy-phone.webp"
                   alt="Driver checking insurance documents on a phone while waiting beside a broken-down van"
@@ -182,66 +175,75 @@ export default function NoBreakdownCoverBlogPost() {
                   sizes="(max-width: 1024px) 100vw, 1080px"
                 />
               </div>
-              <p>Before you pay for help, take two minutes to check. Breakdown assistance is sometimes included in products drivers forget they have:</p>
               <ul>
-                <li><strong>Your car insurance.</strong> Some policies include breakdown assistance or offer it as an add-on. Check your policy documents or insurer&#x27;s app.</li>
-                <li><strong>Your bank account.</strong> Some packaged bank accounts include breakdown cover.</li>
-                <li><strong>Your vehicle.</strong> Some newer vehicles come with manufacturer roadside assistance for a period, often linked to the warranty. Look in the handbook, service book or on the windscreen.</li>
-                <li><strong>A lease, finance or company car agreement.</strong> If the vehicle is leased or provided by work, the lease company or fleet manager may have a breakdown line.</li>
-                <li><strong>A friend or family member&#x27;s policy.</strong> Some personal policies cover the person rather than the vehicle, so check whether you are a named member as a passenger.</li>
-              </ul>
-              <p>If you find you are covered, use that provider. If not, move to Step 3.</p>
-              <h2>Step 3: Why buying a policy now may not help</h2>
-              <p>It is tempting to buy cover online while you wait. Be careful. The RAC&#x27;s own guidance says you should not buy a breakdown policy if you have already broken down, because most policies start 24 hours after purchase and the provider may not be able to help with a breakdown that existed before the policy started.</p>
-              <p>Some providers offer a separate pay-on-the-day service for non-members. That is different from buying a standard policy. If you go down that route, be clear on the call that you have already broken down and have no cover.</p>
-              <p>The simpler alternative is to call a recovery company directly and pay for the job you need.</p>
-              <h2>Step 4: Decide what kind of help you need</h2>
-              <p>The right help depends on what has gone wrong and where the vehicle is. Thinking about it before you call makes the conversation quicker.</p>
-              <p><strong>Roadside assistance</strong> may be enough if the problem is simple and the vehicle is otherwise safe, such as a flat or discharged battery. See our <Link href="/services/roadside-assistance" className="font-semibold hover:underline">roadside assistance</Link> and <Link href="/services/jump-starts" className="font-semibold hover:underline">jump start</Link> services.</p>
-              <p><strong>Breakdown recovery</strong> is needed when the vehicle cannot be fixed at the roadside or is unsafe to drive: a mechanical failure, an electrical fault, overheating, a serious warning light, or wheel, steering or suspension damage. See our <Link href="/services/breakdown-assistance" className="font-semibold hover:underline">nationwide breakdown recovery</Link> page.</p>
-              <p><strong>Towing or planned recovery</strong> suits a vehicle that is already parked safely, such as a car that will not start on the driveway or at work. There is no traffic rushing past, so you have time to book a garage first. See <Link href="/services/towing" className="font-semibold hover:underline">towing</Link> and <Link href="/services/vehicle-recovery" className="font-semibold hover:underline">vehicle recovery</Link>.</p>
-              <p><strong>Motorway recovery</strong> has its own safety requirements. See our <Link href="/services/motorway-breakdown-recovery" className="font-semibold hover:underline">motorway breakdown recovery</Link> page.</p>
-              <p>If you are not sure which applies, describe the symptoms on the call and let the operator help you decide.</p>
-              <h2>Step 5: What to tell the recovery operator</h2>
-              <p>A clear, complete description helps the operator decide whether roadside help or full recovery is needed, and which equipment to bring. Have this information ready:</p>
-              <p><strong>Location</strong></p>
+<li><strong>Motor insurance:</strong> check the schedule, app or policy documents for a breakdown section and its contact instructions.</li>
+<li><strong>Bank account:</strong> look at the benefits attached to the account you actually hold, rather than a general advert for that bank.</li>
+<li><strong>Vehicle warranty or manufacturer support:</strong> check the vehicle paperwork for an assistance agreement and its dates.</li>
+<li><strong>Lease or company vehicle:</strong> ask the lease provider or your employer who should authorise help.</li>
+<li><strong>Personal or household membership:</strong> check whether the agreement covers the person, the vehicle or named members, and whether it applies to this journey.</li>
+</ul>
+              <p>Ask the provider to confirm this incident is included, where the vehicle can go and how to request attendance. Say whether you are at home or away, because the location may matter to the agreement.</p>
+              <p>If you find valid assistance, follow that provider&#x27;s booking process. If you cannot establish cover, tell the recovery operator that you are arranging the job directly. Avoid making two bookings for the same vehicle without explaining the situation.</p>
+              <h2>3. Separate new cover from help for an existing breakdown</h2>
+              <p>Buying a standard policy online is not the same as booking assistance for a car that has already stopped. Tell any provider about the existing fault before agreeing to its offer.</p>
+              <p>The RAC&#x27;s guidance warns against buying a standard breakdown policy after the event. It says most policies start 24 hours after purchase and may not help with a breakdown already in progress.</p>
+              <p>That is a reason to ask about eligibility, not to assume every product works identically.</p>
+              <p>A provider may offer a separate service for an existing incident. Ask what you are buying, whether it includes this breakdown and what happens if the vehicle needs transporting. Do not describe a stranded car as a future journey to obtain cover.</p>
+              <p>You can also arrange breakdown recovery without breakdown cover by booking a recovery company directly. This is often described as pay as you go breakdown recovery: you agree the particular job instead of relying on an annual assistance arrangement.</p>
+              <p>Compare the actual service offered. A roadside inspection, collection to a nearby garage and transport to your home are different jobs, even if each advert uses the word recovery.</p>
+              <h2>4. Choose help that suits the vehicle</h2>
+              <p>Describe what the vehicle does and does not do, then let the operator assess the next step. You do not need to name a failed part or decide which truck should attend.</p>
+              <h3>A possible roadside repair</h3>
+              <p>A vehicle may need <Link href="/services/roadside-assistance" className="font-semibold hover:underline">roadside assistance</Link> if a straightforward fault can be assessed safely where it is parked. Explain whether the engine turns over, whether lights work and what happened immediately before the stop.</p>
+              <p>For a suspected battery problem, ask about <Link href="/services/jump-starts" className="font-semibold hover:underline">jump starts</Link>. A successful start alone does not explain why the battery went flat. Tell the operator about earlier starting trouble or warning lights rather than assuming another start will complete the journey.</p>
+              <h3>A vehicle that needs moving</h3>
+              <p>If the vehicle cannot continue safely, discuss <Link href="/services/breakdown-assistance" className="font-semibold hover:underline">breakdown assistance</Link>. Report damage, unusual noises and dashboard warnings accurately. Say that a fault is unknown if you have not had it checked.</p>
+              <p><Link href="/services/towing" className="font-semibold hover:underline">Towing</Link> may suit a planned move from a safe parking place. <Link href="/services/vehicle-recovery" className="font-semibold hover:underline">Vehicle recovery</Link> can involve collecting a vehicle whose condition needs assessing before loading. Tell the operator if wheels are locked or steering is unavailable.</p>
+              <h3>A motorway stop or a car on the driveway</h3>
+              <p>For a motorway incident, use the safety steps first and explain the exact stopping place when discussing <Link href="/services/motorway-breakdown-recovery" className="font-semibold hover:underline">motorway breakdown recovery</Link>. Do not confuse being moved out of danger with completing the whole journey to your preferred garage.</p>
+              <p>If you need car broken down on driveway help, use the extra planning time well. Check access for collection and speak to the garage before booking transport. Tell the operator about gates, slopes, low entrances and other parked vehicles.</p>
+              <p>A driveway collection is still a vehicle move that needs clear details. Have the keys ready and explain whether the car is automatic, whether it rolls and whether its parking brake releases. Do not push it into the road to make collection look easier.</p>
+              <h2>5. Give the operator a usable collection brief</h2>
+              <p>Prepare one clear set of details so the operator can assess the job before it is arranged. Separate what you have observed from what you suspect caused it.</p>
+              <h3>Where the vehicle is</h3>
               <ul>
-                <li>The road name or number and the direction of travel.</li>
-                <li>The nearest junction, landmark, postcode or a map pin.</li>
-                <li>Exactly where the vehicle is: hard shoulder, lay-by, verge, driveway, car park (name and level).</li>
-              </ul>
-              <p><strong>Vehicle</strong></p>
+<li>Give the postcode, road name or a shared map pin.</li>
+<li>On a major road, add the direction of travel and nearest junction or location sign where known.</li>
+<li>Describe the actual parking position, including a car park level or driveway entrance.</li>
+<li>Mention access limits, soft ground or anything blocking the approach.</li>
+</ul>
+              <h3>What needs collecting</h3>
               <ul>
-                <li>Make, model and registration.</li>
-                <li>Whether it is a car, van or 4x4, and whether it is loaded or towing anything.</li>
-              </ul>
-              <p><strong>Condition</strong></p>
+<li>Give the make, model, registration and vehicle type.</li>
+<li>Explain whether it starts, rolls, steers and brakes.</li>
+<li>Mention damaged tyres, wheels, suspension or bodywork.</li>
+<li>Say whether you have the keys and whether anything is being towed or carried.</li>
+</ul>
+              <h3>Who is waiting and where it should go</h3>
               <ul>
-                <li>What happened before it stopped: warning lights, noises, smoke, loss of power.</li>
-                <li>Whether it starts, rolls, steers and brakes.</li>
-                <li>Any damage to wheels, tyres or bodywork.</li>
-                <li>Whether you have the keys.</li>
-              </ul>
-              <p><strong>Destination</strong></p>
+<li>Explain how many people are with the car and any mobility or other support needs.</li>
+<li>Give the proposed delivery address and a contact there.</li>
+<li>Say whether the garage expects the car and can accept it at the planned time.</li>
+<li>Mention any safe photographs you can provide without returning to danger.</li>
+</ul>
+              <p>Ask about passenger arrangements separately. Booking transport for the car does not tell you how everyone will continue their journey. Make this part of the call before relying on a particular arrangement.</p>
+              <p>If anything changes after the call, update the operator. A different destination, missing keys or a vehicle that no longer rolls can change the collection plan. Clear information helps avoid arranging a job around conditions that no longer apply.</p>
+              <h2>6. Confirm the scope and cost before booking</h2>
+              <p>Ask for the quote for your specific collection and destination, with the vehicle&#x27;s actual condition explained. There is no useful single price for every breakdown, and this guide does not give one.</p>
+              <p>Work through these points before authorising the job:</p>
               <ul>
-                <li>Where the vehicle should go: a named garage, your home, or another agreed address.</li>
-                <li>Whether the garage is open and expecting the vehicle.</li>
-              </ul>
-              <p><strong>People</strong></p>
-              <ul>
-                <li>How many people are with the vehicle, and whether anyone is vulnerable, elderly, unwell or travelling with young children.</li>
-              </ul>
-              <h2>Step 6: Agree the price before work starts</h2>
-              <p>Without cover, you are paying directly, so be clear about cost before anything happens:</p>
-              <ul>
-                <li><strong>Ask for a price</strong> for the job you have described, and confirm what it includes: attendance, recovery to the named destination, and any extra equipment.</li>
-                <li><strong>Mention anything that could change the job,</strong> such as locked wheels, no keys, a low car park entrance or a long distance to the garage.</li>
-                <li><strong>Confirm payment</strong> methods when you book.</li>
-                <li><strong>Keep a record</strong> of the agreed price, the destination and the operator&#x27;s details.</li>
-              </ul>
-              <p>A reputable operator will be happy to explain how the price is worked out. If the vehicle&#x27;s condition turns out to be different from what was described, any change should be discussed with you before the work goes ahead.</p>
-              <h2>Step 7: Plan where the vehicle is going</h2>
-              <div className="relative h-64 md:h-96 rounded-2xl overflow-hidden my-10">
+<li>Is the booking for roadside assessment, recovery, or both if needed?</li>
+<li>Which collection point and delivery address does the quote cover?</li>
+<li>Does the operator know about loading difficulties and access restrictions?</li>
+<li>What would happen if the receiving garage cannot take the car?</li>
+<li>How and when is payment expected?</li>
+<li>How will any proposed change to the agreed job be discussed?</li>
+</ul>
+              <p>Keep the agreed details in a message or note, including the destination and the business you booked. If the vehicle cannot be assessed fully by phone, ask what still needs confirming rather than treating an initial discussion as an unconditional promise.</p>
+              <p>Avoid comparing quotes that describe different journeys. A local collection and a long-distance delivery may solve different parts of the problem. Ask each operator to explain the proposed job in plain language before choosing.</p>
+              <h2>7. Arrange a handover that will work</h2>
+              <p>Confirm the receiving location before the vehicle leaves, especially if it is a garage or a gated site. An address alone does not confirm permission to unload or who will hold the keys.</p>
+                            <div className="relative h-64 md:h-96 rounded-2xl overflow-hidden my-10">
                 <Image
                   src="/images/no-cover-recovery-truck-to-garage.webp"
                   alt="Broken-down car secured on a flatbed recovery truck heading to a garage"
@@ -251,21 +253,14 @@ export default function NoBreakdownCoverBlogPost() {
                   sizes="(max-width: 1024px) 100vw, 1080px"
                 />
               </div>
-              <p>Garages are not always open when vehicles break down. Before the vehicle is moved, decide where it will go:</p>
-              <ul>
-                <li><strong>A garage you trust,</strong> if it is open or has a drop-off arrangement.</li>
-                <li><strong>Your home,</strong> if the garage is closed and the vehicle cannot stay where it is.</li>
-                <li><strong>Another agreed address,</strong> if you are far from home and want the vehicle taken back to your own area.</li>
-              </ul>
-              <p>If you are a long way from home, ask about <Link href="/services/vehicle-transportation-delivery" className="font-semibold hover:underline">vehicle transportation and delivery</Link>. Our guide to <Link href="/blog/moving-a-non-running-vehicle-uk" className="font-semibold hover:underline">moving a non-running vehicle in the UK</Link> covers planned moves in more detail.</p>
-              <h2>After the breakdown: avoid being caught out again</h2>
-              <p>Once the vehicle is safe and the immediate problem is dealt with, it is worth spending a few minutes on prevention:</p>
-              <ul>
-                <li><strong>Check your existing products</strong> (insurance, bank account, warranty) so you know what you have.</li>
-                <li><strong>Decide whether cover suits you.</strong> For some drivers a policy makes sense; others are comfortable paying for help when needed. Either way, decide before the next breakdown, not during it.</li>
-                <li><strong>Save a recovery number in your phone</strong> so you are not searching while stranded.</li>
-                <li><strong>Keep basic essentials in the vehicle:</strong> a charged phone and charger, warm clothing, a high-visibility vest and, for ordinary roads, a warning triangle.</li>
-              </ul>
+              <p>Call the garage and ask whether it can accept the vehicle, who should receive it and how the keys should be handed over. Explain if the vehicle cannot roll, because that affects where it can be left.</p>
+              <p>If the garage cannot receive it, discuss another agreed destination with the operator. This might be your home or another suitable address. Confirm the alternative before collection rather than leaving the decision until the vehicle is already loaded.</p>
+              <p>For a longer onward move, ask about <Link href="/services/vehicle-transportation-delivery" className="font-semibold hover:underline">vehicle transportation and delivery</Link>. Our guide to <Link href="/blog/moving-a-non-running-vehicle-uk" className="font-semibold hover:underline">moving a non-running vehicle in the UK</Link> covers access, paperwork and receiving arrangements in more detail.</p>
+              <p>After handover, keep the recovery details with the garage&#x27;s contact information. Make sure the person arranging repairs knows where the vehicle is and how to reach whoever received it. Recovery and diagnosis are separate stages; confirm each with the relevant business.</p>
+              <h2>Before the next journey</h2>
+              <p>Decide how you want to arrange future assistance while the car is safely parked. Check existing benefits, save the relevant contact details and note any limits you need to ask about before renewing or buying cover.</p>
+              <p>Keep a phone charger and suitable clothing available, and follow the vehicle handbook&#x27;s maintenance and warning-light guidance. Review any fault that caused this breakdown with a garage before relying on the car for another trip.</p>
+              <p>The aim is a clear plan, not a promise that every breakdown can be prevented. Knowing who to contact, what your agreement includes and where the car could go makes the next decision easier.</p>
             </article>
 
             {/* Sidebar CTA */}
@@ -274,7 +269,7 @@ export default function NoBreakdownCoverBlogPost() {
                 <AlertTriangle className="w-8 h-8 text-primary mx-auto mb-3" />
                 <h2 className="text-white font-black text-lg mb-2">Broken Down Without Cover?</h2>
                 <p className="text-slate-400 text-sm leading-relaxed mb-5">
-                  Once you are safe, call AHS Recovery with your location, vehicle details and what has happened.
+                  Tell AHS Recovery where the vehicle is, what it can still do and where you need it taken, once everyone is safe.
                 </p>
                 <a
                   href={`tel:${siteConfig.phoneTel}`}
@@ -361,9 +356,9 @@ export default function NoBreakdownCoverBlogPost() {
         <div className="relative z-10">
           <h2 className="text-white text-3xl md:text-5xl font-black mt-4 mb-5">Need help with no breakdown cover?</h2>
           <div className="text-slate-300 text-lg max-w-2xl mx-auto mb-10 leading-relaxed space-y-5">
-            <p><strong>AHS Recovery</strong> provides roadside assistance, towing and vehicle recovery from Ilford, Essex, covering local recovery within approximately 60 miles, plus nationwide breakdown recovery and vehicle transportation. You can call us directly to discuss your situation, whether or not you have a breakdown policy.</p>
-              <p>Once you are safe, call <strong>07883 546955</strong> or send a WhatsApp message to the same number with your location, vehicle details and what has happened. We are based at 203 Tiptree Cres, Ilford IG5 0ST.</p>
-              <p>You can also use our <Link href="/contact" className="font-semibold hover:underline">contact page</Link> or read more guides on the <Link href="/blog" className="font-semibold hover:underline">AHS Recovery blog</Link>.</p>
+            <p>AHS Recovery is based at 203 Tiptree Cres, Ilford IG5 0ST. We provide local roadside assistance and recovery within approximately 60 miles, plus nationwide breakdown recovery and vehicle transportation.</p>
+            <p>Once you are safe, call <strong>07883 546955</strong> or send a WhatsApp message to the same number. Share the collection location, vehicle condition and intended destination so we can discuss the help you need.</p>
+            <p>For an enquiry, use our <Link href="/contact" className="font-semibold hover:underline">contact page</Link>. You can find more planning guides on the <Link href="/blog" className="font-semibold hover:underline">AHS Recovery blog</Link>.</p>
           </div>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
