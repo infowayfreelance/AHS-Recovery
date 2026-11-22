@@ -32,7 +32,7 @@ export const blogPosts: BlogPostMeta[] = [
     metaDescription:
       "Broken down without breakdown cover? A step-by-step plan: get safe, check for hidden cover, choose roadside help or recovery, and what to tell the operator.",
     publishedDate: "2026-11-21",
-    updatedDate: "2026-11-21",
+    updatedDate: "2026-11-23",
     heroImage: "/images/broken-down-no-breakdown-cover-featured.webp",
     heroImageAlt:
       "Driver standing safely on a verge beside a broken-down car with hazard lights on, calling for help",
