@@ -23,9 +23,9 @@ import { serviceIcons } from "@/lib/service-icons"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "Plant Haulage Services | Machinery Transport | AHS Recovery",
+  title: "Plant Haulage & Machinery Transport Ilford | AHS Recovery",
   description:
-    "AHS Recovery provides plant haulage for mini diggers, excavators, rollers, forklifts, tractors and construction machinery. Call 07883 546955 for a quote.",
+    "Plant haulage around Ilford, Essex and East London for mini diggers, excavators, rollers, forklifts and tractors. Call AHS Recovery on 07883 546955.",
   path: "/services/plant-haulage",
 })
 
@@ -168,7 +168,7 @@ const benefits = [
   {
     icon: MessageSquare,
     title: "Clear Communication",
-    description: "We confirm the machine, route and access details before the job is booked.",
+    description: "We confirm the machine, the collection and delivery sites, timing, access and the quote with you before the job is booked.",
   },
   {
     icon: HeartHandshake,
@@ -228,51 +228,70 @@ const faqs = [
     question: "What is the difference between plant haulage and winch-out recovery?",
     answer: "Plant haulage is planned transport of machinery between locations. Winch-out recovery is used when plant or a vehicle is already stuck and needs freeing before it can be moved at all.",
   },
+  {"question": "Which areas around Ilford do you cover for plant haulage?", "answer": "We are based at 203 Tiptree Cres, Ilford IG5 0ST and assess plant haulage across Ilford, Essex and East London within approximately 60 miles, including Gants Hill, Barkingside, Hainault, Chigwell, Woodford, Seven Kings, Goodmayes, Romford, Barking and Dagenham. Send both postcodes and we'll confirm."},
+  {"question": "How should I prepare a machine for collection?", "answer": "Lower and secure the bucket, boom or forks, remove or secure loose attachments and tools, knock off loose mud and stones, and tell us about any leaks or faults. Have the keys and any hire paperwork ready at the collection point."},
+  {"question": "Who loads and unloads the machine?", "answer": "Tell us how the machine will be loaded and unloaded at each end, and who will operate it if it is driven on and off. A machine that does not run may need winching on. We confirm the arrangement for both sites before the job is booked."},
 ]
 
 const plantHaulageService = services.find((s) => s.slug === "plant-haulage")!
 
 export default function PlantHaulagePage() {
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: "Plant Haulage Services",
-    serviceType: "Plant Haulage",
-    areaServed: siteConfig.localCoverageArea,
-    provider: { "@type": "AutomotiveBusiness", name: siteConfig.name, telephone: siteConfig.phoneTel },
-    url: `${siteConfig.siteUrl}/services/plant-haulage`,
-  }
-
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.siteUrl },
-      { "@type": "ListItem", position: 2, name: "Services", item: `${siteConfig.siteUrl}/services` },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: "Plant Haulage",
-        item: `${siteConfig.siteUrl}/services/plant-haulage`,
-      },
-    ],
-  }
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: { "@type": "Answer", text: faq.answer },
-    })),
-  }
+  const schemaGraph = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ahsrecovery.co.uk/services/plant-haulage#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://ahsrecovery.co.uk"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "https://ahsrecovery.co.uk/services"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Plant Haulage",
+          "item": "https://ahsrecovery.co.uk/services/plant-haulage"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://ahsrecovery.co.uk/services/plant-haulage#service",
+      "name": "Plant Haulage Services",
+      "serviceType": "Plant Haulage",
+      "description": "Need machinery moved between sites in or around Ilford? AHS Recovery provides plant haulage and machinery transport across Ilford, Essex and East London for mini diggers, excavators, rollers, forklifts, tractors and other construction machinery. We arrange safe loading, secure transport and careful delivery to an agreed site, depot or hire yard.",
+      "url": "https://ahsrecovery.co.uk/services/plant-haulage",
+      "areaServed": "Ilford, Essex and surrounding areas within approximately 60 miles",
+      "provider": {
+        "@type": "AutomotiveBusiness",
+        "@id": "https://ahsrecovery.co.uk/#business",
+        "name": "AHS Recovery",
+        "telephone": "+447883546955"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://ahsrecovery.co.uk/services/plant-haulage#faq",
+      mainEntity: faqs.map((faq) => ({
+        "@type": "Question", name: faq.question,
+        acceptedAnswer: { "@type": "Answer", text: faq.answer },
+      })),
+    },
+  ]
+}
 
   return (
     <main>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaGraph) }} />
 
       {/* Hero */}
       <section className="relative w-full overflow-hidden border-b border-white/5 min-h-[75vh] flex items-center">
@@ -301,9 +320,7 @@ export default function PlantHaulagePage() {
             </h1>
 
             <p className="text-slate-300 text-base md:text-lg max-w-2xl leading-relaxed">
-              Need machinery moved between sites? AHS Recovery provides plant haulage and machinery transport for
-              mini diggers, excavators, rollers, forklifts, tractors and other construction machinery. We arrange
-              safe loading, secure transport and careful delivery to an agreed site, depot or hire yard.
+              Need machinery moved between sites in or around Ilford? AHS Recovery provides plant haulage and machinery transport across Ilford, Essex and East London for mini diggers, excavators, rollers, forklifts, tractors and other construction machinery. We arrange safe loading, secure transport and careful delivery to an agreed site, depot or hire yard.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
@@ -430,6 +447,16 @@ export default function PlantHaulagePage() {
         </div>
       </section>
 
+      <section className="bg-white py-20 md:py-28">
+        <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
+          <div className="max-w-3xl mx-auto space-y-6">
+            <h2 className="text-3xl md:text-5xl font-black text-slate-900">Plant Haulage Around Ilford, Essex and East London</h2>
+            <p className="text-slate-600 text-base md:text-lg leading-relaxed">AHS Recovery is based at 203 Tiptree Cres, Ilford IG5 0ST. We assess plant haulage across Ilford, Essex and East London, within approximately 60 miles, including Gants Hill, Barkingside, Hainault, Chigwell, Woodford, Seven Kings, Goodmayes, Romford, Barking and Dagenham. </p>
+            <p className="text-slate-600 text-base md:text-lg leading-relaxed">Many moves run between construction sites, hire yards and depots near the A12, the A406 North Circular and the M11. Send the collection and delivery postcodes, plus the site entrance or gate to use at each end. For longer moves, ask us — longer-distance haulage can be discussed and arranged on request. </p>
+          </div>
+        </div>
+      </section>
+
       {/* Machinery types */}
       <section className="bg-white py-20 md:py-28">
         <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
@@ -488,6 +515,22 @@ export default function PlantHaulagePage() {
               Photographs may be requested for unusual, modified or non-running machinery. Do not hide known
               access or ground condition issues when requesting haulage.
             </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-20 md:py-28">
+        <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6">Getting the Machine Ready for Collection</h2>
+            <ul className="space-y-3">
+              <li className="flex items-start gap-3 text-slate-600"><span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" /><span>Lower and secure the bucket, boom or forks, and lock or remove loose attachments.</span></li>
+              <li className="flex items-start gap-3 text-slate-600"><span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" /><span>Remove loose tools and items from the cab and the tracks or wheels.</span></li>
+              <li className="flex items-start gap-3 text-slate-600"><span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" /><span>Knock off loose mud and stones so nothing falls on the road during transport.</span></li>
+              <li className="flex items-start gap-3 text-slate-600"><span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" /><span>Tell us about any oil, fuel or hydraulic leaks, or warning lights.</span></li>
+              <li className="flex items-start gap-3 text-slate-600"><span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" /><span>Have the keys and any hire or collection paperwork ready at the collection point.</span></li>
+              <li className="flex items-start gap-3 text-slate-600"><span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" /><span>Tell us how the machine will be loaded and unloaded at each end, and who will operate it if it is driven on and off. A machine that does not run may need winching on — see <Link href="/services/winch-out-recovery" className="text-primary font-medium hover:underline">winch-out recovery</Link> and our guide to <Link href="/blog/moving-a-non-running-vehicle-uk" className="text-primary font-medium hover:underline">moving a non-running vehicle</Link>.</span></li>
+            </ul>
           </div>
         </div>
       </section>
