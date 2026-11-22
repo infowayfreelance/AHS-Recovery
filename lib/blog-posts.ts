@@ -13,6 +13,17 @@ export interface BlogPostMeta {
 // Add future posts here. The listing page and sitemap are generated from
 // this array, so a new entry is all that's needed to publish another post.
 export const blogPosts: BlogPostMeta[] = [
+{
+  "slug": "rtc-recovery-vs-accident-recovery",
+  "title": "RTC Recovery, Accident Recovery or Specialist Recovery? A Clear Comparison",
+  "excerpt": "Clear definitions, a side-by-side comparison, the details a recovery operator needs, and the usual sequence from the scene to the destination.",
+  "metaDescription": "RTC recovery, accident recovery and specialist accident recovery compared: what each covers, when you need it, what to tell the operator and what happens next.",
+  "publishedDate": "2026-11-22",
+  "updatedDate": "2026-11-22",
+  "heroImage": "/images/rtc-vs-accident-recovery-featured.webp",
+  "heroImageAlt": "Recovery truck loading an accident-damaged car at the roadside with cones in place",
+  "readTime": "8 min read"
+},
   {
     slug: "broken-down-no-breakdown-cover",
     title: "Broken Down With No Breakdown Cover? A Clear Plan for What to Do Next",
