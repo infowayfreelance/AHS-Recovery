@@ -21,13 +21,13 @@ import { serviceIcons } from "@/lib/service-icons"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "Nationwide Car Breakdown Recovery | AHS Recovery",
+  title: "Breakdown Recovery Ilford & Nationwide | AHS Recovery",
   description:
-    "Need nationwide breakdown recovery? AHS Recovery provides car and van recovery across the UK, with safe, reliable vehicle transportation. Call us today.",
+    "Breakdown recovery from Ilford, Essex across East London and the UK for cars, vans and 4x4s. Call AHS Recovery on 07883 546955 to arrange recovery.",
   path: "/services/breakdown-assistance",
-  ogTitle: "Nationwide Breakdown Recovery | AHS Recovery",
+  ogTitle: "Breakdown Recovery Ilford & Nationwide | AHS Recovery",
   ogDescription:
-    "Broken down anywhere in the UK? AHS Recovery provides nationwide breakdown recovery for cars and vans, with safe vehicle transportation to your chosen destination.",
+    "Breakdown recovery from Ilford, Essex across East London and the UK for cars, vans and 4x4s. Call AHS Recovery on 07883 546955 to arrange recovery.",
   ogImage: {
     url: `${siteConfig.siteUrl}/images/breakdown-assistance-og-image.jpg`,
     width: 1200,
@@ -208,6 +208,10 @@ const faqs = [
     answer:
       "Please provide your exact location, vehicle make and model, the problem you are experiencing, and your preferred recovery destination. Also mention damaged wheels or access restrictions that may affect loading.",
   },
+  {"question": "Do I need breakdown cover to call AHS Recovery?", "answer": "No. You can call us directly whether or not you have breakdown cover. Tell us where you are, what has happened and where you want the vehicle taken, and we will explain the arrangements before you go ahead."},
+  {"question": "Do you cover Ilford and East London for breakdown recovery?", "answer": "Yes. We are based at 203 Tiptree Cres, Ilford IG5 0ST and provide local breakdown recovery across Ilford, Essex and East London within approximately 60 miles, including Gants Hill, Barkingside, Hainault, Chigwell, Woodford, Seven Kings, Goodmayes, Romford, Barking and Dagenham. For anywhere further away, call us and we will discuss the recovery."},
+  {"question": "Should I ask for recovery or roadside assistance?", "answer": "If the problem is a flat battery, a puncture or a similar fix that can be done where you are, roadside assistance or a jump start may be enough. If the vehicle cannot be repaired at the roadside or is unsafe to drive, you need recovery. Describe the problem when you call and we will tell you which applies."},
+  {"question": "What should I do if I break down on a motorway?", "answer": "The Highway Code says to leave at the next exit or pull into a service area if you can. If you cannot, move to the left lane, an emergency area or the hard shoulder, stop as far left as possible with your wheels turned to the left, switch on your hazard lights and, if it is safe, leave by the side furthest from traffic and get well away from the vehicle. If you cannot get out safely, stay in the vehicle with your seat belt and hazard lights on and call 999. Call us once you are safe."},
 ]
 
 export default function BreakdownAssistancePage() {
@@ -242,6 +246,7 @@ export default function BreakdownAssistancePage() {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    "@id": "https://ahsrecovery.co.uk/services/breakdown-assistance#faq",
     mainEntity: faqs.map((faq) => ({
       "@type": "Question",
       name: faq.question,
@@ -459,8 +464,15 @@ export default function BreakdownAssistancePage() {
                 <Link href="/services/motorway-breakdown-recovery" className="text-primary font-medium hover:underline">
                   motorway
                 </Link>
-                , follow official motorway safety instructions. Never place yourself or your passengers at risk while
-                waiting for assistance.
+                , follow{" "}
+                <a href="https://www.gov.uk/guidance/the-highway-code/breakdowns-and-incidents-274-to-287" className="text-primary font-medium hover:underline">
+                  official motorway safety instructions
+                </a>
+                . Never place yourself or your passengers at risk while waiting for assistance. See our guide on{" "}
+                <Link href="/blog/what-to-do-if-your-car-breaks-down-on-a-motorway" className="text-primary font-medium hover:underline">
+                  what to do if your car breaks down on a motorway
+                </Link>
+                .
               </p>
             </div>
           </div>
@@ -555,6 +567,36 @@ export default function BreakdownAssistancePage() {
                 returned closer to home.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-20 md:py-28">
+        <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
+          <div className="max-w-3xl mx-auto space-y-6">
+            <h2 className="text-3xl md:text-5xl font-black text-slate-900">Breakdown Recovery in Ilford, Essex and East London</h2>
+            <p className="text-slate-600 text-base md:text-lg leading-relaxed">AHS Recovery is based at 203 Tiptree Cres, Ilford IG5 0ST. If your car or van breaks down near home, at work or on a local journey, we can arrange recovery across Ilford, Essex and East London within approximately 60 miles, including Gants Hill, Barkingside, Hainault, Chigwell, Woodford, Seven Kings, Goodmayes, Romford, Barking and Dagenham.</p>
+            <p className="text-slate-600 text-base md:text-lg leading-relaxed">For a breakdown on the A12, the A406 North Circular or the M11, tell us the road, the direction of travel and the nearest junction or landmark. If you are not sure where you are, share your location from your phone&#x27;s map app. For anywhere further away, call us and we will discuss the recovery. See also our <Link href="/services/vehicle-recovery" className="text-primary font-medium hover:underline">vehicle recovery service</Link> and <Link href="/services/towing" className="text-primary font-medium hover:underline">towing service</Link>.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-20 md:py-28">
+        <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
+          <div className="max-w-3xl mx-auto space-y-6">
+            <h2 className="text-3xl md:text-5xl font-black text-slate-900">Recovery or Roadside Assistance?</h2>
+            <p className="text-slate-600 text-base md:text-lg leading-relaxed">Not every breakdown needs a recovery truck.</p>
+            <ul className="space-y-3"><li className="flex items-start gap-3 text-slate-600"><span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" /><span><strong>Roadside assistance</strong> fits problems that can be fixed where you are, such as a flat battery or a flat tyre. See <Link href="/services/roadside-assistance" className="text-primary font-medium hover:underline">roadside assistance</Link> and <Link href="/services/jump-starts" className="text-primary font-medium hover:underline">jump starts</Link>.</span></li><li className="flex items-start gap-3 text-slate-600"><span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" /><span><strong>Breakdown recovery</strong> fits a vehicle that cannot be repaired at the roadside or is unsafe to drive: engine or gearbox failure, a broken-down car that will not start, or damaged wheels and suspension.</span></li><li className="flex items-start gap-3 text-slate-600"><span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" /><span><strong>Motorway breakdowns</strong> have their own safety rules. See <Link href="/services/motorway-breakdown-recovery" className="text-primary font-medium hover:underline">motorway breakdown recovery</Link>.</span></li></ul>
+            <p className="text-slate-600 text-base md:text-lg leading-relaxed">If you are not sure, call <strong>07883 546955</strong> and describe the problem. We will tell you whether you need recovery or roadside help.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-20 md:py-28">
+        <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
+          <div className="max-w-3xl mx-auto space-y-6">
+            <h2 className="text-3xl md:text-5xl font-black text-slate-900">No Breakdown Cover? You Can Still Call Us</h2>
+            <p className="text-slate-600 text-base md:text-lg leading-relaxed">You do not need to be a member of a breakdown club to ask for recovery. Call us, tell us where the vehicle is, what has happened and where you want it taken, and we will explain the arrangements before you agree to go ahead. Read more in our guide to <Link href="/blog/broken-down-no-breakdown-cover" className="text-primary font-medium hover:underline">what to do if you break down without breakdown cover</Link>. If your vehicle simply needs moving and isn&#x27;t broken, see <Link href="/blog/moving-a-non-running-vehicle-uk" className="text-primary font-medium hover:underline">moving a non-running vehicle in the UK</Link>.</p>
           </div>
         </div>
       </section>
@@ -685,6 +727,12 @@ export default function BreakdownAssistancePage() {
                       </Link>{" "}
                       for suitable vehicles. Follow official motorway safety guidance and contact us once you are in
                       a safe position.
+                    </>
+                  ) : faq.question === "Do I need breakdown cover to call AHS Recovery?" ? (
+                    <>
+                      No. You can{" "}
+                      <Link href="/contact" className="text-primary font-medium hover:underline">call us directly</Link>{" "}
+                      whether or not you have breakdown cover. Tell us where you are, what has happened and where you want the vehicle taken, and we will explain the arrangements before you go ahead.
                     </>
                   ) : (
                     faq.answer
