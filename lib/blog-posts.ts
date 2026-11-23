@@ -19,7 +19,7 @@ export const blogPosts: BlogPostMeta[] = [
   "excerpt": "Clear definitions, a side-by-side comparison, the details a recovery operator needs, and the usual sequence from the scene to the destination.",
   "metaDescription": "RTC recovery, accident recovery and specialist accident recovery compared: what each covers, when you need it, what to tell the operator and what happens next.",
   "publishedDate": "2026-11-22",
-  "updatedDate": "2026-11-22",
+  "updatedDate": "2026-11-23",
   "heroImage": "/images/rtc-vs-accident-recovery-featured.webp",
   "heroImageAlt": "Recovery truck loading an accident-damaged car at the roadside with cones in place",
   "readTime": "8 min read"
