@@ -14,6 +14,17 @@ export interface BlogPostMeta {
 // this array, so a new entry is all that's needed to publish another post.
 export const blogPosts: BlogPostMeta[] = [
 {
+  "slug": "mini-digger-transport-guide",
+  "title": "Transporting a Mini Digger or Excavator: What Plant Haulage Involves (Planning Checklist)",
+  "excerpt": "Plan a mini digger move with machine details, site access checks, collection preparation, loading and delivery arrangements.",
+  "metaDescription": "Moving a mini digger or excavator? The details a haulier needs, trailer and access checks, preparing the machine and what happens on collection day.",
+  "publishedDate": "2026-11-23",
+  "updatedDate": "2026-11-23",
+  "heroImage": "/images/mini-digger-transport-featured.webp",
+  "heroImageAlt": "Mini excavator chained onto a plant transport truck at a building site",
+  "readTime": "8 min read"
+},
+{
   "slug": "rtc-recovery-vs-accident-recovery",
   "title": "RTC Recovery, Accident Recovery or Specialist Recovery? A Clear Comparison",
   "excerpt": "Clear definitions, a side-by-side comparison, the details a recovery operator needs, and the usual sequence from the scene to the destination.",
