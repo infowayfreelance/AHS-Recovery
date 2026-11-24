@@ -23,9 +23,9 @@ import { serviceIcons } from "@/lib/service-icons"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "Professional Roadside Assistance | AHS Recovery",
+  title: "Roadside Assistance Ilford & East London | AHS Recovery",
   description:
-    "Roadside assistance for cars and vans affected by common vehicle problems. Call AHS Recovery on 07883 546955 for help.",
+    "Car or van won’t start or can’t go on? AHS Recovery gives roadside assistance across Ilford, Essex and East London. Call 07883 546955 to talk it through.",
   path: "/services/roadside-assistance",
 })
 
@@ -185,50 +185,87 @@ const relatedServices = [
 
 const faqs = [
   {
-    question: "What roadside assistance do you provide?",
-    answer: "We assess common vehicle problems and determine whether roadside help, a battery jump start or complete vehicle recovery is appropriate.",
+    "question": "What roadside assistance do you provide?",
+    "answer": "We assess common vehicle problems and determine whether roadside help, a battery jump start or complete vehicle recovery is appropriate."
   },
   {
-    question: "Can you help if my car will not start?",
-    answer: "Yes. Tell us what happens when you try to start the vehicle and whether any warning lights appear. The vehicle may require a jump start or recovery.",
+    "question": "Can you help if my car will not start?",
+    "answer": "Yes. Tell us what happens when you try to start the vehicle and whether any warning lights appear. The vehicle may require a jump start or recovery."
   },
   {
-    question: "Can you jump-start a flat battery?",
-    answer: "Our jump-start service can assist many suitable 12V and 24V vehicles with discharged batteries.",
+    "question": "Can you jump-start a flat battery?",
+    "answer": "Our jump-start service can assist many suitable 12V and 24V vehicles with discharged batteries."
   },
   {
-    question: "What happens if the vehicle cannot be fixed at the roadside?",
-    answer: "If the vehicle cannot continue safely, we can arrange recovery to an agreed garage, home or another accessible destination.",
+    "question": "What happens if the vehicle cannot be fixed at the roadside?",
+    "answer": "If the vehicle cannot continue safely, we can arrange recovery to an agreed garage, home or another accessible destination."
   },
   {
-    question: "What details should I provide?",
-    answer: "Provide your exact location, vehicle make and model, warning lights, symptoms, visible damage and what happened before the vehicle stopped.",
+    "question": "What details should I provide?",
+    "answer": "Provide your exact location, vehicle make and model, warning lights, symptoms, visible damage and what happened before the vehicle stopped."
   },
   {
-    question: "Can you help with vans?",
-    answer: "We can provide roadside assistance for many small and medium-sized vans. Provide the vehicle's size and approximate weight when calling.",
+    "question": "Can you help with vans?",
+    "answer": "We can provide roadside assistance for many small and medium-sized vans. Provide the vehicle's size and approximate weight when calling."
   },
   {
-    question: "Should I remain inside my vehicle?",
-    answer: "This depends on where the vehicle has stopped. Move away from traffic when it is safe and follow official road-safety instructions.",
+    "question": "Should I remain inside my vehicle?",
+    "answer": "This depends on where the vehicle has stopped. The Highway Code advises stopping in a place of relative safety and, where possible, keeping well away from your vehicle and moving traffic. On a motorway, if you cannot get out safely and get well away from the vehicle, stay in it with your seat belt and hazard warning lights on and call 999. See the Highway Code rules on breakdowns."
   },
   {
-    question: "What is the difference between roadside assistance and vehicle recovery?",
-    answer: "Roadside assistance assesses the problem at the vehicle's location. Vehicle recovery transports the vehicle when it cannot continue safely.",
+    "question": "What is the difference between roadside assistance and vehicle recovery?",
+    "answer": "Roadside assistance assesses the problem at the vehicle's location. Vehicle recovery transports the vehicle when it cannot continue safely."
   },
+  {
+    "question": "Do you provide roadside assistance in Ilford?",
+    "answer": "Yes. AHS Recovery is based in Ilford IG5 and helps drivers at home, at work, in car parks and on local roads across Ilford, Essex and East London within approximately 60 miles. Tell us the street or car park and the nearest landmark when you call."
+  },
+  {
+    "question": "Can you help if my car will not start in a car park or on my driveway?",
+    "answer": "Yes, tell us exactly where the vehicle is. For a car park, give the name, the level, the bay and whether there is a barrier or a low entrance. For a driveway or street, tell us whether the vehicle is blocked in. This helps us decide whether roadside help or recovery is the right step."
+  },
+  {
+    "question": "I do not have breakdown cover. Can I still call?",
+    "answer": "Yes. You do not need to be a member of a breakdown club to call AHS Recovery. Tell us where the vehicle is and what has happened, and we will explain the options before you agree to go ahead. Read what to do if you break down without breakdown cover."
+  },
+  {
+    "question": "What should I do if I put the wrong fuel in my vehicle?",
+    "answer": "Do not start the engine or switch on the ignition. If you are on the road, switch on your hazard warning lights and get yourself and your passengers to a safe place. Then call us, tell us the vehicle and the fuel used, and we will explain whether the vehicle needs to be moved to a garage."
+  }
 ]
 
 const roadsideService = services.find((s) => s.slug === "roadside-assistance")!
 
 export default function RoadsideAssistancePage() {
   const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: "Roadside Assistance",
-    serviceType: "Roadside Assistance",
-    provider: { "@type": "AutomotiveBusiness", name: siteConfig.name, telephone: siteConfig.phoneTel },
-    url: `${siteConfig.siteUrl}/services/roadside-assistance`,
-  }
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://ahsrecovery.co.uk/services/roadside-assistance#service",
+  "name": "Roadside Assistance in Ilford and East London",
+  "serviceType": "Roadside Assistance",
+  "description": "Roadside assistance for cars and vans that will not start or cannot continue safely, at home, at work, in car parks and on local roads across Ilford, Essex and East London. AHS Recovery assesses the problem and decides whether roadside help, a jump start or vehicle recovery is the right step.",
+  "url": "https://ahsrecovery.co.uk/services/roadside-assistance",
+  "provider": {
+    "@type": "AutomotiveBusiness",
+    "@id": "https://ahsrecovery.co.uk/#business",
+    "name": "AHS Recovery",
+    "telephone": "+447883546955"
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Ilford"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Essex"
+    },
+    {
+      "@type": "Place",
+      "name": "East London"
+    }
+  ]
+}
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -248,6 +285,7 @@ export default function RoadsideAssistancePage() {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    "@id": "https://ahsrecovery.co.uk/services/roadside-assistance#faq",
     mainEntity: faqs.map((faq) => ({
       "@type": "Question",
       name: faq.question,
@@ -284,7 +322,7 @@ export default function RoadsideAssistancePage() {
             </div>
 
             <h1 className="text-4xl md:text-6xl font-black text-white leading-[1.1] tracking-tight">
-              Professional Roadside Assistance
+              Professional Roadside Assistance in Ilford
             </h1>
 
             <p className="text-slate-300 text-base md:text-lg max-w-2xl leading-relaxed">
@@ -456,7 +494,11 @@ export default function RoadsideAssistancePage() {
               <AlertTriangle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
               <p className="text-slate-600 text-sm leading-relaxed">
                 This is general guidance. Always follow instructions from emergency services, police and road
-                authorities.
+                authorities. See the{" "}
+                <a href="https://www.gov.uk/guidance/the-highway-code/breakdowns-and-incidents-274-to-287" className="text-primary font-medium hover:underline">Highway Code rules on breakdowns and incidents</a>
+                . On a motorway, read our guide to{" "}
+                <Link href="/blog/what-to-do-if-your-car-breaks-down-on-a-motorway" className="text-primary font-medium hover:underline">what to do if your car breaks down on a motorway</Link>
+                .
               </p>
             </div>
           </div>
@@ -553,12 +595,47 @@ export default function RoadsideAssistancePage() {
                 </li>
               ))}
             </ul>
+            <p className="text-slate-400 leading-relaxed mb-6">
+              Our <Link href="/services/breakdown-assistance" className="text-primary font-medium hover:underline">breakdown assistance page</Link> explains how breakdown recovery works from Ilford and across the UK.
+            </p>
             <Link
               href="/services/breakdown-assistance"
               className="inline-flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all"
             >
               View Breakdown Recovery <ArrowRight className="w-4 h-4" />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-20 md:py-28">
+        <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
+          <div className="max-w-3xl mx-auto space-y-6">
+            <h2 className="text-3xl md:text-5xl font-black text-slate-900">Roadside Help Around Ilford and East London</h2>
+            <p className="text-slate-600 text-base md:text-lg leading-relaxed">AHS Recovery is based in Ilford IG5. When your car or van stops near home, outside work or on a short local trip, call <strong>07883 546955</strong> and tell us the street or car park and the nearest landmark. We help drivers across Ilford, Essex and East London within approximately 60 miles, including Gants Hill, Barkingside, Clayhall, Newbury Park, Seven Kings, Goodmayes, Woodford, Chigwell, Romford, Barking and Dagenham.</p>
+            <p className="text-slate-600 text-base md:text-lg leading-relaxed">On the A12 or the A406 North Circular, give us the direction of travel and the last junction or landmark you passed. If you&#x27;ve stopped on the M11 or another motorway, see <Link href="/services/motorway-breakdown-recovery" className="text-primary font-medium hover:underline">motorway breakdown recovery</Link>. If the vehicle needs to be moved rather than helped where it is, see our <Link href="/" className="text-primary font-medium hover:underline">car recovery in Ilford</Link> and <Link href="/services/towing" className="text-primary font-medium hover:underline">towing</Link> services.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-20 md:py-28">
+        <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
+          <div className="max-w-3xl mx-auto space-y-6">
+            <h2 className="text-3xl md:text-5xl font-black text-slate-900">At Home, at Work or in a Car Park</h2>
+            <p className="text-slate-600 text-base md:text-lg leading-relaxed">Roadside assistance doesn&#x27;t only happen beside a road. Tell us where the vehicle is and what&#x27;s around it:</p>
+            <ul className="space-y-3"><li className="flex items-start gap-3 text-slate-600"><span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" /><span><strong>On your driveway or street:</strong> is the vehicle blocked in, and can we get alongside it?</span></li><li className="flex items-start gap-3 text-slate-600"><span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" /><span><strong>At work:</strong> is there a gate, a barrier or a security desk we need to know about?</span></li><li className="flex items-start gap-3 text-slate-600"><span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" /><span><strong>In a car park:</strong> the car park name, the level, the bay number, and whether there&#x27;s a barrier or a low entrance.</span></li><li className="flex items-start gap-3 text-slate-600"><span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" /><span><strong>Keys and people:</strong> who will be with the vehicle, and are the keys available?</span></li></ul>
+            <p className="text-slate-600 text-base md:text-lg leading-relaxed">These details help us decide whether roadside help, a <Link href="/services/jump-starts" className="text-primary font-medium hover:underline">jump start</Link> or <Link href="/services/vehicle-recovery" className="text-primary font-medium hover:underline">vehicle recovery</Link> is the right step before anyone sets off.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-20 md:py-28">
+        <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
+          <div className="max-w-3xl mx-auto space-y-6">
+            <h2 className="text-3xl md:text-5xl font-black text-slate-900">Puncture, Wrong Fuel or Keys Locked In?</h2>
+            <p className="text-slate-600 text-base md:text-lg leading-relaxed">Some problems need a part, a specialist or a garage rather than help at the roadside. Tell us exactly what has happened and we&#x27;ll explain the options:</p>
+            <ul className="space-y-3"><li className="flex items-start gap-3 text-slate-600"><span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" /><span><strong>Puncture or damaged wheel:</strong> don&#x27;t drive on a flat or damaged tyre. Tell us whether you have a usable spare and the locking wheel nut key. If the vehicle can&#x27;t continue safely, we can arrange recovery to a tyre fitter, garage or home.</span></li><li className="flex items-start gap-3 text-slate-600"><span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" /><span><strong>Wrong fuel:</strong> don&#x27;t start the engine or switch on the ignition. Call us and we&#x27;ll explain whether the vehicle needs to be moved to a garage.</span></li><li className="flex items-start gap-3 text-slate-600"><span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" /><span><strong>Out of fuel or keys locked inside:</strong> tell us what has happened and where the vehicle is, and we&#x27;ll explain the options on the call.</span></li></ul>
+            <p className="text-slate-600 text-base md:text-lg leading-relaxed">No breakdown cover? You can still call us. Read <Link href="/blog/broken-down-no-breakdown-cover" className="text-primary font-medium hover:underline">what to do if you break down without breakdown cover</Link>.</p>
           </div>
         </div>
       </section>
@@ -646,7 +723,7 @@ export default function RoadsideAssistancePage() {
                   <ChevronDown className="w-5 h-5 flex-shrink-0 text-primary transition-transform group-open:rotate-180" />
                 </summary>
                 <p className="text-slate-600 text-sm md:text-base leading-relaxed px-5 md:px-6 pb-4 md:pb-5">
-                  {faq.answer}
+                  {faq.question === "Should I remain inside my vehicle?" ? (<> This depends on where the vehicle has stopped. The Highway Code advises stopping in a place of relative safety and, where possible, keeping well away from your vehicle and moving traffic. On a motorway, if you cannot get out safely and get well away from the vehicle, stay in it with your seat belt and hazard warning lights on and call 999. See the{" "}<Link href="https://www.gov.uk/guidance/the-highway-code/breakdowns-and-incidents-274-to-287" className="text-primary font-medium hover:underline">Highway Code rules on breakdowns</Link>.</>) : faq.question === "I do not have breakdown cover. Can I still call?" ? (<> Yes. You do not need to be a member of a breakdown club to call AHS Recovery. Tell us where the vehicle is and what has happened, and we will explain the options before you agree to go ahead. Read{" "}<Link href="/blog/broken-down-no-breakdown-cover" className="text-primary font-medium hover:underline">what to do if you break down without breakdown cover</Link>.</>) : faq.answer}
                 </p>
               </details>
             ))}
