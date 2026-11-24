@@ -14,6 +14,17 @@ export interface BlogPostMeta {
 // this array, so a new entry is all that's needed to publish another post.
 export const blogPosts: BlogPostMeta[] = [
 {
+  "slug": "12v-vs-24v-jump-start",
+  "title": "12V vs 24V Jump Starts: Cars, Vans and Commercial Vehicles Explained",
+  "excerpt": "Understand 12V and 24V systems, confirm your vehicle’s voltage and prepare the details needed for suitable jump start assistance or recovery.",
+  "metaDescription": "Is your vehicle 12V or 24V? How to check, why the wrong jump start can cause damage, which vehicles usually use each, and when recovery is safer.",
+  "publishedDate": "2026-11-24",
+  "updatedDate": "2026-11-24",
+  "heroImage": "/images/12v-vs-24v-jump-start-featured.webp",
+  "heroImageAlt": "Technician connecting a jump pack to a van battery",
+  "readTime": "9 min read"
+},
+{
   "slug": "mini-digger-transport-guide",
   "title": "Transporting a Mini Digger or Excavator: What Plant Haulage Involves (Planning Checklist)",
   "excerpt": "Plan a mini digger move with machine details, site access checks, collection preparation, loading and delivery arrangements.",
