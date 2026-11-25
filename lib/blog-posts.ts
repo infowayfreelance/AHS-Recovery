@@ -14,6 +14,17 @@ export interface BlogPostMeta {
 // this array, so a new entry is all that's needed to publish another post.
 export const blogPosts: BlogPostMeta[] = [
 {
+  "slug": "moving-a-sorn-untaxed-or-no-mot-car",
+  "title": "Moving a SORN, Untaxed or No-MOT Car: A UK Transport Guide",
+  "excerpt": "Plan transport for a SORN, untaxed or no-MOT car with official guidance, status checks, paperwork and collection arrangements.",
+  "metaDescription": "Moving a SORN, untaxed or no-MOT car? Check the official rules, compare transport options and prepare the paperwork for collection and delivery.",
+  "publishedDate": "2026-11-25",
+  "updatedDate": "2026-11-25",
+  "heroImage": "/images/moving-a-sorn-untaxed-car-featured.webp",
+  "heroImageAlt": "Off-road classic car being loaded onto a vehicle transporter",
+  "readTime": "10 min read"
+},
+{
   "slug": "12v-vs-24v-jump-start",
   "title": "12V vs 24V Jump Starts: Cars, Vans and Commercial Vehicles Explained",
   "excerpt": "Understand 12V and 24V systems, confirm your vehicle’s voltage and prepare the details needed for suitable jump start assistance or recovery.",
