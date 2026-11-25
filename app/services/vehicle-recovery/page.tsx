@@ -1,3 +1,4 @@
+import type React from "react"
 import Image from "next/image"
 import Link from "next/link"
 import {
@@ -23,9 +24,9 @@ import { serviceIcons } from "@/lib/service-icons"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "Professional Car Recovery Service | AHS Recovery",
+  title: "Vehicle Recovery Ilford | Non-Running Cars & Vans | AHS",
   description:
-    "Car recovery for broken-down, damaged and non-running vehicles. Call AHS Recovery on 07883 546955 to arrange safe transportation.",
+    "Vehicle recovery for broken-down, damaged and non-running cars and vans from Ilford, Essex. Call AHS Recovery on 07883 546955 to arrange safe transport.",
   path: "/services/vehicle-recovery",
 })
 
@@ -87,7 +88,7 @@ const vehicleTypes = [
   "Accident-damaged vehicles",
   "Vehicles with wheel or suspension damage",
   "Vehicles requiring garage transportation",
-  "Vehicles purchased or sold",
+  "Vehicles bought or sold",
   "Vehicles requiring planned movement",
 ]
 
@@ -249,19 +250,68 @@ const faqs = [
       { href: "/services/4x4-off-road-recovery", text: "4x4 & Off-Road Recovery" },
     ],
   },
+{
+  "question": "Do you recover vehicles in Ilford and East London?",
+  "answer": "AHS Recovery is based in Ilford, Essex, and provides vehicle recovery across Ilford, Essex and surrounding areas within approximately 60 miles, including Redbridge, Gants Hill, Barkingside and Seven Kings. Call us with your exact location and we will confirm whether we can attend."
+},
+{
+  "question": "Can you recover a vehicle from a car park or private land?",
+  "answer": "Often, yes, where there is safe access for the recovery vehicle. Tell us the car park name, the level or bay if you know it, and any barrier or entry restrictions. Some sites need the owner's permission before a vehicle can be moved, so mention that when you call."
+},
+{
+  "question": "What should I do before the recovery vehicle arrives?",
+  "answer": "Move to a safe position if you can and follow the Highway Code's breakdown and incident rules. Remove personal belongings, have the keys ready and the locking wheel nut key if you have one, and note any damage. Have the destination address ready."
+},
+{
+  "question": "Can you recover a vehicle I have bought or sold?",
+  "answer": "We can arrange planned recovery of vehicles that are bought or sold, as long as the collection and delivery addresses are agreed in advance. Read our guide to moving a non-running vehicle in the UK, then call with both addresses."
+},
+{
+  "question": "Can I arrange recovery if I have no breakdown cover?",
+  "answer": "Yes. You can call AHS Recovery directly with your vehicle and location details, with or without breakdown cover. See our guide on what to do if you break down without breakdown cover."
+},
 ]
+
+const linkedFaqAnswers: Record<string, React.ReactNode> = {
+"What should I do before the recovery vehicle arrives?": <>Move to a safe position if you can and follow the Highway Code&#39;s <Link href="https://www.gov.uk/guidance/the-highway-code/breakdowns-and-incidents-274-to-287" target="_blank" rel="noopener" className="text-primary font-semibold hover:underline">breakdown and incident rules</Link>. Remove personal belongings, have the keys ready and the locking wheel nut key if you have one, and note any damage. Have the destination address ready.</>,
+"Can you recover a vehicle I have bought or sold?": <>We can arrange planned recovery of vehicles that are bought or sold, as long as the collection and delivery addresses are agreed in advance. Read our guide to <Link href="/blog/moving-a-non-running-vehicle-uk" className="text-primary font-semibold hover:underline">moving a non-running vehicle in the UK</Link>, then call with both addresses.</>,
+"Can I arrange recovery if I have no breakdown cover?": <>Yes. You can call AHS Recovery directly with your vehicle and location details, with or without breakdown cover. See our guide on <Link href="/blog/broken-down-no-breakdown-cover" className="text-primary font-semibold hover:underline">what to do if you break down without breakdown cover</Link>.</>
+}
 
 const vehicleRecoveryService = services.find((s) => s.slug === "vehicle-recovery")!
 
 export default function VehicleRecoveryPage() {
   const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: "Car Recovery Service",
-    serviceType: "Vehicle Recovery",
-    provider: { "@type": "AutomotiveBusiness", name: siteConfig.name, telephone: siteConfig.phoneTel },
-    url: `${siteConfig.siteUrl}/services/vehicle-recovery`,
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://ahsrecovery.co.uk/services/vehicle-recovery#service",
+  "name": "Car and Van Recovery",
+  "serviceType": "Vehicle recovery",
+  "url": "https://ahsrecovery.co.uk/services/vehicle-recovery",
+  "description": "Recovery of broken-down, damaged and non-running cars, vans and 4x4s from roads, homes, workplaces, garages and car parks in Ilford, Essex and surrounding areas, to an agreed garage, home or storage destination.",
+  "provider": {
+    "@id": "https://ahsrecovery.co.uk/#business"
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Ilford"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Essex"
+    }
+  ],
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "servicePhone": {
+      "@type": "ContactPoint",
+      "telephone": "+447883546955",
+      "contactType": "customer service",
+      "availableLanguage": "English"
+    }
   }
+}
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -279,6 +329,7 @@ export default function VehicleRecoveryPage() {
   }
 
   const faqSchema = {
+    "@id": "https://ahsrecovery.co.uk/services/vehicle-recovery#faq",
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: faqs.map((faq) => ({
@@ -372,7 +423,7 @@ export default function VehicleRecoveryPage() {
                 <p>
                   AHS Recovery provides car and van recovery for urgent and planned situations. We can collect
                   suitable vehicles from accessible roads, homes, workplaces, garages, car parks and storage
-                  facilities.
+                  facilities. We are based in Ilford, Essex, and recover vehicles across Ilford, Essex and surrounding areas within approximately 60 miles.
                 </p>
                 <p>
                   Before arranging recovery, we ask about the vehicle&apos;s type, condition, position and intended
@@ -407,7 +458,7 @@ export default function VehicleRecoveryPage() {
             <h2 className="text-background-dark text-xl md:text-2xl font-black mb-1">Is Your Vehicle Unable to Continue?</h2>
             <p className="text-background-dark/80 text-sm md:text-base max-w-2xl">
               Move to a safe position where possible and call AHS Recovery on {siteConfig.phoneDisplay}. Tell us
-              what happened, where the vehicle is located and whether it rolls, steers, brakes or starts.
+              what happened, where the vehicle is located and whether it rolls, steers, brakes or starts. Follow the Highway Code&#39;s <Link href="https://www.gov.uk/guidance/the-highway-code/breakdowns-and-incidents-274-to-287" target="_blank" rel="noopener" className="text-primary font-semibold hover:underline">breakdown and incident rules</Link> while you wait.
             </p>
           </div>
           <a
@@ -459,6 +510,14 @@ export default function VehicleRecoveryPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+
+      <section className="bg-white py-20 md:py-28">
+        <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
+          <h2 className="text-3xl md:text-4xl font-black text-slate-900 mt-4 mb-6 leading-tight">Vehicle Recovery in Ilford, Redbridge and Nearby</h2>
+          <div className="space-y-4 text-slate-600 text-base md:text-lg leading-relaxed"><p>AHS Recovery is based in Ilford, Essex. We recover cars and vans from homes, workplaces, garages, car parks and accessible roads around Ilford, Redbridge, Gants Hill, Barkingside, Clayhall, Seven Kings and Goodmayes, and across Essex and surrounding areas within approximately 60 miles. Busy roads such as the A12 and the A406 North Circular, and tight residential streets, can change how a vehicle is loaded, so give us your exact road name, postcode and the direction you were travelling. We will confirm whether we can attend when you call.</p></div>
         </div>
       </section>
 
@@ -521,6 +580,14 @@ export default function VehicleRecoveryPage() {
               photographs from a safe position.
             </p>
           </div>
+        </div>
+      </section>
+
+
+      <section className="bg-white py-20 md:py-28">
+        <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
+          <h2 className="text-3xl md:text-4xl font-black text-slate-900 mt-4 mb-6 leading-tight">Before the Recovery Vehicle Arrives</h2>
+          <div className="space-y-4 text-slate-600 text-base md:text-lg leading-relaxed"><p>A few minutes of preparation helps the loading go smoothly:</p><ul className="space-y-3"><li className="flex items-start gap-3 text-slate-600 text-sm"><span className="mt-1 w-4 h-4 rounded border-2 border-primary flex-shrink-0" />Move to a safe position if you can, and keep everyone away from traffic.</li><li className="flex items-start gap-3 text-slate-600 text-sm"><span className="mt-1 w-4 h-4 rounded border-2 border-primary flex-shrink-0" />Remove personal belongings and valuables.</li><li className="flex items-start gap-3 text-slate-600 text-sm"><span className="mt-1 w-4 h-4 rounded border-2 border-primary flex-shrink-0" />Have the keys ready. If the car has locking wheel nuts, find the key.</li><li className="flex items-start gap-3 text-slate-600 text-sm"><span className="mt-1 w-4 h-4 rounded border-2 border-primary flex-shrink-0" />Note any damage and take photographs from a safe position.</li><li className="flex items-start gap-3 text-slate-600 text-sm"><span className="mt-1 w-4 h-4 rounded border-2 border-primary flex-shrink-0" />Have the destination address and a contact number ready.</li><li className="flex items-start gap-3 text-slate-600 text-sm"><span className="mt-1 w-4 h-4 rounded border-2 border-primary flex-shrink-0" />Tell us about anything that may affect loading: a low or modified car, a locked wheel, a narrow driveway or a barrier.</li></ul></div>
         </div>
       </section>
 
@@ -589,6 +656,22 @@ export default function VehicleRecoveryPage() {
             If you are unsure which service is appropriate, provide the vehicle, fault, collection and destination
             details when you call.
           </p>
+          <p className="text-slate-400 leading-relaxed max-w-3xl mx-auto text-center">Crashed vehicle? See <Link href="/services/accident-recovery" className="text-primary font-semibold hover:underline">accident recovery</Link> and <Link href="/services/rtc-recovery" className="text-primary font-semibold hover:underline">RTC recovery</Link>. Stuck off-road? See <Link href="/services/winch-out-recovery" className="text-primary font-semibold hover:underline">winch-out recovery</Link> and <Link href="/services/4x4-off-road-recovery" className="text-primary font-semibold hover:underline">4x4 and off-road recovery</Link>.</p>
+        </div>
+      </section>
+
+
+      <section className="bg-white py-20 md:py-28">
+        <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
+          <h2 className="text-3xl md:text-4xl font-black text-slate-900 mt-4 mb-6 leading-tight">Planned Recovery: Garages, Storage and Vehicle Purchases</h2>
+          <div className="space-y-4 text-slate-600 text-base md:text-lg leading-relaxed"><p>Not every recovery is an emergency. We can arrange planned moves to an agreed garage for repair or inspection, to a storage facility, or between addresses when you have bought or sold a vehicle. Agree both addresses and a time that suits whoever is handing over and receiving the vehicle, and tell us if the car does not start, roll or steer. For longer journeys, see <Link href="/services/vehicle-transportation-delivery" className="text-primary font-semibold hover:underline">nationwide vehicle transportation and delivery</Link> and our guide to <Link href="/blog/moving-a-non-running-vehicle-uk" className="text-primary font-semibold hover:underline">moving a non-running vehicle</Link>.</p></div>
+        </div>
+      </section>
+
+      <section className="bg-white py-20 md:py-28">
+        <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
+          <h2 className="text-3xl md:text-4xl font-black text-slate-900 mt-4 mb-6 leading-tight">Recovery Without Breakdown Cover</h2>
+          <div className="space-y-4 text-slate-600 text-base md:text-lg leading-relaxed"><p>You don&#39;t need a breakdown policy to ask for help. Call AHS Recovery with your vehicle details, location and destination and we will explain what is possible. If you are not sure what to do next, our guide to <Link href="/blog/broken-down-no-breakdown-cover" className="text-primary font-semibold hover:underline">breaking down without breakdown cover</Link> walks through the options, and our <Link href="/services/breakdown-assistance" className="text-primary font-semibold hover:underline">breakdown assistance</Link> page explains when a vehicle needs recovery rather than a roadside fix.</p></div>
         </div>
       </section>
 
@@ -675,7 +758,7 @@ export default function VehicleRecoveryPage() {
                   <ChevronDown className="w-5 h-5 flex-shrink-0 text-primary transition-transform group-open:rotate-180" />
                 </summary>
                 <div className="px-5 md:px-6 pb-4 md:pb-5">
-                  <p className="text-slate-600 text-sm md:text-base leading-relaxed">{faq.answer}</p>
+                  <p className="text-slate-600 text-sm md:text-base leading-relaxed">{linkedFaqAnswers[faq.question] ?? faq.answer}</p>
                   {faq.links && (
                     <div className="flex flex-wrap gap-x-6 gap-y-2 mt-3">
                       {faq.links.map((link) => (
