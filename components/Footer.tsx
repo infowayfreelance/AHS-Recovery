@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Phone, MapPin } from "lucide-react"
+import { Heart, Phone, MapPin } from "lucide-react"
 import Logo from "./Logo"
 import PaymentMethods from "./PaymentMethods"
 import CookieSettingsButton from "./cookies/CookieSettingsButton"
@@ -90,6 +90,9 @@ export default function Footer() {
           <p>© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
           <p>Local recovery across {siteConfig.localCoverageArea}. Breakdown &amp; transport nationwide.</p>
         </div>
+        <p className="flex items-center justify-center gap-1.5">
+          Design with <Heart className="h-3 w-3 fill-current text-red-500" aria-label="love" /> by Linkedo
+        </p>
       </div>
     </footer>
   )
