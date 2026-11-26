@@ -14,6 +14,17 @@ export interface BlogPostMeta {
 // this array, so a new entry is all that's needed to publish another post.
 export const blogPosts: BlogPostMeta[] = [
 {
+  "slug": "collecting-a-car-from-an-auction-or-dealer",
+  "title": "Collecting a Car From an Auction or Dealer: How Planned Vehicle Delivery Works",
+  "excerpt": "Plan auction or dealer collection with release checks, vehicle details, collection records and delivery handover checks.",
+  "metaDescription": "Plan auction car collection or dealer delivery with release checks, transporter authorisation, vehicle details and a collection-to-handover checklist.",
+  "publishedDate": "2026-11-26",
+  "updatedDate": "2026-11-26",
+  "heroImage": "/images/collecting-car-from-auction-featured.webp",
+  "heroImageAlt": "Car transporter collecting a vehicle from an auction compound",
+  "readTime": "10 min read"
+},
+{
   "slug": "moving-a-sorn-untaxed-or-no-mot-car",
   "title": "Moving a SORN, Untaxed or No-MOT Car: A UK Transport Guide",
   "excerpt": "Plan transport for a SORN, untaxed or no-MOT car with official guidance, status checks, paperwork and collection arrangements.",
