@@ -24,9 +24,9 @@ import { serviceIcons } from "@/lib/service-icons"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "Nationwide Vehicle Transport Service | AHS Recovery",
+  title: "Vehicle Transport & Car Delivery UK | AHS Recovery",
   description:
-    "Nationwide vehicle transport for cars, vans and non-running vehicles. Call AHS Recovery on 07883 546955 to arrange collection and delivery.",
+    "Nationwide car and van transport, including non-running, SORN and newly bought vehicles, collected and delivered by AHS Recovery. Call 07883 546955.",
   path: "/services/vehicle-transportation-delivery",
 })
 
@@ -112,6 +112,7 @@ const infoChecklist = [
   "Access restrictions at either location",
   "Preferred collection or delivery timing",
   "Contact details for both locations",
+  "Whether the vehicle is taxed, SORN or without an MOT.",
 ]
 
 const processSteps = [
@@ -257,20 +258,55 @@ const faqs = [
     question: "What is the difference between towing and vehicle transportation?",
     answer: "Towing is commonly used for shorter recovery journeys after a breakdown. Vehicle transportation is generally used for planned collection and delivery over longer distances.",
   },
+{
+  "question": "Can you move a SORN, untaxed or no-MOT car?",
+  "answer": "A vehicle declared off the road (SORN) cannot be used on the road until it is taxed again, so it needs to be carried rather than driven (GOV.UK). We can transport many SORN, untaxed and no-MOT vehicles, subject to assessment. Tell us the vehicle's status when you ask for a quote, and read our guide to moving a SORN, untaxed or no-MOT car."
+},
+{
+  "question": "Can you move a car without its keys?",
+  "answer": "Tell us before collection. Without keys, the steering lock may be on and the gearbox may stay in park, which changes how the vehicle is loaded. We'll tell you whether the move is possible after assessing the details."
+},
+{
+  "question": "Do I need to be there at collection and delivery?",
+  "answer": "Someone needs to hand the vehicle over at collection and receive it at delivery. If that can't be you, give us the name and phone number of the person at each address."
+},
+{
+  "question": "Can you collect a car from a storage unit, underground car park or private road?",
+  "answer": "Often, yes, if a transport vehicle can reach it and load safely. Tell us about height barriers, gates, opening hours, narrow access, slopes and where the vehicle is parked so we can check before confirming."
+},
+{
+  "question": "Can you transport a vehicle into or out of Ilford and Essex?",
+  "answer": "Yes. We are based at 203 Tiptree Cres, Ilford, and arrange collection and delivery across Ilford, Essex and surrounding areas within approximately 60 miles, plus nationwide vehicle transportation to and from other parts of the UK."
+},
 ]
+
+const sornFaqAnswer = <>A vehicle declared off the road (SORN) cannot be used on the road until it is taxed again, so it needs to be carried rather than driven (<Link href="https://www.gov.uk/make-a-sorn" target="_blank" rel="noopener" className="text-primary font-semibold hover:underline">GOV.UK</Link>). We can transport many SORN, untaxed and no-MOT vehicles, subject to assessment. Tell us the vehicle&#39;s status when you ask for a quote, and read our <Link href="/blog/moving-a-sorn-untaxed-or-no-mot-car" className="text-primary font-semibold hover:underline">guide to moving a SORN, untaxed or no-MOT car</Link>.</>
 
 const transportService = services.find((s) => s.slug === "vehicle-transportation-delivery")!
 
 export default function VehicleTransportationDeliveryPage() {
   const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: "Nationwide Vehicle Transport Service",
-    serviceType: "Vehicle Transportation",
-    areaServed: "United Kingdom",
-    provider: { "@type": "AutomotiveBusiness", name: siteConfig.name, telephone: siteConfig.phoneTel },
-    url: `${siteConfig.siteUrl}/services/vehicle-transportation-delivery`,
-  }
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://ahsrecovery.co.uk/services/vehicle-transportation-delivery#service",
+  "name": "Nationwide Vehicle Transport Service",
+  "serviceType": "Vehicle Transportation",
+  "description": "Planned collection and delivery of cars, vans, 4x4s, classic and non-running vehicles between suitable locations in the UK, including SORN, untaxed and newly purchased vehicles, subject to assessment.",
+  "areaServed": [
+    {
+      "@type": "Country",
+      "name": "United Kingdom"
+    },
+    {
+      "@type": "Place",
+      "name": "Ilford, Essex"
+    }
+  ],
+  "provider": {
+    "@id": "https://ahsrecovery.co.uk/#business"
+  },
+  "url": "https://ahsrecovery.co.uk/services/vehicle-transportation-delivery"
+}
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -288,6 +324,7 @@ export default function VehicleTransportationDeliveryPage() {
   }
 
   const faqSchema = {
+    "@id": "https://ahsrecovery.co.uk/services/vehicle-transportation-delivery#faq",
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: faqs.map((faq) => ({
@@ -333,7 +370,7 @@ export default function VehicleTransportationDeliveryPage() {
               Need a vehicle collected and delivered elsewhere in the UK? AHS Recovery provides nationwide vehicle
               transport for cars, vans, 4x4s and non-running vehicles. We arrange careful collection and
               transportation to an agreed home, garage, storage facility, dealership or another accessible
-              destination.
+              destination. Journeys are planned from our base in Ilford, Essex.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
@@ -460,6 +497,21 @@ export default function VehicleTransportationDeliveryPage() {
         </div>
       </section>
 
+
+      <section className="bg-white py-20 md:py-28">
+        <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
+          <h2 className="text-3xl md:text-4xl font-black text-slate-900 mt-4 mb-6 leading-tight">Moving a SORN, Untaxed or No-MOT Vehicle</h2>
+          <div className="space-y-4 text-slate-600 text-base md:text-lg leading-relaxed"><p>A vehicle declared off the road (SORN) can&#39;t be used on the road until it is taxed again (<Link href="https://www.gov.uk/make-a-sorn" target="_blank" rel="noopener" className="text-primary font-semibold hover:underline">GOV.UK: make a SORN</Link>), and a car without a valid MOT or tax usually needs to be carried rather than driven. We can transport many SORN, untaxed and no-MOT vehicles between suitable locations, subject to assessment. When you ask for a quote, tell us the vehicle&#39;s status, whether it starts, rolls, steers and brakes, and whether the keys are available. Our <Link href="/blog/moving-a-sorn-untaxed-or-no-mot-car" className="text-primary font-semibold hover:underline">guide to moving a SORN, untaxed or no-MOT car</Link> explains the planning in more detail, and the <Link href="/blog/moving-a-non-running-vehicle-uk" className="text-primary font-semibold hover:underline">non-running vehicle checklist</Link> covers cars that won&#39;t start.</p></div>
+        </div>
+      </section>
+
+      <section className="bg-white py-20 md:py-28">
+        <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
+          <h2 className="text-3xl md:text-4xl font-black text-slate-900 mt-4 mb-6 leading-tight">Vehicles Without Keys, With a Steering Lock or Locked Wheels</h2>
+          <div className="space-y-4 text-slate-600 text-base md:text-lg leading-relaxed"><p>Missing keys change how a vehicle can be loaded. The steering lock may be on, an automatic gearbox may stay in park, and an electronic handbrake may not release. Tell us about any of these before collection, together with photographs if we ask for them. We&#39;ll tell you whether the move can go ahead after assessing the details. Don&#39;t attempt to force a steering lock or handbrake yourself.</p></div>
+        </div>
+      </section>
+
       {/* Vehicle types */}
       <section className="bg-white py-20 md:py-28">
         <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
@@ -578,7 +630,16 @@ export default function VehicleTransportationDeliveryPage() {
                 </li>
               ))}
             </ol>
+            <p className="text-slate-400 text-base md:text-lg leading-relaxed">When the vehicle arrives, check it with the driver before they leave and compare it with your own dated photographs.</p>
           </div>
+        </div>
+      </section>
+
+
+      <section className="bg-white py-20 md:py-28">
+        <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
+          <h2 className="text-3xl md:text-4xl font-black text-slate-900 mt-4 mb-6 leading-tight">Collection and Delivery Day: Who Needs to Be There</h2>
+          <div className="space-y-4 text-slate-600 text-base md:text-lg leading-relaxed"><ul className="space-y-3"><li className="flex items-start gap-3 text-slate-600 text-sm"><span className="mt-1 w-4 h-4 rounded border-2 border-primary flex-shrink-0" /><span><strong>At collection:</strong> someone needs to hand over the vehicle and the keys, and confirm the vehicle&#39;s condition. If you&#39;ve bought the vehicle, make sure the seller, dealer or storage site has authorised its release.</span></li><li className="flex items-start gap-3 text-slate-600 text-sm"><span className="mt-1 w-4 h-4 rounded border-2 border-primary flex-shrink-0" /><span><strong>At delivery:</strong> someone needs to receive the vehicle and check it before the driver leaves.</span></li><li className="flex items-start gap-3 text-slate-600 text-sm"><span className="mt-1 w-4 h-4 rounded border-2 border-primary flex-shrink-0" /><span><strong>Access:</strong> tell us about gates, barriers, opening hours, underground or multi-storey car parks, narrow lanes and steep drives at both addresses.</span></li><li className="flex items-start gap-3 text-slate-600 text-sm"><span className="mt-1 w-4 h-4 rounded border-2 border-primary flex-shrink-0" /><span><strong>Contacts:</strong> give us a name and phone number for each address if you won&#39;t be there yourself.</span></li></ul></div>
         </div>
       </section>
 
@@ -592,8 +653,8 @@ export default function VehicleTransportationDeliveryPage() {
             </h2>
             <p className="text-slate-600 leading-relaxed">
               Vehicle transportation is intended for planned collection and delivery, particularly when a vehicle
-              needs to travel between distant locations. Towing is generally more suitable when a broken-down or
-              non-running vehicle needs to be moved to a nearby garage, home or another local destination.
+              needs to travel between distant locations. <Link href="/services/towing" className="text-primary font-semibold hover:underline">Towing</Link> is generally more suitable when a broken-down or
+              non-running vehicle needs to be moved to a nearby garage, home or another local destination. If the vehicle has broken down and needs moving now, see <Link href="/services/vehicle-recovery" className="text-primary font-semibold hover:underline">vehicle recovery</Link>.
             </p>
           </div>
 
@@ -716,7 +777,7 @@ export default function VehicleTransportationDeliveryPage() {
                   <ChevronDown className="w-5 h-5 flex-shrink-0 text-primary transition-transform group-open:rotate-180" />
                 </summary>
                 <p className="text-slate-400 text-sm md:text-base leading-relaxed px-5 md:px-6 pb-4 md:pb-5">
-                  {faq.answer}
+                  {faq.question === "Can you move a SORN, untaxed or no-MOT car?" ? sornFaqAnswer : faq.answer}
                 </p>
               </details>
             ))}
