@@ -14,6 +14,17 @@ export interface BlogPostMeta {
 // this array, so a new entry is all that's needed to publish another post.
 export const blogPosts: BlogPostMeta[] = [
 {
+  "slug": "off-road-and-field-recovery-for-4x4s",
+  "title": "Off-Road and Field Recovery for 4x4s: What to Prepare Before the Truck Arrives",
+  "excerpt": "Prepare for off-road recovery with safety checks, exact location details, ground conditions, access information and safe photographs.",
+  "metaDescription": "4x4 stuck in a field? Stop spinning the wheels, keep people clear and have the location, vehicle details, ground conditions and photos ready.",
+  "publishedDate": "2026-11-27",
+  "updatedDate": "2026-11-27",
+  "heroImage": "/images/off-road-and-field-recovery-for-4x4s-featured.webp",
+  "heroImageAlt": "4x4 waiting for recovery in a muddy field",
+  "readTime": "10 min read"
+},
+{
   "slug": "collecting-a-car-from-an-auction-or-dealer",
   "title": "Collecting a Car From an Auction or Dealer: How Planned Vehicle Delivery Works",
   "excerpt": "Plan auction or dealer collection with release checks, vehicle details, collection records and delivery handover checks.",
