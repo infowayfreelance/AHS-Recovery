@@ -1,3 +1,4 @@
+import type React from "react"
 import Image from "next/image"
 import Link from "next/link"
 import {
@@ -21,9 +22,9 @@ import { serviceIcons } from "@/lib/service-icons"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "Professional Vehicle Towing Service | AHS Recovery",
+  title: "Vehicle Towing Service Ilford & Essex | AHS Recovery",
   description:
-    "Professional towing for broken-down and non-running vehicles. Call AHS Recovery on 07883 546955 to arrange safe transport.",
+    "Towing for broken-down, damaged and non-running cars, vans and 4x4s across Ilford, Essex and nearby areas. Call AHS Recovery on 07883 546955.",
   path: "/services/towing",
 })
 
@@ -92,6 +93,8 @@ const checklistItems = [
   "Details of any accident damage",
   "Whether keys are available",
   "Any access restrictions",
+  "Gearbox (manual or automatic) and whether it is two- or four-wheel drive",
+  "Whether the destination can accept the vehicle on arrival",
 ]
 
 const processSteps = [
@@ -203,17 +206,64 @@ const faqs = [
     answer:
       "Explain which wheels are damaged and whether the vehicle can roll. Photographs may help us understand the condition and equipment required.",
   },
+{
+  "question": "Can you tow an automatic or four-wheel-drive car?",
+  "answer": "Often, yes, but tell us the gearbox and drive type when you call. Many manufacturers advise against towing these vehicles with their driven wheels on the road, and the vehicle handbook usually explains what is allowed. We plan the loading method around that."
+},
+{
+  "question": "What if the handbrake is stuck on or the brakes have seized?",
+  "answer": "Tell us before collection. A vehicle that won't roll needs a different loading plan from one that rolls freely, and knowing in advance helps us bring the right equipment. Our guide to moving a non-running vehicle explains what to check."
+},
+{
+  "question": "Do I need to be there when the vehicle is collected?",
+  "answer": "Tell us when you book whether you or someone else will be at the collection point and at the destination. We'll explain what is needed for that job, including where the keys should be and who can hand the vehicle over."
+},
+{
+  "question": "How far can you tow my vehicle?",
+  "answer": "AHS Recovery provides towing, breakdown assistance and vehicle recovery across Ilford, Essex and surrounding areas within approximately 60 miles, plus nationwide breakdown recovery and vehicle transportation. For a longer planned move, see vehicle transportation and delivery."
+},
+{
+  "question": "How much does a tow cost?",
+  "answer": "It depends on the vehicle, its condition, the distance, access at the collection point and when the tow is needed. Call 07883 546955 with the details and we'll explain the price before the tow is booked."
+},
+{
+  "question": "Can you tow a car I've just bought from a dealer or auction?",
+  "answer": "Yes, subject to access and the vehicle's condition. Tell us the collection address, any collection time window and what paperwork the seller needs to release it. Our guide to collecting a car from an auction or dealer covers what to arrange."
+},
 ]
+
+const linkedFaqAnswers: Record<string, React.ReactNode> = {
+"Can you tow an automatic or four-wheel-drive car?": <>Often, yes, but tell us the gearbox and drive type when you call. Many manufacturers advise against towing these vehicles with their driven wheels on the road, and the vehicle handbook usually explains what is allowed. We plan the loading method around that.</>,
+"What if the handbrake is stuck on or the brakes have seized?": <>Tell us before collection. A vehicle that won&#39;t roll needs a different loading plan from one that rolls freely, and knowing in advance helps us bring the right equipment. Our guide to <Link href="/blog/moving-a-non-running-vehicle-uk" className="text-primary font-semibold hover:underline">moving a non-running vehicle</Link> explains what to check.</>,
+"Do I need to be there when the vehicle is collected?": <>Tell us when you book whether you or someone else will be at the collection point and at the destination. We&#39;ll explain what is needed for that job, including where the keys should be and who can hand the vehicle over.</>,
+"How far can you tow my vehicle?": <>AHS Recovery provides towing, breakdown assistance and vehicle recovery across Ilford, Essex and surrounding areas within approximately 60 miles, plus nationwide breakdown recovery and vehicle transportation. For a longer planned move, see <Link href="/services/vehicle-transportation-delivery" className="text-primary font-semibold hover:underline">vehicle transportation and delivery</Link>.</>,
+"How much does a tow cost?": <>It depends on the vehicle, its condition, the distance, access at the collection point and when the tow is needed. Call 07883 546955 with the details and we&#39;ll explain the price before the tow is booked.</>,
+"Can you tow a car I've just bought from a dealer or auction?": <>Yes, subject to access and the vehicle&#39;s condition. Tell us the collection address, any collection time window and what paperwork the seller needs to release it. Our guide to <Link href="/blog/collecting-a-car-from-an-auction-or-dealer" className="text-primary font-semibold hover:underline">collecting a car from an auction or dealer</Link> covers what to arrange.</>
+}
 
 export default function TowingPage() {
   const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: "Vehicle Towing Service",
-    serviceType: "Vehicle Towing",
-    provider: { "@type": "AutomotiveBusiness", name: siteConfig.name, telephone: siteConfig.phoneTel },
-    url: `${siteConfig.siteUrl}/services/towing`,
-  }
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://ahsrecovery.co.uk/services/towing#service",
+  "name": "Vehicle Towing Service",
+  "serviceType": "Vehicle Towing",
+  "description": "Towing for broken-down, damaged and non-running cars, vans, 4x4s and other suitable vehicles, collected from accessible roads, homes, workplaces, garages, storage facilities and car parks and taken to an agreed garage, home, storage facility or other accessible destination.",
+  "areaServed": [
+    {
+      "@type": "Place",
+      "name": "Ilford, Essex and surrounding areas within approximately 60 miles"
+    },
+    {
+      "@type": "Country",
+      "name": "United Kingdom"
+    }
+  ],
+  "provider": {
+    "@id": "https://ahsrecovery.co.uk/#business"
+  },
+  "url": "https://ahsrecovery.co.uk/services/towing"
+}
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -226,6 +276,7 @@ export default function TowingPage() {
   }
 
   const faqSchema = {
+    "@id": "https://ahsrecovery.co.uk/services/towing#faq",
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: faqs.map((faq) => ({
@@ -270,7 +321,7 @@ export default function TowingPage() {
             <p className="text-slate-300 text-base md:text-lg max-w-2xl leading-relaxed">
               Need to move a broken-down, damaged or non-running vehicle? AHS Recovery provides a professional towing
               service for cars, vans, 4x4s and other suitable vehicles. We can collect your vehicle and transport it
-              carefully to an agreed garage, home, storage facility or another accessible destination.
+              carefully to an agreed garage, home, storage facility or another accessible destination. AHS Recovery is based in Ilford, Essex.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
@@ -326,6 +377,7 @@ export default function TowingPage() {
                   car parks. Access restrictions, vehicle damage and wheel or steering problems should be explained
                   before collection.
                 </p>
+                <p>If the vehicle has been standing for a while, our guide to <Link href="/blog/moving-a-non-running-vehicle-uk" className="text-primary font-semibold hover:underline">moving a non-running vehicle</Link> explains what to check before collection.</p>
               </div>
               <Link
                 href="/services/vehicle-recovery"
@@ -337,7 +389,7 @@ export default function TowingPage() {
             <div className="relative h-[320px] md:h-[420px] rounded-2xl overflow-hidden shadow-xl">
               <Image
                 src="/images/van-recovery-motorway-crafter.webp"
-                alt="Van being towed on a flatbed recovery truck"
+                alt="Van being transported for recovery"
                 fill
                 loading="lazy"
                 className="object-cover"
@@ -390,7 +442,7 @@ export default function TowingPage() {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-white mb-1.5">{situation.title}</h3>
-                  <p className="text-slate-400 leading-relaxed">{situation.description}</p>
+                  <p className="text-slate-400 leading-relaxed">{situation.description}{situation.title === "Damaged Vehicle Towing" && <> See <Link href="/services/accident-recovery" className="text-primary font-semibold hover:underline">accident recovery</Link>.</>}</p>
                 </div>
               </div>
             ))}
@@ -443,6 +495,14 @@ export default function TowingPage() {
         </div>
       </section>
 
+
+      <section className="bg-white py-20 md:py-28">
+        <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
+          <h2 className="text-3xl md:text-4xl font-black text-slate-900 mt-4 mb-6 leading-tight">Automatic, 4x4 or Seized Brakes? Why We Ask Before Towing</h2>
+          <div className="space-y-4 text-slate-600 text-base md:text-lg leading-relaxed"><p>How a vehicle can be moved depends on more than its size. Tell us about these before collection:</p><ul className="space-y-3"><li className="flex items-start gap-3"><span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" /><span><strong>Automatic gearbox or four-wheel drive:</strong> many manufacturers advise against towing these vehicles with their driven wheels turning on the road. Your vehicle handbook usually has a towing section that explains what is allowed.</span></li><li className="flex items-start gap-3"><span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" /><span><strong>Brakes or handbrake stuck on:</strong> a vehicle that has stood for a long time may not roll at all, which changes how it is loaded.</span></li><li className="flex items-start gap-3"><span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" /><span><strong>Damaged wheels, tyres or suspension:</strong> say which corner is affected and whether the wheel still turns.</span></li><li className="flex items-start gap-3"><span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" /><span><strong>Lowered or modified vehicles:</strong> low ground clearance can affect loading, so mention any changes.</span></li></ul><p>We use these details to choose the loading method and equipment before we set off, rather than finding out at the roadside.</p></div>
+        </div>
+      </section>
+
       {/* Process */}
       <section className="bg-navy-accent py-20 md:py-28">
         <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
@@ -472,6 +532,21 @@ export default function TowingPage() {
               Arrange Vehicle Towing
             </a>
           </div>
+        </div>
+      </section>
+
+
+      <section className="bg-white py-20 md:py-28">
+        <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
+          <h2 className="text-3xl md:text-4xl font-black text-slate-900 mt-4 mb-6 leading-tight">Before You Book: Check the Destination Can Take the Vehicle</h2>
+          <div className="space-y-4 text-slate-600 text-base md:text-lg leading-relaxed"><p>A tow is only finished when the vehicle can be left safely at the other end. Before booking:</p><ul className="space-y-3"><li className="flex items-start gap-3"><span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" /><span><strong>Garage:</strong> check it is open when we arrive or agree where the vehicle and keys should be left, and get the name of the person expecting it.</span></li><li className="flex items-start gap-3"><span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" /><span><strong>Home:</strong> make sure there is a driveway or a legal parking space long enough to unload and leave the vehicle.</span></li><li className="flex items-start gap-3"><span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" /><span><strong>Storage or a new address:</strong> confirm access times, gate codes and who will meet us.</span></li></ul><p>Give us the full destination address and postcode when you call 07883 546955, and we&#39;ll confirm the details before collection.</p></div>
+        </div>
+      </section>
+
+      <section className="bg-white py-20 md:py-28">
+        <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
+          <h2 className="text-3xl md:text-4xl font-black text-slate-900 mt-4 mb-6 leading-tight">Towing From Car Parks, Driveways and Narrow Streets</h2>
+          <div className="space-y-4 text-slate-600 text-base md:text-lg leading-relaxed"><p>Access at the collection point affects how the job is done, so tell us in advance:</p><ul className="space-y-3"><li className="flex items-start gap-3"><span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" /><span><strong>Car parks:</strong> the car park name, the level the vehicle is on, any height barrier, and whether you need to pay or get a pass to leave.</span></li><li className="flex items-start gap-3"><span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" /><span><strong>Driveways:</strong> whether the drive is steep, gravelled or blocked by another vehicle or a gate.</span></li><li className="flex items-start gap-3"><span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" /><span><strong>Narrow or busy streets:</strong> whether the vehicle is on a red route, in a bus lane, near a school or in a controlled parking zone, and whether there is space to load safely.</span></li></ul><p>Photos of the vehicle and the space around it can help. If you have bought the vehicle, our guide to <Link href="/blog/collecting-a-car-from-an-auction-or-dealer" className="text-primary font-semibold hover:underline">collecting a car from an auction or dealer</Link> explains what to arrange.</p></div>
         </div>
       </section>
 
@@ -599,7 +674,7 @@ export default function TowingPage() {
                   <ChevronDown className="w-5 h-5 flex-shrink-0 text-primary transition-transform group-open:rotate-180" />
                 </summary>
                 <p className="text-slate-400 text-sm md:text-base leading-relaxed px-5 md:px-6 pb-4 md:pb-5">
-                  {faq.answer}
+                  {linkedFaqAnswers[faq.question] ?? faq.answer}
                 </p>
               </details>
             ))}
