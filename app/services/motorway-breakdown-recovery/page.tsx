@@ -1,3 +1,4 @@
+import type React from "react"
 import Image from "next/image"
 import Link from "next/link"
 import {
@@ -24,9 +25,9 @@ import { serviceIcons } from "@/lib/service-icons"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "Nationwide Motorway Breakdown Recovery | AHS Recovery",
+  title: "Motorway Breakdown Recovery for Cars & Vans | AHS Recovery",
   description:
-    "Nationwide motorway recovery for cars and vans unable to continue safely. Call AHS Recovery on 07883 546955 for assistance.",
+    "Nationwide motorway breakdown recovery for cars and vans. Get safe first, then call AHS Recovery on 07883 546955 with your road, direction and junction.",
   path: "/services/motorway-breakdown-recovery",
 })
 
@@ -112,6 +113,7 @@ const infoChecklist = [
   "Number of passengers",
   "Current vehicle position",
   "Intended recovery destination",
+  "Whether you are in an emergency area, lay-by or on the hard shoulder.",
 ]
 
 const processSteps = [
@@ -253,20 +255,61 @@ const faqs = [
     question: "Can you provide long-distance recovery?",
     answer: "Yes. Long-distance recovery can transport a broken-down vehicle to an agreed destination elsewhere in the UK.",
   },
+{
+  "question": "What is an emergency area on a smart motorway?",
+  "answer": "An emergency area is a recessed bay at the side of a smart motorway where you can stop if you cannot leave the carriageway, and it has a free emergency telephone. If your vehicle develops a problem, National Highways advises leaving at the next exit or service area if you can, and otherwise going left and stopping as far to the left as possible (National Highways)."
+},
+{
+  "question": "Should I ring National Highways, 999 or a recovery company first?",
+  "answer": "If you are in a live lane or cannot get to a place of relative safety, call 999 and ask for the police. If you have stopped in an emergency area, lay-by or on the hard shoulder, National Highways says to use the free emergency telephone or call them on 0300 123 5000 for advice, and to contact a breakdown recovery service. Once you are in a safer position, call AHS Recovery on 07883 546955 with your road, direction and junction."
+},
+{
+  "question": "Should I stay in my car while I wait for recovery?",
+  "answer": "Only if you cannot get out safely. If you can reach a place of relative safety, the Highway Code says to leave by the door furthest from traffic, get well away from the vehicle and wait behind a safety barrier where there is one (Highway Code). If you cannot, keep your seat belt and hazard lights on and call 999."
+},
+{
+  "question": "Can I rejoin the motorway myself after stopping?",
+  "answer": "Not from an emergency area without speaking to the operator on the emergency telephone first, because a lane may need to be closed. From a hard shoulder, build up speed, indicate and wait for a safe gap (Highway Code). If the vehicle cannot continue safely, ask for recovery instead of driving on."
+},
+{
+  "question": "Do I need breakdown cover to ask AHS Recovery for motorway recovery?",
+  "answer": "No, you can ask us to arrange recovery for a suitable vehicle whether or not you have breakdown cover. If you do have cover, you may prefer to contact your provider first. Our guide to what to do if you break down without cover explains your options."
+},
 ]
+
+const linkedFaqAnswers: Record<string, React.ReactNode> = {
+"What is an emergency area on a smart motorway?": <>An emergency area is a recessed bay at the side of a smart motorway where you can stop if you cannot leave the carriageway, and it has a free emergency telephone. If your vehicle develops a problem, National Highways advises leaving at the next exit or service area if you can, and otherwise going left and stopping as far to the left as possible (<Link href="https://nationalhighways.co.uk/safety/driving-on-our-roads/driving-on-motorways/" target="_blank" rel="noopener" className="text-primary font-semibold hover:underline">National Highways</Link>).</>,
+"Should I ring National Highways, 999 or a recovery company first?": <>If you are in a live lane or cannot get to a place of relative safety, call 999 and ask for the police. If you have stopped in an emergency area, lay-by or on the hard shoulder, National Highways says to use the free emergency telephone or call them on 0300 123 5000 for advice, and to contact a breakdown recovery service. Once you are in a safer position, call AHS Recovery on 07883 546955 with your road, direction and junction.</>,
+"Should I stay in my car while I wait for recovery?": <>Only if you cannot get out safely. If you can reach a place of relative safety, the Highway Code says to leave by the door furthest from traffic, get well away from the vehicle and wait behind a safety barrier where there is one (<Link href="https://www.gov.uk/guidance/the-highway-code/breakdowns-and-incidents-274-to-287" target="_blank" rel="noopener" className="text-primary font-semibold hover:underline">Highway Code</Link>). If you cannot, keep your seat belt and hazard lights on and call 999.</>,
+"Can I rejoin the motorway myself after stopping?": <>Not from an emergency area without speaking to the operator on the emergency telephone first, because a lane may need to be closed. From a hard shoulder, build up speed, indicate and wait for a safe gap (<Link href="https://www.gov.uk/guidance/the-highway-code/breakdowns-and-incidents-274-to-287" target="_blank" rel="noopener" className="text-primary font-semibold hover:underline">Highway Code</Link>). If the vehicle cannot continue safely, ask for recovery instead of driving on.</>,
+"Do I need breakdown cover to ask AHS Recovery for motorway recovery?": <>No, you can ask us to arrange recovery for a suitable vehicle whether or not you have breakdown cover. If you do have cover, you may prefer to contact your provider first. Our guide to <Link href="/blog/broken-down-no-breakdown-cover" className="text-primary font-semibold hover:underline">what to do if you break down without cover</Link> explains your options.</>
+}
 
 const motorwayService = services.find((s) => s.slug === "motorway-breakdown-recovery")!
 
 export default function MotorwayBreakdownRecoveryPage() {
   const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: "Nationwide Motorway Breakdown Recovery",
-    serviceType: "Motorway Breakdown Recovery",
-    areaServed: "United Kingdom",
-    provider: { "@type": "AutomotiveBusiness", name: siteConfig.name, telephone: siteConfig.phoneTel },
-    url: `${siteConfig.siteUrl}/services/motorway-breakdown-recovery`,
-  }
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://ahsrecovery.co.uk/services/motorway-breakdown-recovery#service",
+  "name": "Nationwide Motorway Breakdown Recovery",
+  "serviceType": "Motorway Breakdown Recovery",
+  "description": "Recovery of suitable cars and vans that cannot continue safely after a breakdown on a motorway or major road, with transport to an agreed garage, home or other accessible destination.",
+  "areaServed": [
+    {
+      "@type": "Country",
+      "name": "United Kingdom"
+    },
+    {
+      "@type": "Place",
+      "name": "Ilford, Essex"
+    }
+  ],
+  "provider": {
+    "@id": "https://ahsrecovery.co.uk/#business"
+  },
+  "url": "https://ahsrecovery.co.uk/services/motorway-breakdown-recovery"
+}
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -284,6 +327,7 @@ export default function MotorwayBreakdownRecoveryPage() {
   }
 
   const faqSchema = {
+    "@id": "https://ahsrecovery.co.uk/services/motorway-breakdown-recovery#faq",
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: faqs.map((faq) => ({
@@ -328,7 +372,7 @@ export default function MotorwayBreakdownRecoveryPage() {
             <p className="text-slate-300 text-base md:text-lg max-w-2xl leading-relaxed">
               Broken down on a motorway or major road? AHS Recovery provides nationwide motorway recovery for cars,
               vans and other suitable vehicles that cannot continue safely. Once you are in a safe position, call
-              us with your location, direction of travel and vehicle details.
+              us with your location, direction of travel and vehicle details. AHS Recovery is based in Ilford, Essex, and arranges recovery across the UK.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
@@ -473,7 +517,7 @@ export default function MotorwayBreakdownRecoveryPage() {
               <AlertTriangle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
               <p className="text-slate-300 text-sm leading-relaxed">
                 Official instructions from emergency services, police and road authorities must always take
-                priority over general website guidance.
+                priority over general website guidance. If your vehicle develops a problem, National Highways advises leaving the motorway at the next exit or pulling into a service area if you can.
               </p>
             </div>
 
@@ -488,6 +532,21 @@ export default function MotorwayBreakdownRecoveryPage() {
               </a>
             </div>
           </div>
+        </div>
+      </section>
+
+
+      <section className="bg-white py-20 md:py-28">
+        <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
+          <h2 className="text-3xl md:text-4xl font-black text-slate-900 mt-4 mb-6 leading-tight">Smart Motorways: Emergency Areas and Emergency Telephones</h2>
+          <div className="space-y-4 text-slate-600 text-base md:text-lg leading-relaxed"><p>On a motorway with no hard shoulder, look for an emergency area, a recessed bay at the side of the road. If you cannot leave the motorway, National Highways advises moving into the left lane, pulling into an emergency area, lay-by or onto a hard shoulder if you can, and stopping as far to the left as possible with your wheels turned to the left. Switch on your hazard warning lights, and use your sidelights if it is dark or visibility is poor. If you stop in an emergency area, use the free emergency telephone, or call National Highways on 0300 123 5000, for advice and help. Read the full guidance on the <Link href="https://nationalhighways.co.uk/safety/driving-on-our-roads/driving-on-motorways/" target="_blank" rel="noopener" className="text-primary font-semibold hover:underline">National Highways motorway page</Link> and in the <Link href="https://www.gov.uk/guidance/the-highway-code/breakdowns-and-incidents-274-to-287" target="_blank" rel="noopener" className="text-primary font-semibold hover:underline">Highway Code</Link>.</p></div>
+        </div>
+      </section>
+
+      <section className="bg-white py-20 md:py-28">
+        <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
+          <h2 className="text-3xl md:text-4xl font-black text-slate-900 mt-4 mb-6 leading-tight">While You Wait: Do and Don&#39;t</h2>
+          <div className="space-y-4 text-slate-600 text-base md:text-lg leading-relaxed"><ul className="space-y-4"><li className="flex items-start gap-4"><span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" /><span><strong>Do</strong> leave the vehicle by the door furthest from traffic if it is safe and possible, and ask passengers to do the same.</span></li><li className="flex items-start gap-4"><span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" /><span><strong>Do</strong> put on high-visibility clothing if you have it within easy reach, and wait well away from the vehicle, behind a safety barrier where there is one.</span></li><li className="flex items-start gap-4"><span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" /><span><strong>Do</strong> keep children under control and animals in the vehicle or, in an emergency, under control on the verge.</span></li><li className="flex items-start gap-4"><span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" /><span><strong>Don&#39;t</strong> attempt repairs beside fast-moving traffic, and don&#39;t return to the vehicle, even if it is raining, cold or dark.</span></li><li className="flex items-start gap-4"><span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" /><span><strong>Don&#39;t</strong> place a warning triangle on the carriageway.</span></li><li className="flex items-start gap-4"><span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" /><span><strong>If you cannot get out safely:</strong> stay in the vehicle with your seat belt and hazard lights on and call 999.</span></li></ul></div>
         </div>
       </section>
 
@@ -576,6 +635,14 @@ export default function MotorwayBreakdownRecoveryPage() {
               Request Motorway Recovery
             </a>
           </div>
+        </div>
+      </section>
+
+
+      <section className="bg-white py-20 md:py-28">
+        <div className="px-6 md:px-20 lg:px-40 max-w-[1400px] mx-auto">
+          <h2 className="text-3xl md:text-4xl font-black text-slate-900 mt-4 mb-6 leading-tight">Breakdown Cover or Private Recovery: Who to Call</h2>
+          <div className="space-y-4 text-slate-600 text-base md:text-lg leading-relaxed"><p>If you have breakdown cover, you may want to contact your provider as well. If you don&#39;t have cover, or you want a vehicle moved to a garage, home or storage address of your choice, call AHS Recovery on 07883 546955 once you are in a safer position. Tell us the road, direction of travel, nearest junction, whether you are in an emergency area, lay-by or on the hard shoulder, and what the vehicle is doing. Our guide to <Link href="/blog/what-to-do-if-your-car-breaks-down-on-a-motorway" className="text-primary font-semibold hover:underline">what to do if you break down on a motorway</Link> goes through the steps in more detail, and <Link href="/blog/broken-down-no-breakdown-cover" className="text-primary font-semibold hover:underline">broken down with no breakdown cover</Link> explains your options if you are not covered.</p></div>
         </div>
       </section>
 
@@ -692,6 +759,8 @@ export default function MotorwayBreakdownRecoveryPage() {
             ))}
           </div>
 
+          <p className="text-slate-600 leading-relaxed max-w-3xl mx-auto text-center">For recovering a damaged or non-running vehicle after the motorway, see <Link href="/services/vehicle-recovery" className="text-primary font-semibold hover:underline">vehicle recovery</Link>, and for shorter moves see <Link href="/services/towing" className="text-primary font-semibold hover:underline">towing</Link>.</p>
+
           <div className="text-center mt-16">
             <Link
               href="/services"
@@ -724,7 +793,7 @@ export default function MotorwayBreakdownRecoveryPage() {
                   <ChevronDown className="w-5 h-5 flex-shrink-0 text-primary transition-transform group-open:rotate-180" />
                 </summary>
                 <p className="text-slate-400 text-sm md:text-base leading-relaxed px-5 md:px-6 pb-4 md:pb-5">
-                  {faq.answer}
+                  {linkedFaqAnswers[faq.question] ?? faq.answer}
                 </p>
               </details>
             ))}
